@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.sakebow.cn/2020/02/06/Java/JVM/JVM%E5%AD%A6%E4%B9%A0%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87/</loc>
+    <loc>http://www.sakebow.cn/2020/02/06/Java/JVM/JVM%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2020-06-28</lastmod>
   </url>  <url>
-    <loc>http://www.sakebow.cn/2020/02/06/Java/JVM/JVM%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc>
+    <loc>http://www.sakebow.cn/2020/01/27/README/</loc>
+    <lastmod>2020-06-28</lastmod>
+  </url>  <url>
+    <loc>http://www.sakebow.cn/2020/02/06/Java/JVM/JVM%E5%AD%A6%E4%B9%A0%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87/</loc>
     <lastmod>2020-06-28</lastmod>
   </url>  <url>
     <loc>http://www.sakebow.cn/2020/01/29/hexo/hexo%E4%BF%AE%E6%94%B9%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87/</loc>
@@ -14,9 +17,6 @@
     <lastmod>2020-06-27</lastmod>
   </url>  <url>
     <loc>http://www.sakebow.cn/2020/02/02/diary/my-college-life/</loc>
-    <lastmod>2020-06-26</lastmod>
-  </url>  <url>
-    <loc>http://www.sakebow.cn/2020/01/27/README/</loc>
     <lastmod>2020-06-26</lastmod>
   </url>
 </urlset>
