@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="欢迎来到我的小博客" />
+  <meta name="keywords" content="MySQL," />
 
 
 
@@ -88,13 +88,16 @@
 
 
 
-<meta name="description" content="终有一天我这条咸鱼也会翻身的">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sakebow的小博客">
-<meta property="og:url" content="http://www.sakebow.cn/categories/JavaScript/index.html">
+<meta name="description" content="导读这里将SQL基础知识快速过一遍。当然，那些常识就不再反复强调了，就只说明一下MySQL的特点和一些学校不会教的SQL语法。实际应用中SQL的水还是非常深的，这一点点基础是不可能全部过完，所以只能说是尽量全面地搭建一个知识基础体系。 SQL执行顺序这是一个面试常考的点，因为很多优化就是在这个基础之上进行的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL基础">
+<meta property="og:url" content="http://www.sakebow.cn/2020/07/07/MySQL/SQL%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Sakebow的小博客">
-<meta property="og:description" content="终有一天我这条咸鱼也会翻身的">
+<meta property="og:description" content="导读这里将SQL基础知识快速过一遍。当然，那些常识就不再反复强调了，就只说明一下MySQL的特点和一些学校不会教的SQL语法。实际应用中SQL的水还是非常深的，这一点点基础是不可能全部过完，所以只能说是尽量全面地搭建一个知识基础体系。 SQL执行顺序这是一个面试常考的点，因为很多优化就是在这个基础之上进行的。">
+<meta property="article:published_time" content="2020-07-07T09:16:00.000Z">
+<meta property="article:modified_time" content="2020-07-07T09:20:42.835Z">
 <meta property="article:author" content="Sakebow">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
 
 
@@ -125,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="http://www.sakebow.cn/categories/JavaScript/"/>
+  <link rel="canonical" href="http://www.sakebow.cn/2020/07/07/MySQL/SQL基础/"/>
 
 
 
@@ -141,7 +144,7 @@ var _hmt = _hmt || [];
 </script>
 
 
-  <title>分类: JavaScript | Sakebow的小博客</title>
+  <title>SQL基础 | Sakebow的小博客</title>
   
 
 
@@ -164,7 +167,7 @@ var _hmt = _hmt || [];
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	<a href="https://github.com/sakebow" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub">
@@ -318,55 +321,263 @@ var _hmt = _hmt || [];
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>JavaScript<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sakebow.cn/2020/07/07/MySQL/SQL%E5%9F%BA%E7%A1%80/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sakebow">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon/UN.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sakebow的小博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/07/02/JavaScript/Vue/Vue%E9%92%A9%E5%AD%90%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/" itemprop="url">
-              
-                <span itemprop="name">Vue钩子的一点小坑</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">SQL基础</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-07-02T22:05:00+08:00"
-              content="2020-07-02" >
-          07-02
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-07T17:16:00+08:00">
+                2020-07-07
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/07/07/MySQL/SQL%E5%9F%BA%E7%A1%80/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/07/07/MySQL/SQL%E5%9F%BA%E7%A1%80/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  132字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>这里将SQL基础知识快速过一遍。当然，那些常识就不再反复强调了，就只说明一下<code>MySQL</code>的特点和一些学校不会教的<code>SQL</code>语法。实际应用中<code>SQL</code>的水还是非常深的，这一点点基础是不可能全部过完，所以只能说是尽量全面地搭建一个知识基础体系。</strong></p>
+<h2 id="SQL执行顺序"><a href="#SQL执行顺序" class="headerlink" title="SQL执行顺序"></a>SQL执行顺序</h2><p>这是一个<strong>面试常考</strong>的点，因为很多优化就是在这个基础之上进行的。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>代码滞销，救救码农</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/pay/wechatpay.png" alt="Sakebow 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay/alipay.jpg" alt="Sakebow 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Sakebow
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.sakebow.cn/2020/07/07/MySQL/SQL%E5%9F%BA%E7%A1%80/" title="SQL基础">http://www.sakebow.cn/2020/07/07/MySQL/SQL%E5%9F%BA%E7%A1%80/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"> <i class="fa fa-tag"></i> MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/07/hardware/%E7%AC%94%E8%AE%B0%E6%9C%AC%E6%8B%86%E6%9C%BA%E5%88%9D%E4%BD%93%E9%AA%8C/" rel="next" title="笔记本拆机初体验">
+                <i class="fa fa-chevron-left"></i> 笔记本拆机初体验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -374,6 +585,32 @@ var _hmt = _hmt || [];
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+      var gitment = new Gitment({
+        id: '<%= page.date %>',
+        owner: 'sakebow',
+        repo: 'git@git.dev.tencent.com:sakebow/sakebow.coding.me.git',
+        oauth: {
+          client_id: '5c74c5e1b67e5a5adbdf',
+          client_secret: '0d352353407a32cee695d8ac619108e725919c57',
+        },
+      });
+      gitment.render('gitment-container');
+    </script>
+
+  
+
+
 
         </div>
         
@@ -394,8 +631,17 @@ var _hmt = _hmt || [];
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -512,6 +758,22 @@ var _hmt = _hmt || [];
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL执行顺序"><span class="nav-number">2.</span> <span class="nav-text">SQL执行顺序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -687,6 +949,10 @@ var _hmt = _hmt || [];
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -733,6 +999,34 @@ var _hmt = _hmt || [];
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'sakebow',
+            repo: 'git@git.dev.tencent.com:sakebow/sakebow.coding.me.git',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '0d352353407a32cee695d8ac619108e725919c57',
+            
+                client_id: '5c74c5e1b67e5a5adbdf'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
     
 
 
