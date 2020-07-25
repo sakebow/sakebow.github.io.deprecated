@@ -477,16 +477,14 @@ var _hmt = _hmt || [];
 
       
         <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>这里会简单说明jdk自带的一些小工具，可以非常方便地查看当前地各种情况，比起什么都没有的黑框框还是要方便得多呐。</strong></p>
-<p><strong>这里还是使用<code>jdk8</code>作为说明，<code>jdk9</code>及以上版本暂时还未在中国市场普及就暂时不作考虑了。最后我相信大家下载了jdk第一件事应该就是配置环境变量了吧？这里就默认大家的<code>Windows</code>、<code>Ubuntu</code>以及<code>MacOS</code>中都已经配好<code>jdk8</code>作为环境变量了。</strong></p>
-<a id="more"></a>
-
+<p><strong>这里还是使用<code>jdk8</code>作为说明，<code>jdk9</code>及以上版本暂时还未在中国市场普及就暂时不作考虑了。最后我相信大家下载了jdk第一件事应该就是配置环境变量了吧？这里就默认大家的<code>Windows</code>、<code>Ubuntu</code>以及<code>MacOS</code>中都已经配好<code>jdk8</code>作为环境变量了。</strong><br><a id="more"></a></p>
 <h2 id="JConsole"><a href="#JConsole" class="headerlink" title="JConsole"></a>JConsole</h2><p>首先是<strong>JConsole</strong>。</p>
 <h3 id="呼出"><a href="#呼出" class="headerlink" title="呼出"></a>呼出</h3><p>那么<code>win+R</code>呼出运行窗口，输入<code>cmd</code>呼出命令行界面，在黑框框中输入<code>jconsole</code>（<em>大小写不敏感</em>），于是就弹出来了个窗口：</p>
 <p><img src="https://sakebow.gitee.io/images/JVM-tools/jconsole.png" alt="JConsole界面"></p>
 <p>同样的，如果你使用的是<code>Ubuntu</code>，那么就是<code>CTRL + ALT + T</code>呼出命令行，也是输入<code>jconsole</code>。</p>
 <p>这里的<code>pid</code>是进程的<strong>唯一代号</strong>，也就是系统给进程<strong>随机分配的唯一指定标识</strong>。由于是随机的，所以<strong>不同的人不同时间打开的<code>pid</code>都会不一样</strong>。</p>
 <p>然后双击链接，会弹出这个提示：</p>
-<p><img src="https://sakebow.gitee.io/images/JVM-tools/%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5.png" alt="安全连接失败"></p>
+<p><img src="https://sakebow.gitee.io/images/JVM-tools/安全连接失败.png" alt="安全连接失败"></p>
 <h3 id="一点点拓展"><a href="#一点点拓展" class="headerlink" title="一点点拓展"></a>一点点拓展</h3><p>在这里不得不提一下<code>SSL</code>链接、<code>HTTP</code>、<code>HTTPS</code>的关系<sup><a href="#refer1">[1]</a></sup>。</p>
 <p>首先是<code>HTTP</code>，它<strong>只有三个步骤</strong>。</p>
 <blockquote>
@@ -508,13 +506,11 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>其中由于<code>SSL</code>加密不可避免地加长了每一段数据帧的字长，所以也无可避免的<strong>增加了传输消耗</strong>，<strong>延长了响应时间</strong>。但是这些消耗带来了<strong>较为安全</strong>的传输方式，在可接受范围内。</p>
 <h3 id="运行界面"><a href="#运行界面" class="headerlink" title="运行界面"></a>运行界面</h3><p>不安全连接后，则会出现四张图表：</p>
-<p><img src="https://sakebow.gitee.io/images/JVM-tools/%E8%BF%90%E8%A1%8C%E7%95%8C%E9%9D%A2.png" alt="JConsole应用运行中"></p>
+<p><img src="https://sakebow.gitee.io/images/JVM-tools/运行界面.png" alt="JConsole应用运行中"></p>
 <p>在其中我们可以看几乎所有资源的使用，从这些就可以大概看出来程序的运行情况。但是信息非常笼统，所以也不太能定位，就只能看出程序好不好。</p>
 <h2 id="jvisualvm"><a href="#jvisualvm" class="headerlink" title="jvisualvm"></a>jvisualvm</h2><h3 id="呼出-1"><a href="#呼出-1" class="headerlink" title="呼出"></a>呼出</h3><p>同样是在黑黑的命令行工具中输入<code>jvisualvm</code>，但是他会占用一个命令行窗口，关闭了窗口，应用也跟着关了。</p>
 <p><img src="https://sakebow.gitee.io/images/JVM-tools/jvisualvm.png" alt="占用一个窗口的JVisualVM"></p>
-<p>不过还好你可以加上参数让命令行不占用窗口：</p>
-<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jvisualvm --console suppress</span><br></pre></td></tr></table></figure>
-<p><img src="https://sakebow.gitee.io/images/JVM-tools/suppress.png" alt="不占用窗口的JVisualVM"></p>
+<p>不过还好你可以加上参数让命令行不占用窗口：<br><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jvisualvm --console suppress</span><br></pre></td></tr></table></figure><br><img src="https://sakebow.gitee.io/images/JVM-tools/suppress.png" alt="不占用窗口的JVisualVM"></p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>如果你使用的是<code>eclipse</code>作为开发工具，无论是官方原版还是自己公司的魔改版，你可以使用<code>eclipse</code>公司自己开发的<strong>应用程序</strong>：<code>Memory Analyser Tools</code>，即<a href="http://www.eclipse.org/mat/downloads.php" target="_blank" rel="noopener">MAT</a>。他不是插件，而是一个外表非常像<code>eclipse</code>的数据可视化应用。</p>
 <p><strong>由于博主使用的是IDEA所以就不贴图了。</strong></p>
 <p>当然还有其它工具，比如<code>jmap</code>等等。这里就不一一列举了。总有一款工具是你用起来最顺手的。</p>
@@ -711,7 +707,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -733,7 +729,7 @@ var _hmt = _hmt || [];
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

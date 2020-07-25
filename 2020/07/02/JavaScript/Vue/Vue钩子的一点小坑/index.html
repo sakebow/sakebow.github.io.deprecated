@@ -472,12 +472,9 @@ var _hmt = _hmt || [];
       
         <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>Vue中不同的钩子有不同的功能，应对不同的场景灵活使用可以实现很不错的效果。但是还是就算会用框架，基本功还是不能丢。Vue里面有个小坑实际上是ES5和ES6的小区别，在框架中有着完全不同的效果。</strong></p>
 <a id="more"></a>
-
 <h2 id="正常的写法"><a href="#正常的写法" class="headerlink" title="正常的写法"></a>正常的写法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">  <span class="comment">// 具体方法</span></span><br><span class="line">&#125;,</span><br><span class="line">created () &#123;</span><br><span class="line">  <span class="comment">// 具体方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...其他钩子</span></span><br></pre></td></tr></table></figure>
-
 <p>这种写法是<code>ES5</code>标准中拥有的写法，就是很普通的<code>方法名(参数){ 方法体 }</code>，在很多语言中都能看到类似的写法。</p>
 <h2 id="不一样的写法"><a href="#不一样的写法" class="headerlink" title="不一样的写法"></a>不一样的写法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mounted: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 具体方法</span></span><br><span class="line">&#125;,</span><br><span class="line">created: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 具体方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...其他钩子</span></span><br></pre></td></tr></table></figure>
-
 <p>也许你们能注意到，这里使用了<code>箭头函数</code>，是典型的<code>ES6</code>标准。<code>箭头函数</code>和<code>普通函数</code>的最大区别就是<code>this</code>指针，前者没有而后者有。所以如果使用了<code>箭头函数</code>，这个钩子里将无法访问该组件中的<code>data</code>集合，因为没有指向自己的指针。</p>
 <p>这种写法不会报错，因为是正确的写法，在不访问<code>data</code>集合的时候是没有问题的。如果业务需要访问，那么这个问题将很难发现。</p>
 <p>说到底还是<code>JavaScript</code>基本功的问题。所以还是希望各位不要急于求成，稳扎稳打才能提高正确率。</p>
@@ -673,7 +670,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -695,7 +692,7 @@ var _hmt = _hmt || [];
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

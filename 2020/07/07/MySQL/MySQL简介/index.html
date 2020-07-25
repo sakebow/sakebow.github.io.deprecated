@@ -474,37 +474,44 @@ var _hmt = _hmt || [];
       
         <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong><code>MySQL</code>是最流行的关系型数据库管理系统之一，因为其轻量级、自由度高、免费开源而备受青睐。现在国内也有非常多的大型企业魔改<code>MySQL</code>而特化某种极端场景，其中以阿里为典型代表。</strong></p>
 <a id="more"></a>
-
 <blockquote>
 <p><code>Oracle</code>数据库是它是一种高效率、可靠性好的、适应高吞吐量的数据库方案。（<em>摘自百度百科：<a href="https://baike.baidu.com/item/Oracle%E6%95%B0%E6%8D%AE%E5%BA%93" target="_blank" rel="noopener">Oracle数据库</a></em>）</p>
 </blockquote>
 <p>这是<code>Oracle</code>留给我们的印象。现在许多政府主导的项目多使用的就是<code>Oracle</code>，因为适应高并发且安全稳定，但是相当的重量级，对服务器的配置要求相当的高，安装时也要求图形化界面，对于少有<code>GUI</code>界面的<code>Linux Server</code>并不是非常的友好，对于后台线程繁多的<code>Windows</code>系统也并没有好很多。但是它最大的特点就是数据恢复。每次的操作都保存在了磁盘上，可以随时恢复，<code>Oracle</code>公司也能够对企业提供对应的收费服务。</p>
 <p>而与之对应的，MySQL不仅数据容易丢失，而且诊断调优解决方案少，安全上也更容易被仿冒进而被攻击，可以说在各种程度上还在起跑阶段。但是由于其开源、免费两个特点，不少社区已经逐渐在丰富<code>MySQL</code>的性能和缺陷。许多公司也在根据自己的需求修改并使用。</p>
 <p>更详细的对比情况如下所示：（总结自<a href="https://www.cnblogs.com/xu-cceed3w/p/8824199.html" target="_blank" rel="noopener">IT小黑的博客</a>）</p>
-<h2 id="MySQL和Oracle的对比"><a href="#MySQL和Oracle的对比" class="headerlink" title="MySQL和Oracle的对比"></a>MySQL和Oracle的对比</h2><h3 id="事务提交"><a href="#事务提交" class="headerlink" title="事务提交"></a>事务提交</h3><table>
+<h2 id="MySQL和Oracle的对比"><a href="#MySQL和Oracle的对比" class="headerlink" title="MySQL和Oracle的对比"></a>MySQL和Oracle的对比</h2><h3 id="事务提交"><a href="#事务提交" class="headerlink" title="事务提交"></a>事务提交</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>MySQL</th>
 <th>Oracle</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>自动提交</td>
 <td>手动使用<code>commit</code>命令</td>
 </tr>
-</tbody></table>
-<h3 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>MySQL</th>
 <th>Oracle</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>limit</code>命令</td>
 <td>伪列<code>ROWNUM</code>和嵌套查询</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><p>两者都支持<code>serializable</code>串行化事务隔离级别，都实现了最高级别的读一致性，即一个<code>session</code>提交后其他<code>session</code>才能够看到提交的修改</p>
 <ul>
 <li><p>MySQL</p>
@@ -515,32 +522,39 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">TRIGGER</span> JWXT.TRI_STUDENT_ID_CALC</span><br><span class="line"><span class="comment">-- 在JWXT中创建触发器TRI_STUDENT_ID_CALC</span></span><br><span class="line"><span class="keyword">BEFORE</span> <span class="keyword">INSERT</span></span><br><span class="line"><span class="comment">-- 在插入数据之前触发该触发器定义的事件</span></span><br><span class="line"><span class="keyword">ON</span> TB_STUDENT</span><br><span class="line"><span class="comment">-- 对应TB_STUDENT表进行操作</span></span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></span><br><span class="line"><span class="comment">-- 触发器针对每一行触发</span></span><br><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line">  student_no <span class="built_in">VARCHAR</span>(<span class="number">100</span>);</span><br><span class="line">  <span class="comment">-- 定义字段 student_no 记录当前是第几个学生</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="comment">-- 触发器主体</span></span><br><span class="line"><span class="comment">-- 假设 TB_STUDNET 表建立了序列 SEQ_STUDNET</span></span><br><span class="line"><span class="comment">-- 假设 TB_STUDENT 表记录学生学号的字段是 student_id</span></span><br><span class="line">  <span class="keyword">SELECT</span> SEQ_STUDENT.NEXTVAL <span class="keyword">INTO</span> student_no <span class="keyword">FROM</span> SYS.dual;</span><br><span class="line">  <span class="comment">-- 将当前序列输入变量 student_no</span></span><br><span class="line">  :NEW.student_id := to_char(sysdate, "yyyyMMddhhmmss") || student_no;</span><br><span class="line">  <span class="comment">-- 修改student_id</span></span><br><span class="line">  :NEW.count := :OLD.count + 10;</span><br><span class="line">  <span class="comment">-- 给帐务添加10点积分</span></span><br><span class="line"><span class="comment">-- 错误处理</span></span><br><span class="line">EXCEPTION</span><br><span class="line">  RAISE_APPLICATION_ERROR(100031, "学号生成出错"); <span class="comment">-- 抛出异常</span></span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
-
 <p>这里的<code>:NEW</code>和<code>:OLD</code>就是典型的访问<strong>新数据</strong>和<strong>旧数据</strong>。</p>
-<h3 id="事务支持"><a href="#事务支持" class="headerlink" title="事务支持"></a>事务支持</h3><table>
+<h3 id="事务支持"><a href="#事务支持" class="headerlink" title="事务支持"></a>事务支持</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>MySQL</th>
 <th>Oracle</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>仅在<code>InnoDB</code>引擎中开启行级所的情况下才支持事务</td>
 <td>完全支持</td>
 </tr>
-</tbody></table>
-<h3 id="数据持久"><a href="#数据持久" class="headerlink" title="数据持久"></a>数据持久</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="数据持久"><a href="#数据持久" class="headerlink" title="数据持久"></a>数据持久</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>MySQL</th>
 <th>Oracle</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>重启服务将会完全丢失所有数据、数据库更新字段后立即丢失原先数据</td>
 <td>提交数据的操作全部存在磁盘上，随时可恢复；并且<code>Oracle</code>公司提供数据恢复的收费服务</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="并发支持"><a href="#并发支持" class="headerlink" title="并发支持"></a>并发支持</h3><ul>
 <li><p>MySQL</p>
 <p><code>MyISAM</code>引擎下仅支持表级锁，即当一个<code>session</code>修改表后，整个表被锁住，其他任何会话无法对表进行任何操作。这对高并发要求极不友好，大量的时间都在等待上一个甚至几个<code>session</code>退出</p>
@@ -549,18 +563,22 @@ var _hmt = _hmt || [];
 <p>完全支持行锁。在当前<code>session</code>修改表的过程中，其他<code>session</code>能够访问并修改其他行，单位时间内能够处理更多的请求</p>
 </li>
 </ul>
-<h3 id="逻辑备份"><a href="#逻辑备份" class="headerlink" title="逻辑备份"></a>逻辑备份</h3><table>
+<h3 id="逻辑备份"><a href="#逻辑备份" class="headerlink" title="逻辑备份"></a>逻辑备份</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>MySQL</th>
 <th>Oracle</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>锁住整张表，影响数据库的增删改操作</td>
 <td>不锁表，对其他操作无影响</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><ul>
 <li><p>MySQL</p>
 <p>复制服务器配置简单。但主库出问题时，从库有可能丢失一定的数据。且需要手工切换从库到主库</p>
@@ -569,78 +587,102 @@ var _hmt = _hmt || [];
 <p>既有推或拉式的传统数据复制，也有dataguard的双机或多机容灾机制，主库出现问题是，可以自动切换备库到主库，但配置管理较复杂。</p>
 </li>
 </ul>
-<h3 id="性能诊断"><a href="#性能诊断" class="headerlink" title="性能诊断"></a>性能诊断</h3><table>
+<h3 id="性能诊断"><a href="#性能诊断" class="headerlink" title="性能诊断"></a>性能诊断</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>MySQL</th>
 <th>Oracle</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>调优方法较少，主要是<code>慢查询日志</code></td>
 <td>调优方法成熟，可实现多种自动分析、诊断调优功能，有<code>awr</code>、<code>addm</code>、<code>sqltrace</code>、<code>tkproof</code>等</td>
 </tr>
-</tbody></table>
-<h3 id="权限安全"><a href="#权限安全" class="headerlink" title="权限安全"></a>权限安全</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="权限安全"><a href="#权限安全" class="headerlink" title="权限安全"></a>权限安全</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>MySQL</th>
 <th>Oracle</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>仅和主机IP有关，容易被仿冒</td>
 <td>安全认证思想比较传统，中规中矩</td>
 </tr>
-</tbody></table>
-<h3 id="分区索引"><a href="#分区索引" class="headerlink" title="分区索引"></a>分区索引</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="分区索引"><a href="#分区索引" class="headerlink" title="分区索引"></a>分区索引</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>MySQL</th>
 <th>Oracle</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>技术不成熟</td>
 <td>技术成熟</td>
 </tr>
-</tbody></table>
-<h3 id="管理工具"><a href="#管理工具" class="headerlink" title="管理工具"></a>管理工具</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="管理工具"><a href="#管理工具" class="headerlink" title="管理工具"></a>管理工具</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>MySQL</th>
 <th>Oracle</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>除了自带的命令行就是第三方</td>
 <td>有多种应用程序解决方案</td>
 </tr>
-</tbody></table>
-<h3 id="附加服务"><a href="#附加服务" class="headerlink" title="附加服务"></a>附加服务</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="附加服务"><a href="#附加服务" class="headerlink" title="附加服务"></a>附加服务</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>MySQL</th>
 <th>Oracle</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>无</td>
 <td>数据恢复等由<code>Oracle</code>公司提供的完整服务</td>
 </tr>
-</tbody></table>
-<h3 id="其他条件"><a href="#其他条件" class="headerlink" title="其他条件"></a>其他条件</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="其他条件"><a href="#其他条件" class="headerlink" title="其他条件"></a>其他条件</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>MySQL</th>
 <th>Oracle</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>免费开源、轻量级</td>
 <td>付费服务、超重量级</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="为什么选择MySQL"><a href="#为什么选择MySQL" class="headerlink" title="为什么选择MySQL"></a>为什么选择MySQL</h2><p>这么一罗列似乎<code>MySQL</code>始终处于劣势。但是<code>MySQL</code>它本身的轻量级提供了非常方便的部署环境。众多中小企业还是非常喜欢使用<code>MySQL</code>的。其次就是因为他灵活的架构。</p>
 <p>他是这么一个架构：（图源来自<a href="https://blog.csdn.net/weixin_42358062/article/details/80730694" target="_blank" rel="noopener">CSDN</a>）</p>
 <p><img src="https://images2018.cnblogs.com/blog/1411859/201806/1411859-20180617124155105-273948974.png" alt="MySQL架构图"></p>
@@ -865,7 +907,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -887,7 +929,7 @@ var _hmt = _hmt || [];
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

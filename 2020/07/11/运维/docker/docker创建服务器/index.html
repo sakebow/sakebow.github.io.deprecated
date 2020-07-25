@@ -480,71 +480,54 @@ var _hmt = _hmt || [];
       
         <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>本文主要参考了<a href="https://blog.csdn.net/qq_21429153/article/details/80867813" target="_blank" rel="noopener">lzssing的“<code>Docker</code>搭建<code>CentOS</code>系统，并配置<code>ssh</code>环境”</a>，并补充了一些相关细节。本篇将按照我的尝试全过程依次排雷，这样也能够让各位看到更清晰的问题解决方案，但是照着做时需要避开明确标注了“不正确”的地方。</strong></p>
 <a id="more"></a>
-
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>无论是什么系统，只需要下载安装<code>Docker</code>就好了。参照我之前写的<a href="/2020/07/11/运维/docker/docker的简介与安装">docker的简介与安装</a>。如果你是<code>Ubuntu</code>系统，那么这些就够了。如果你是<code>Windows</code>系统，你可能还需要一个<a href="https://pan.baidu.com/s/1VFQVelcYuw30nd1B0jXOZA" target="_blank" rel="noopener"><code>XShell</code>（提取码：88kv）</a>用于远程连接。这里就以我使用的<code>Ubuntu</code>系统编写流程，如果你是<code>Windows</code>，你可以选择<code>Docker for Windows</code>并用<code>CMD（管理员）</code>执行同样的命令，也可以选择使用<code>Windows</code>子系统。</p>
 <h2 id="第一次尝试"><a href="#第一次尝试" class="headerlink" title="第一次尝试"></a>第一次尝试</h2><p>首先肯定是确保自己进入了超级管理员权限，并使用docker命令下载我们需要的<code>CentOS</code>镜像。为什么是<code>CentOS</code>？因为全都是<code>Ubuntu</code>的话比较容易弄混，所以就用个其他的系统区分一下。</p>
-<p>请求超管权限，输入密码认证之后进入超管权限。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
-
+<p>请求超管权限，输入密码认证之后进入超管权限。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure></p>
 <p><strong>从这里之后便全是CentOS。</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull centos # 拉取镜像</span><br><span class="line">docker run -itd centos /bin/bash # 创建容器运行镜像</span><br><span class="line">docker exec -it 18 /bin/bash # 进入容器操作镜像</span><br></pre></td></tr></table></figure>
-
 <p>这里需要说明的是，<code>run</code>命令中当我们使用<code>-d</code>作为参数时，容器将支持后台运行。<code>run</code>命令之后便会生成一个<strong>容器id</strong>，我的是：</p>
 <p><code>18b400110fc8772d23016358e60b4b5ff00e3892d1ad7db4bbbc4b6d1bb13e45</code></p>
 <p>这实在是太长了。于是我在确认了没有重复项之后缩减了长度，只写了<code>18</code>，也就是<code>exec</code>命令所示的那样。</p>
-<p><img src="https://sakebow.gitee.io/images/%E8%BF%90%E7%BB%B4/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F.png" alt="拉取镜像"></p>
+<p><img src="https://sakebow.gitee.io/images/运维/拉取镜像.png" alt="拉取镜像"></p>
 <p>然后我们开始搭建<code>ssh</code>环境，因为需要使用<code>ssh</code>工具进行连接。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install passwd openssl openssh-server openssh-clients initscripts vim -y # 安装软件</span><br></pre></td></tr></table></figure>
-
 <p>此处<code>-y</code>代表<strong>确认安装</strong>。这个过程实在太长而且都是一样的输出就不截图了。你担心出错？<strong>放心好了</strong>。只要你不断网，这些输出必定每个人都是一样的。</p>
-<p><img src="https://sakebow.gitee.io/images/%E8%BF%90%E7%BB%B4/%E5%90%84%E7%A7%8D%E5%8C%85%E5%B7%B2%E4%B8%8B%E8%BD%BD%E5%AE%8C%E6%88%90.png" alt="下载完成"></p>
+<p><img src="https://sakebow.gitee.io/images/运维/各种包已下载完成.png" alt="下载完成"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ""</span><br><span class="line">ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N ""</span><br><span class="line">ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ""</span><br></pre></td></tr></table></figure>
-
 <p>运行sshd服务一共需要三种密钥，<code>rsa</code>、<code>ecdsa</code>、<code>ed25519</code>。这三种都是<strong>数字签名</strong>的算法，能够保证服务器和客户端之间有能够认证身份的<strong>唯一指定</strong>令牌。在这里就不持续展开了，总之都是<strong>世界级</strong>的加密算法。</p>
 <p>好了，准备工作差不多就到这里了，我们不如先存个档？</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exit # 从CentOS中退出来，回到超管权限下的Ubuntu</span><br><span class="line"></span><br><span class="line">docker commit -a "sakebow" -m "ssh complete" 18 centos_server/save:v1 # 保存镜像</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://sakebow.gitee.io/images/%E8%BF%90%E7%BB%B4/%E4%BF%9D%E5%AD%98%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E9%95%9C%E5%83%8F.png" alt="保存镜像"></p>
+<p><img src="https://sakebow.gitee.io/images/运维/保存修改后的镜像.png" alt="保存镜像"></p>
 <p>既然我们已经保存了镜像，之前使用的<code>18</code>容器就不再需要了，删除了吧。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker stop 18 # 之前是保持后台运行，现在需要手动关闭容器</span><br><span class="line">docker rm 18 # 删除容器</span><br><span class="line">docker ps -a # 确认容器是否存在</span><br></pre></td></tr></table></figure>
-
 <p>好了，我们再次使用新的镜像跑一下。</p>
 <p><strong>友情提醒：从现在开始会出现错误情况，我将郑重标明</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 错误示范</span></span><br><span class="line">docker run -itd 79 /bin/bash # 创建容器并运行镜像</span><br><span class="line">docker exec -it da /bin/bash # 进入容器</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://sakebow.gitee.io/images/%E8%BF%90%E7%BB%B4/%E8%BF%9B%E5%85%A5%E6%96%B0%E9%95%9C%E5%83%8F.png" alt="进入新镜像"></p>
+<p><img src="https://sakebow.gitee.io/images/运维/进入新镜像.png" alt="进入新镜像"></p>
 <p>这里的<code>79</code>是<strong>新镜像的id</strong>，而<code>da</code>是<strong>新容器的id</strong>。各位在这一步需要更换为<strong>自己的对应id</strong>。现在，我们已经进入了<code>CentOS</code>系统中。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start sshd.service # 启动服务</span><br></pre></td></tr></table></figure>
-
 <p>然后，噩梦开始了。这是第一个错误：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@daa9499a8f9f /]# systemctl start sshd.service</span><br><span class="line">System has not been booted with systemd as init system (PID 1). Can't operate.</span><br><span class="line">Failed to connect to bus: Host is down</span><br></pre></td></tr></table></figure>
-
 <p>就很奇怪。后来在<a href="https://blog.csdn.net/baidu_38558076/article/details/103890319" target="_blank" rel="noopener">baidu_38558076的“System has not been booted with systemd as init system”一文</a>中找到了解决方案：<code>/bin/bash</code>修改为<code>/sbin/init</code>，这样才会注册主线程<code>PID 1</code>。</p>
 <h2 id="第二次尝试"><a href="#第二次尝试" class="headerlink" title="第二次尝试"></a>第二次尝试</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">exit # 退出失败的容器</span><br><span class="line"><span class="meta">#</span><span class="bash"> 以下修改稿1 - 这说明他依然有问题</span></span><br><span class="line">docker ps -a # 确认出错容器</span><br><span class="line">docker stop da # 停掉后台的容器</span><br><span class="line">docker rm da # 删除容器</span><br><span class="line">docker run --privileged=true 94 /sbin/init # 使用不一样的方式创建镜像</span><br><span class="line">docker exec -it 94 /bin/bash # 运行</span><br></pre></td></tr></table></figure>
-
 <p>截图之前没注意，参数还有顺序要求，闹了很多错误。我也就不回避这些，给大家排个雷。</p>
-<p><img src="https://sakebow.gitee.io/images/%E8%BF%90%E7%BB%B4/%E4%BF%AE%E6%94%B91.png" alt="排雷式截图：进入新容器"></p>
+<p><img src="https://sakebow.gitee.io/images/运维/修改1.png" alt="排雷式截图：进入新容器"></p>
 <p><code>run</code>命令一定是要<code>--privileged=true</code>在<strong>镜像id</strong>之前。</p>
 <p>再来试试：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start sshd.service # 启动服务</span><br><span class="line">ps -e | grep sshd # 查看sshd服务运行情况</span><br></pre></td></tr></table></figure>
-
 <p>这次没有报错。你有些后怕？放心好了，<code>Linux</code>的哲学就是：“<strong>没有报错就是没有错误！</strong>”相信自己，他不说你有错误你就是没错误。</p>
-<p><img src="https://sakebow.gitee.io/images/%E8%BF%90%E7%BB%B4/%E6%88%90%E5%8A%9F%E5%BC%80%E5%90%AF%E6%9C%8D%E5%8A%A1.png" alt="成功开启服务"></p>
+<p><img src="https://sakebow.gitee.io/images/运维/成功开启服务.png" alt="成功开启服务"></p>
 <p>我们试着用<code>ssh</code>工具连接一下。另外开一个窗口，输入：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.1.111 # 这个192.168.1.111是我的IP地址</span><br></pre></td></tr></table></figure>
-
 <p><strong>好像行不通</strong>。以下是错误信息。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sakebow@sakebow-Lenovo-V310-14IKB:~$ ssh root@192.168.1.111</span><br><span class="line">ssh: connect to host 192.168.1.111 port 22: Connection refused</span><br></pre></td></tr></table></figure>
-
 <p>为什么？因为<code>Docker</code>是运行在本机的，开的端口就是本机的端口，也就是默认监听<code>22</code>端口。这个端口又是其他机器连接本机的关键，<strong>不允许被占用</strong>，所以直接被拒绝了。</p>
 <p>那怎么搞嘛！<strong>换端口</strong>。</p>
 <h2 id="第三次尝试"><a href="#第三次尝试" class="headerlink" title="第三次尝试"></a>第三次尝试</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 这次是正确的</span></span><br><span class="line"></span><br><span class="line">exit # 同样退出错误的容器</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 同样重开重进</span></span><br><span class="line">docker ps -a</span><br><span class="line">docker stop 94 e5 10</span><br><span class="line">docker rm 94 e5 10</span><br><span class="line">docker run -itd --privileged=true -p 1000:22 79 /sbin/init</span><br><span class="line">docker exec -it be /bin/bash</span><br><span class="line"></span><br><span class="line">systemctl start sshd # 同样在CentOS里面开启服务</span><br></pre></td></tr></table></figure>
-
 <p>没有错误提示。连接试试：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.1.111 -p 1000</span><br></pre></td></tr></table></figure>
-
 <p>出现了新的对话！</p>
-<p><img src="https://sakebow.gitee.io/images/%E8%BF%90%E7%BB%B4/%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F.png" alt="连接成功"></p>
+<p><img src="https://sakebow.gitee.io/images/运维/连接成功.png" alt="连接成功"></p>
 <p>确定继续连接吗？确定的话<code>CentOS</code>（服务器）中的指纹就会保存在<code>Ubuntu</code>（客户机）中，方便下次连接。输入<code>yes</code>录入指纹，也就是以后允许这台机器输入密码认证，这样其他任何机器输入的密码即使是正确的也不会核对；如果选择<code>no</code>将会终止连接，虽然指纹依然在服务器<code>CentOS</code>上，但是客户机<code>Ubuntu</code>没有指纹，将不会核对密码。</p>
 <p>密码正确后，进入服务器。</p>
 <p>到这里全部完成。</p>
@@ -740,7 +723,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -762,7 +745,7 @@ var _hmt = _hmt || [];
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
