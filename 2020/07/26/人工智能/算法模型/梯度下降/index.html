@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Vue," />
+  <meta name="keywords" content="算法模型," />
 
 
 
@@ -88,17 +88,19 @@
 
 
 
-<meta name="description" content="导读Vue中不同的钩子有不同的功能，应对不同的场景灵活使用可以实现很不错的效果。但是还是就算会用框架，基本功还是不能丢。Vue里面有个小坑实际上是ES5和ES6的小区别，在框架中有着完全不同的效果。">
+<meta name="description" content="导读你可能又觉得梯度下降是一个完全没有接触过的新词。不过放心，依然能对上。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue钩子的一点小坑">
-<meta property="og:url" content="http://www.sakebow.cn/2020/07/02/JavaScript/Vue/Vue%E9%92%A9%E5%AD%90%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/index.html">
+<meta property="og:title" content="梯度下降">
+<meta property="og:url" content="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/index.html">
 <meta property="og:site_name" content="Sakebow的小博客">
-<meta property="og:description" content="导读Vue中不同的钩子有不同的功能，应对不同的场景灵活使用可以实现很不错的效果。但是还是就算会用框架，基本功还是不能丢。Vue里面有个小坑实际上是ES5和ES6的小区别，在框架中有着完全不同的效果。">
-<meta property="article:published_time" content="2020-07-02T14:05:00.000Z">
-<meta property="article:modified_time" content="2020-12-02T22:15:00.000Z">
+<meta property="og:description" content="导读你可能又觉得梯度下降是一个完全没有接触过的新词。不过放心，依然能对上。">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%BC%94%E7%A4%BA.jpg">
+<meta property="article:published_time" content="2020-07-26T15:23:00.000Z">
+<meta property="article:modified_time" content="2020-07-27T16:57:40.379Z">
 <meta property="article:author" content="Sakebow">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="算法模型">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%BC%94%E7%A4%BA.jpg">
 
 
 
@@ -128,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="http://www.sakebow.cn/2020/07/02/JavaScript/Vue/Vue钩子的一点小坑/"/>
+  <link rel="canonical" href="http://www.sakebow.cn/2020/07/26/人工智能/算法模型/梯度下降/"/>
 
 
 
@@ -144,7 +146,7 @@ var _hmt = _hmt || [];
 </script>
 
 
-  <title>Vue钩子的一点小坑 | Sakebow的小博客</title>
+  <title>梯度下降 | Sakebow的小博客</title>
   
 
 
@@ -335,7 +337,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sakebow.cn/2020/07/02/JavaScript/Vue/Vue%E9%92%A9%E5%AD%90%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/">
+    <link itemprop="mainEntityOfPage" href="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sakebow">
@@ -352,7 +354,7 @@ var _hmt = _hmt || [];
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vue钩子的一点小坑</h1>
+          <h1 class="post-title" itemprop="name headline">梯度下降</h1>
         
 
         <div class="post-meta">
@@ -364,8 +366,8 @@ var _hmt = _hmt || [];
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-02T22:05:00+08:00">
-                2020-07-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-26T23:23:00+08:00">
+                2020-07-26
               </time>
             
 
@@ -387,8 +389,8 @@ var _hmt = _hmt || [];
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
                   </a>
                 </span>
 
@@ -405,8 +407,8 @@ var _hmt = _hmt || [];
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/07/02/JavaScript/Vue/Vue%E9%92%A9%E5%AD%90%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/07/02/JavaScript/Vue/Vue%E9%92%A9%E5%AD%90%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/" itemprop="commentsCount"></span>
+                <a href="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -433,7 +435,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  354字
+                  1.9k字
                 </span>
               
 
@@ -449,7 +451,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1分钟
+                  6分钟
                 </span>
               
             </div>
@@ -470,14 +472,60 @@ var _hmt = _hmt || [];
       
 
       
-        <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>Vue中不同的钩子有不同的功能，应对不同的场景灵活使用可以实现很不错的效果。但是还是就算会用框架，基本功还是不能丢。Vue里面有个小坑实际上是ES5和ES6的小区别，在框架中有着完全不同的效果。</strong></p>
+        <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>你可能又觉得梯度下降是一个完全没有接触过的新词。不过放心，依然能对上。</strong></p>
 <a id="more"></a>
-<h2 id="正常的写法"><a href="#正常的写法" class="headerlink" title="正常的写法"></a>正常的写法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">  <span class="comment">// 具体方法</span></span><br><span class="line">&#125;,</span><br><span class="line">created () &#123;</span><br><span class="line">  <span class="comment">// 具体方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...其他钩子</span></span><br></pre></td></tr></table></figure>
-<p>这种写法是<code>ES5</code>标准中拥有的写法，就是很普通的<code>方法名(参数){ 方法体 }</code>，在很多语言中都能看到类似的写法。</p>
-<h2 id="不一样的写法"><a href="#不一样的写法" class="headerlink" title="不一样的写法"></a>不一样的写法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mounted: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 具体方法</span></span><br><span class="line">&#125;,</span><br><span class="line">created: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 具体方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...其他钩子</span></span><br></pre></td></tr></table></figure>
-<p>也许你们能注意到，这里使用了<code>箭头函数</code>，是典型的<code>ES6</code>标准。<code>箭头函数</code>和<code>普通函数</code>的最大区别就是<code>this</code>指针，前者没有而后者有。所以如果使用了<code>箭头函数</code>，这个钩子里将无法访问该组件中的<code>data</code>集合，因为没有指向自己的指针。</p>
-<p>这种写法不会报错，因为是正确的写法，在不访问<code>data</code>集合的时候是没有问题的。如果业务需要访问，那么这个问题将很难发现。</p>
-<p>说到底还是<code>JavaScript</code>基本功的问题。所以还是希望各位不要急于求成，稳扎稳打才能提高正确率。</p>
+<h2 id="方向导数和梯度"><a href="#方向导数和梯度" class="headerlink" title="方向导数和梯度"></a>方向导数和梯度</h2><p>在说明怎么进行梯度下降之前，我们需要复习一下方向导数和梯度。</p>
+<p>就拿最简单的两个变量为例：</p>
+<blockquote>
+<p>下图就是一张海拔图。</p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/二元函数梯度下降演示.jpg" alt="下降演示"></p>
+<p>有一天，你乘坐的飞机失事了，在山顶坠毁，只有你一个人活了下来。弹尽粮绝的你几近绝望。但是你看到眼前有一大片水源，你想着找到了水源就能够活下去。所以你决定在你饿倒、冻死、被野兽咬杀之前，<strong>尽快达到山底的水源</strong>，越快越好。在这种紧急情况下，已经<strong>没有时间让你把所有的路全都探索一遍</strong>了，因为你随时可能在山上出事。</p>
+<p>在陡峭的山上，有若干个比较平缓的落脚点。你站在出发的落脚点上，环顾四周，发现了若干能够安全到达的落脚点。于是你在这几个里面选择了最低的一个，跳了过去。接着在下一个落脚点继续寻找更低的落脚点。</p>
+</blockquote>
+<p>这就是“<strong>下降</strong>”，而<strong>梯度</strong>则是选择一条<strong>最优下降方向</strong>的参考。</p>
+<p>所以问题来了，怎么样才能选出<strong>最优下降方向</strong>？如果就只是找遍目力所及的所有落脚点、计算落差，这样当然可行，但是代价太大。所以，我们在这里将使用一定的<strong>数学方法</strong>推算出来。</p>
+<p>首先对于在平面$D$上具有连续一阶偏导数的二元函数$z=f(x,y)$上的任意一点，都有一个向量：</p>
+<script type="math/tex; mode=display">\vec{grad}f(x,y)=\{\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}\}</script><p>又由于方向导数：</p>
+<script type="math/tex; mode=display">\vec{f_L}(x_0,y_0)=({\partial f\over\partial x},{\partial f\over\partial y})\cdot(cos\theta,sin\theta)</script><p>所以，不难得出：</p>
+<blockquote>
+<p>方向导数是二元函数$z=f(x,y)$在各个方向上的变化量，而当方向导数最大的时候，必定是方向导数和梯度方向重合的时候。而方向导数最大时，函数增长最快；反之亦然，方向导数最大时的反方向函数减少最快。</p>
+<p>也就是说，我们在下山的时候唯一需要注意的就是：寻找梯度。</p>
+<p>当然我们还有一些需要注意的细节，<strong>下山的速度</strong>就是其中之一，它有个学术名称叫做<strong>学习率（<em><code>learning rate</code></em>）</strong>，多记为$\eta$。当学习率提高的时候，下山的速率就非常快，很快你就会达到一个区域最优解；而学习率降低的时候，下山速率就非常低，只不过这样的话你能够找到更多的落脚点，从而一定程度上减少了陷入局部最优解的可能。</p>
+</blockquote>
+<p><em>不过呢，三维我们还能勉强想象，但是拓展到四维、五维等超越3个维度的坐标系是，作为三次元的我们将无法想象那样的存在。所以，我们目前所能做的极限就是讨论二元变量的关系了。有没有三维以上的方向导数解法？很抱歉，方向导数就是服务于二元和三元函数的，再以上就不再是方向导数的解法了。</em></p>
+<h2 id="梯度下降是什么"><a href="#梯度下降是什么" class="headerlink" title="梯度下降是什么"></a>梯度下降是什么</h2><p>经过复习，聪明的你应该能够明白，所谓梯度下降即是：</p>
+<ul>
+<li><p>从图像的意义上来看，就可以总结为：任意选取一个落脚点，然后搜索周边看能不能找到更低的落脚点。这个点不出意外的话应该在梯度方向的反方向上。</p>
+</li>
+<li><p>从数学的意义上来看，就可以总结为：任意选取<strong>损失函数</strong>上的一个点，一步一步寻找区域极值，并坚信其中一个极值是全域最小值，逐渐逼近使得<strong>损失函数</strong>的值最小的点。</p>
+</li>
+</ul>
+<p><em>数学的角度听起来有点贪心算法的味道了？有一说一，确实。当然，不出意外的话，极值中确实会有最值；只不过时常会有意外，也就是说，最值不在极值中，而是在边界。</em></p>
+<p>“<strong>不识庐山真面目，只缘身在此山中</strong>”。这也正是贪心算法的“贪心”所在啊，偏偏想要<strong>使用最少的次数碰运气似的找到最优解</strong>。实际上，你朝梯度的反方向看到的“<strong>最低点</strong>”，也仅仅是通过一般的数学计算才出现的<strong>预测的点</strong>，实际最低点甚至可能出现在<strong>任何地方</strong>。虽然异常的尴尬，但这也正是贪心算法想要解决的，不是么？起码7位数的数据遍历起来实在是有点难受啊……</p>
+<h2 id="为什么选择梯度下降"><a href="#为什么选择梯度下降" class="headerlink" title="为什么选择梯度下降"></a>为什么选择梯度下降</h2><p>这个方法不仅用于线性方程求解，而且还适用于机器学习的很多个领域。找到代价函数最小值和各维度的值，同时找出根据很多自变量变化的因变量拟合函数，可以在非常多的方面说明问题，比如<strong>决策</strong>、<strong>推荐</strong>、<strong>预测</strong>、<strong>分类</strong>等等。</p>
+<p>其实最重要的是，他能够用比较低的时间复杂度找到最好的一个解。这对于信息爆炸式增长的今天是非常有必要的。中国14亿人，就算只有一半的网民，也是7亿的并发量；面对这7亿用户的偏好分析，实在是等不起十几天慢慢磨出一份精简的报告。</p>
+<h2 id="怎么做才能梯度下降"><a href="#怎么做才能梯度下降" class="headerlink" title="怎么做才能梯度下降"></a>怎么做才能梯度下降</h2><p>好了，现在开始进入正题：梯度下降的步骤。</p>
+<p>我们先不要弄得太复杂，还是老例子：</p>
+<blockquote>
+<p>时间回溯到你研究猫娘食量那会。你确确实实拿到了20万数据，每个数据都是以（年龄，食量）这样的坐标形式出现。这看起来没什么问题，只不过你突然发现猫娘们的食量增长速度在成年之后随着年龄的增长而不断趋于平稳，成年之前却疯狂增长。你觉得线性方程不再适用。这样的函数你似乎希望是对数函数，可是这是不是因为有其他因素的影响？</p>
+<p>于是，你凭着对猫娘疯狂的热爱，开始了第二波数据收集。这次你拿到了年龄(age)、身高(height)、体重(weight)和食量(quantity)四个数据，构成了函数$Q=f(a,h,w)$。因为这次涉及了三个维度和一个自变量，虽然复杂了很多，但也勉强能够画出来。</p>
+<p><del>你凭着自己的性癖</del>……你随机选择了一位猫娘，将她的数据使用矩阵形式记录了下来：</p>
+<script type="math/tex; mode=display">neko_0=\left[\begin{matrix}
+  a_0\\h_0\\w_0
+\end{matrix}\right]</script><p>紧接着，下一个数据就是：</p>
+<script type="math/tex; mode=display">neko_1=\left[\begin{matrix}
+  a_1\\h_1\\w_1
+\end{matrix}\right]
+=\left[\begin{matrix}
+  a_0\\h_0\\w_0
+\end{matrix}\right]
+-\eta\left[\begin{matrix}
+{\partial f(a_0,h_0,w_0)\over\partial a}\\
+{\partial f(a_0,h_0,w_0)\over\partial h}\\
+{\partial f(a_0,h_0,w_0)\over\partial w}
+\end{matrix}\right]</script><p>当然，<code>neko_1</code>是有实际数值的，而使用<code>学习率</code>、<code>neko_0</code>和损失函数的偏导数计算出来的<code>neko_1</code>并不是真实的数据，造成两者的不同有两个原因，就是<strong>方差</strong>和<strong>偏差</strong>。</p>
+<p>3<br>4<br>5<br>6<br>78<br>9<br>0</p>
+</blockquote>
 
       
     </div>
@@ -527,7 +575,7 @@ var _hmt = _hmt || [];
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.sakebow.cn/2020/07/02/JavaScript/Vue/Vue%E9%92%A9%E5%AD%90%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/" title="Vue钩子的一点小坑">http://www.sakebow.cn/2020/07/02/JavaScript/Vue/Vue%E9%92%A9%E5%AD%90%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8F%E5%9D%91/</a>
+    <a href="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" title="梯度下降">http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -542,7 +590,7 @@ var _hmt = _hmt || [];
       
         <div class="post-tags">
           
-            <a href="/tags/Vue/" rel="tag"> <i class="fa fa-tag"></i> Vue</a>
+            <a href="/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/" rel="tag"> <i class="fa fa-tag"></i> 算法模型</a>
           
         </div>
       
@@ -555,8 +603,8 @@ var _hmt = _hmt || [];
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/06/Java/JVM/JVM%E5%B0%8F%E5%B7%A5%E5%85%B7/" rel="next" title="JVM小工具简介">
-                <i class="fa fa-chevron-left"></i> JVM小工具简介
+              <a href="/2020/07/26/hexo/hexo%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93%E5%99%A8/" rel="next" title="Hexo添加数学公式渲染器">
+                <i class="fa fa-chevron-left"></i> Hexo添加数学公式渲染器
               </a>
             
           </div>
@@ -564,10 +612,6 @@ var _hmt = _hmt || [];
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/07/hardware/%E7%AC%94%E8%AE%B0%E6%9C%AC%E6%8B%86%E6%9C%BA%E5%88%9D%E4%BD%93%E9%AA%8C/" rel="prev" title="笔记本拆机初体验">
-                笔记本拆机初体验 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -778,7 +822,7 @@ var _hmt = _hmt || [];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正常的写法"><span class="nav-number">2.</span> <span class="nav-text">正常的写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不一样的写法"><span class="nav-number">3.</span> <span class="nav-text">不一样的写法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方向导数和梯度"><span class="nav-number">2.</span> <span class="nav-text">方向导数和梯度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降是什么"><span class="nav-number">3.</span> <span class="nav-text">梯度下降是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择梯度下降"><span class="nav-number">4.</span> <span class="nav-text">为什么选择梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么做才能梯度下降"><span class="nav-number">5.</span> <span class="nav-text">怎么做才能梯度下降</span></a></li></ol></div>
             
 
           </div>
