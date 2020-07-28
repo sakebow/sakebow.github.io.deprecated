@@ -95,8 +95,9 @@
 <meta property="og:site_name" content="Sakebow的小博客">
 <meta property="og:description" content="导读你可能又觉得梯度下降是一个完全没有接触过的新词。不过放心，依然能对上。">
 <meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%BC%94%E7%A4%BA.jpg">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%A2%AF%E5%BA%A6%E8%AF%B4%E6%98%8E%E5%9B%BE.png">
 <meta property="article:published_time" content="2020-07-26T15:23:00.000Z">
-<meta property="article:modified_time" content="2020-07-27T16:57:40.379Z">
+<meta property="article:modified_time" content="2020-07-28T14:13:42.105Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="算法模型">
 <meta name="twitter:card" content="summary">
@@ -435,7 +436,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.9k字
+                  3.3k字
                 </span>
               
 
@@ -451,7 +452,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6分钟
+                  12分钟
                 </span>
               
             </div>
@@ -484,15 +485,19 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>这就是“<strong>下降</strong>”，而<strong>梯度</strong>则是选择一条<strong>最优下降方向</strong>的参考。</p>
 <p>所以问题来了，怎么样才能选出<strong>最优下降方向</strong>？如果就只是找遍目力所及的所有落脚点、计算落差，这样当然可行，但是代价太大。所以，我们在这里将使用一定的<strong>数学方法</strong>推算出来。</p>
-<p>首先对于在平面$D$上具有连续一阶偏导数的二元函数$z=f(x,y)$上的任意一点，都有一个向量：</p>
+<p>首先对于在平面$D$（<em>海平面</em>）上具有连续一阶偏导数的二元函数$z=f(x,y)$（<em>山高计算式</em>）上的任意一点，都有一个向量：</p>
 <script type="math/tex; mode=display">\vec{grad}f(x,y)=\{\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}\}</script><p>又由于方向导数：</p>
 <script type="math/tex; mode=display">\vec{f_L}(x_0,y_0)=({\partial f\over\partial x},{\partial f\over\partial y})\cdot(cos\theta,sin\theta)</script><p>所以，不难得出：</p>
 <blockquote>
-<p>方向导数是二元函数$z=f(x,y)$在各个方向上的变化量，而当方向导数最大的时候，必定是方向导数和梯度方向重合的时候。而方向导数最大时，函数增长最快；反之亦然，方向导数最大时的反方向函数减少最快。</p>
+<p>方向导数是二元函数$z=f(x,y)$在各个方向上的变化量，而当方向导数最大的时候，必定是方向导数和梯度方向重合的时候。而<strong>方向导数最大时</strong>，<strong>函数增长最快</strong>；反之亦然，<strong>方向导数最大时的反方向函数减少最快</strong>。</p>
 <p>也就是说，我们在下山的时候唯一需要注意的就是：寻找梯度。</p>
-<p>当然我们还有一些需要注意的细节，<strong>下山的速度</strong>就是其中之一，它有个学术名称叫做<strong>学习率（<em><code>learning rate</code></em>）</strong>，多记为$\eta$。当学习率提高的时候，下山的速率就非常快，很快你就会达到一个区域最优解；而学习率降低的时候，下山速率就非常低，只不过这样的话你能够找到更多的落脚点，从而一定程度上减少了陷入局部最优解的可能。</p>
 </blockquote>
-<p><em>不过呢，三维我们还能勉强想象，但是拓展到四维、五维等超越3个维度的坐标系是，作为三次元的我们将无法想象那样的存在。所以，我们目前所能做的极限就是讨论二元变量的关系了。有没有三维以上的方向导数解法？很抱歉，方向导数就是服务于二元和三元函数的，再以上就不再是方向导数的解法了。</em></p>
+<p>当然我们还有一些需要注意的细节，<strong>下山的速度</strong>就是其中之一，它有个学术名称叫做<strong>学习率（<em><code>learning rate</code></em>）</strong>，多记为$\eta$。当学习率提高的时候，下山的速率就非常快，很快你就会达到一个区域最优解，但也可能因为步长太大忽略了某个关键点甚至可能导致不收敛；而学习率降低的时候，下山速率就非常低，只不过这样的话你能够找到更多的落脚点，从而一定程度上减少了陷入局部最优解的可能。</p>
+<p>拿下面这个图举个例子：</p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/梯度说明图.png" alt="梯度说明"></p>
+<p>很清楚地看到，在$x\in(0,1)$和$x\in(4,5)$的时候，函数下降速度和上升速度都非常快，这个时候可以<strong>适当减少学习率</strong>，就像是<strong>单机FPS游戏里放慢步伐寻找隐藏点</strong>一样，避免错过了任何一个细节。但是过小的步伐会导致收敛速度非常慢，一直再重复无效的学习；而在$x\in(1,4)$的时候，函数不管是上升还是下降都非常缓慢，基本没有什么起伏，可以<strong>适当加快步伐</strong>，就像是<strong>GalGame二刷回收CG</strong>一样，只抓重点，忽略细节。但是过大的步伐会导致你忽略掉$x\in(3,4)$的极值点。</p>
+<p>总的来说，<strong>步长小了可能会陷入局部最优解；而步长大了可能会离最优解越来越远，最终得出错误的结果</strong>。</p>
+<p><em>不过呢，三维我们还能勉强想象，但是拓展到四维、五维等超越3个维度的坐标系时，作为三次元的我们将无法想象那样的存在。所以，我们目前所能做的极限就是讨论三元变量的关系了。有没有三维以上的方向导数解法？当然有，本篇说明的就是<strong>通用解法</strong>，只不过对于三维以上的数据就<strong>无法说明几何意义</strong>了。</em></p>
 <h2 id="梯度下降是什么"><a href="#梯度下降是什么" class="headerlink" title="梯度下降是什么"></a>梯度下降是什么</h2><p>经过复习，聪明的你应该能够明白，所谓梯度下降即是：</p>
 <ul>
 <li><p>从图像的意义上来看，就可以总结为：任意选取一个落脚点，然后搜索周边看能不能找到更低的落脚点。这个点不出意外的话应该在梯度方向的反方向上。</p>
@@ -508,7 +513,10 @@ var _hmt = _hmt || [];
 <p>我们先不要弄得太复杂，还是老例子：</p>
 <blockquote>
 <p>时间回溯到你研究猫娘食量那会。你确确实实拿到了20万数据，每个数据都是以（年龄，食量）这样的坐标形式出现。这看起来没什么问题，只不过你突然发现猫娘们的食量增长速度在成年之后随着年龄的增长而不断趋于平稳，成年之前却疯狂增长。你觉得线性方程不再适用。这样的函数你似乎希望是对数函数，可是这是不是因为有其他因素的影响？</p>
-<p>于是，你凭着对猫娘疯狂的热爱，开始了第二波数据收集。这次你拿到了年龄(age)、身高(height)、体重(weight)和食量(quantity)四个数据，构成了函数$Q=f(a,h,w)$。因为这次涉及了三个维度和一个自变量，虽然复杂了很多，但也勉强能够画出来。</p>
+<p>于是，你凭着对猫娘疯狂的热爱，开始了第二波数据收集。这次你拿到了年龄(age)、身高(height)、体重(weight)和食量(quantity)四个数据，构成了函数$Q=f(a,h,w)$。</p>
+</blockquote>
+<p>这次涉及了三个维度和一个自变量，虽然复杂了很多，但也勉强能够画出来。只不过梯度下降的图像意义便不再是<strong>下山</strong>了，而是构建一个平面或者瞄准某一个中心。</p>
+<blockquote>
 <p><del>你凭着自己的性癖</del>……你随机选择了一位猫娘，将她的数据使用矩阵形式记录了下来：</p>
 <script type="math/tex; mode=display">neko_0=\left[\begin{matrix}
   a_0\\h_0\\w_0
@@ -520,12 +528,92 @@ var _hmt = _hmt || [];
   a_0\\h_0\\w_0
 \end{matrix}\right]
 -\eta\left[\begin{matrix}
-{\partial f(a_0,h_0,w_0)\over\partial a}\\
-{\partial f(a_0,h_0,w_0)\over\partial h}\\
-{\partial f(a_0,h_0,w_0)\over\partial w}
-\end{matrix}\right]</script><p>当然，<code>neko_1</code>是有实际数值的，而使用<code>学习率</code>、<code>neko_0</code>和损失函数的偏导数计算出来的<code>neko_1</code>并不是真实的数据，造成两者的不同有两个原因，就是<strong>方差</strong>和<strong>偏差</strong>。</p>
-<p>3<br>4<br>5<br>6<br>78<br>9<br>0</p>
+{\partial\over\partial a} f(a_0,h_0,w_0)\\
+{\partial\over\partial h} f(a_0,h_0,w_0)\\
+{\partial\over\partial w} f(a_0,h_0,w_0)
+\end{matrix}\right]</script></blockquote>
+<p>当然，$neko_1$是有实际数值的，而使用<code>学习率</code>、$neko_0$和<code>损失函数的偏导数</code>计算出来的$neko_1$并不是真实的数据。那么使用哪一个数据？当然是都使用。因为现在猫娘的食量和年龄变成了非线性关系，也就是说在<strong>x取值范围同样长的情况下</strong>，不同取值范围中函数的<strong>变化量不一样</strong>，部分密集，部分稀疏。所以应对<strong>密集部分</strong>我们需要<strong>加大学习率</strong>，尽快过渡到稀疏部分，从而减少重复学习的时间；应对<strong>稀疏部分</strong>我们要<strong>减少学习率</strong>，尽量避免忽略了重要区间的情况。</p>
+<blockquote>
+<p>好了，现在你通过数学计算拿到了$neko_1$，于是你准备获取$neko_2$。同样的，代入公式：</p>
+<script type="math/tex; mode=display">neko_2=\left[\begin{matrix}
+  a_2\\h_2\\w_2
+\end{matrix}\right]
+=\left[\begin{matrix}
+  a_1\\h_1\\w_1
+\end{matrix}\right]
+-\eta\left[\begin{matrix}
+{\partial\over\partial a} f(a_1,h_1,w_1)\\
+{\partial\over\partial h} f(a_1,h_1,w_1)\\
+{\partial\over\partial w} f(a_1,h_1,w_1)
+\end{matrix}\right]</script><p>经过一番辛苦，你也得出来了这个数据。但是你实在算不下去了，虽然对猫娘包含热情，但是在完全机械的计算过程中，再怎么高涨的热情都会逐渐被消耗殆尽。于是你希望计算机能够帮助运算，便大致写下了一串伪代码：</p>
+<p><code>repeat until convergence {</code></p>
+<script type="math/tex; mode=display">\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+:=
+\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+-\eta
+\left[\begin{matrix}
+  {\partial\over\partial a} f(a_i,h_i,w_i)\\
+  {\partial\over\partial h} f(a_i,h_i,w_i)\\
+  {\partial\over\partial w} f(a_i,h_i,w_i)
+\end{matrix}\right]</script><p><code>}</code></p>
 </blockquote>
+<p><em>伪代码中<code>=</code>和<code>:=</code>略有区别，分别是<strong>相等</strong>和<strong>赋值</strong>的意思</em></p>
+<p>这样看似乎没有什么大问题，但是在实际代码实现中，我们尤其需要注意一个很难注意到的细节：</p>
+<p><strong>这个矩阵形式的写法意味着$a_i$、$h_i$、$w_i$是同步更新的！！！</strong></p>
+<p><strong>这个矩阵形式的写法意味着$a_i$、$h_i$、$w_i$是同步更新的！！！</strong></p>
+<p><strong>这个矩阵形式的写法意味着$a_i$、$h_i$、$w_i$是同步更新的！！！</strong></p>
+<p>重要的事情说三遍！如果不是同步的话，<strong>错误的梯度下降</strong>伪代码将会变成这样：</p>
+<blockquote>
+<p><code>repeat until convergence {</code></p>
+<script type="math/tex; mode=display">
+ temp_a={\partial\over\partial a} f(a_i,h_i,w_i)\cdots①\\
+ a_i = temp_a\\
+ temp_h={\partial\over\partial h} f(a_i,h_i,w_i)\cdots②\\
+ \ldots</script><p><code>}</code></p>
+</blockquote>
+<p>注意到了吗？①式和②式中，$a_i$的值不同了！这是严重的逻辑错误！</p>
+<p><strong>正确的梯度下降</strong>伪代码就应该是这样：</p>
+<blockquote>
+<p><code>repeat until convergence {</code></p>
+<script type="math/tex; mode=display">
+ temp_a=a_i-\eta{\partial\over\partial a} f(a_i,h_i,w_i)\\
+ temp_h=h_i-\eta{\partial\over\partial h} f(a_i,h_i,w_i)\\
+ temp_w=w_i-\eta{\partial\over\partial w} f(a_i,h_i,w_i)\\
+ a_i = temp_a\\
+ h_i = temp_h\\
+ w_i = temp_w</script><p><code>}</code></p>
+</blockquote>
+<p><strong>要么全部修改，要么全不修改</strong>。像极了数据库的<strong>原子性</strong>不是么？</p>
+<p><em>在说明时我强调了是<strong>错误的梯度下降伪代码</strong>，而不是<strong>错误的伪代码</strong>，这是因为这本来就是一种正确的算法，但不是梯度下降，而是一种其他的什么代码。这就要各位读者继续读下去来寻找正确答案了。</em></p>
+<p>没错，这就是通用解法，无论多少维，用这个矩阵解法都会有一个结果。随着学习的进行，导数或者偏导数都会逐渐变化，$\eta$也应当随之而变化。</p>
+<h2 id="一个尴尬的细节"><a href="#一个尴尬的细节" class="headerlink" title="一个尴尬的细节"></a>一个尴尬的细节</h2><p>好了，到了这里，相信各位读者对梯度下降也有一定的了解了。那么，各位有没有注意到一个小小的细节：<strong>我们是为什么需要根据一定的步长移动</strong>？其实是基于“<strong>最初随机选到的点并不是极值点</strong>”这一前提下展开的。那么我们就极端一点，最初就那么运气不好，选到了极值点，会怎么样呢？很显然，极值点的导数或偏导数都是0，最终我们的计算式也就化简成为了：</p>
+<script type="math/tex; mode=display">\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+:=
+\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+-\eta
+\left[\begin{matrix}
+  {\partial\over\partial a} f(a_i,h_i,w_i)\\
+  {\partial\over\partial h} f(a_i,h_i,w_i)\\
+  {\partial\over\partial w} f(a_i,h_i,w_i)
+\end{matrix}\right]
+=
+\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+-\eta\times0=
+\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]</script><p>也就是说在这里我们将原地踏步。如果这里并不是全域最优解，而是局部最优解，我们也就像一开始介绍梯度下降是所说的一样：<strong>陷入局部最优解</strong>。这也正是<strong>步长过小</strong>造成的<strong>必然结果</strong>。</p>
+<p>很尴尬，也很无奈。当然办法还是有的，也就是<strong>贪心算法</strong>。这就依靠大家打怪升级之后解锁新篇章了，这里只介绍这么多有关梯度的内容。</p>
+<p>是不是有点能理解了呢？</p>
 
       
     </div>
@@ -822,7 +910,7 @@ var _hmt = _hmt || [];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方向导数和梯度"><span class="nav-number">2.</span> <span class="nav-text">方向导数和梯度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降是什么"><span class="nav-number">3.</span> <span class="nav-text">梯度下降是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择梯度下降"><span class="nav-number">4.</span> <span class="nav-text">为什么选择梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么做才能梯度下降"><span class="nav-number">5.</span> <span class="nav-text">怎么做才能梯度下降</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方向导数和梯度"><span class="nav-number">2.</span> <span class="nav-text">方向导数和梯度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降是什么"><span class="nav-number">3.</span> <span class="nav-text">梯度下降是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择梯度下降"><span class="nav-number">4.</span> <span class="nav-text">为什么选择梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么做才能梯度下降"><span class="nav-number">5.</span> <span class="nav-text">怎么做才能梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个尴尬的细节"><span class="nav-number">6.</span> <span class="nav-text">一个尴尬的细节</span></a></li></ol></div>
             
 
           </div>
