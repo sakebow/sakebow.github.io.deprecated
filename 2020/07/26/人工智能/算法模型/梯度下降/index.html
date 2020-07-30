@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%BC%94%E7%A4%BA.jpg">
 <meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%A2%AF%E5%BA%A6%E8%AF%B4%E6%98%8E%E5%9B%BE.png">
 <meta property="article:published_time" content="2020-07-26T15:23:00.000Z">
-<meta property="article:modified_time" content="2020-07-28T14:13:42.105Z">
+<meta property="article:modified_time" content="2020-07-30T08:52:18.207Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="算法模型">
 <meta name="twitter:card" content="summary">
@@ -436,7 +436,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.3k字
+                  3.6k字
                 </span>
               
 
@@ -452,7 +452,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12分钟
+                  13分钟
                 </span>
               
             </div>
@@ -590,6 +590,7 @@ var _hmt = _hmt || [];
 <p><strong>要么全部修改，要么全不修改</strong>。像极了数据库的<strong>原子性</strong>不是么？</p>
 <p><em>在说明时我强调了是<strong>错误的梯度下降伪代码</strong>，而不是<strong>错误的伪代码</strong>，这是因为这本来就是一种正确的算法，但不是梯度下降，而是一种其他的什么代码。这就要各位读者继续读下去来寻找正确答案了。</em></p>
 <p>没错，这就是通用解法，无论多少维，用这个矩阵解法都会有一个结果。随着学习的进行，导数或者偏导数都会逐渐变化，$\eta$也应当随之而变化。</p>
+<p>当然，公式归公式，解法是解法，这两个可以不需要严格意义上保持一致。也就是说，如果$f(a,h,w)$在求导的时候极大地增加了复杂度，就比如$\sqrt{\frac{1+sinx}{1-cosx}}$，我们可以人为地分段、化简，变成方便计算的其他公式，就像吴恩达教授的视频课程中将线性方程$Y=\beta_0+\beta_1x$中待定系数的求解从二次通过求导降为一次。（<em>如果你不清楚为什么是二次，请查看我之前写的<a href="/2020/07/26/人工智能/算法模型/代价函数">代价函数</a>一文</em>）</p>
 <h2 id="一个尴尬的细节"><a href="#一个尴尬的细节" class="headerlink" title="一个尴尬的细节"></a>一个尴尬的细节</h2><p>好了，到了这里，相信各位读者对梯度下降也有一定的了解了。那么，各位有没有注意到一个小小的细节：<strong>我们是为什么需要根据一定的步长移动</strong>？其实是基于“<strong>最初随机选到的点并不是极值点</strong>”这一前提下展开的。那么我们就极端一点，最初就那么运气不好，选到了极值点，会怎么样呢？很显然，极值点的导数或偏导数都是0，最终我们的计算式也就化简成为了：</p>
 <script type="math/tex; mode=display">\left[\begin{matrix}
   a_i\\h_i\\w_i
@@ -614,6 +615,21 @@ var _hmt = _hmt || [];
 \end{matrix}\right]</script><p>也就是说在这里我们将原地踏步。如果这里并不是全域最优解，而是局部最优解，我们也就像一开始介绍梯度下降是所说的一样：<strong>陷入局部最优解</strong>。这也正是<strong>步长过小</strong>造成的<strong>必然结果</strong>。</p>
 <p>很尴尬，也很无奈。当然办法还是有的，也就是<strong>贪心算法</strong>。这就依靠大家打怪升级之后解锁新篇章了，这里只介绍这么多有关梯度的内容。</p>
 <p>是不是有点能理解了呢？</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>在吴恩达教授的课程中，解向量是这么求的：</p>
+<script type="math/tex; mode=display">
+\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+:=
+\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+-\eta
+\left[\begin{matrix}
+  {\partial\over\partial a} f(a_0,h_0,w_0)\\
+  {\partial\over\partial h} f(a_0,h_0,w_0)\\
+  {\partial\over\partial w} f(a_0,h_0,w_0)
+\end{matrix}\right]</script><p>其中在循环之中不停调整$a_0$、$h_0$、$w_0$的值。实际上这么做的核心目的依然是保持同步，只不过用本篇所讲述的方法是普遍都在使用的方法，因为看起来更简洁。</p>
 
       
     </div>
@@ -700,6 +716,10 @@ var _hmt = _hmt || [];
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/29/MySQL/SQL%E5%9F%BA%E7%A1%80/" rel="prev" title="SQL基础">
+                SQL基础 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -802,7 +822,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -910,7 +930,7 @@ var _hmt = _hmt || [];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方向导数和梯度"><span class="nav-number">2.</span> <span class="nav-text">方向导数和梯度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降是什么"><span class="nav-number">3.</span> <span class="nav-text">梯度下降是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择梯度下降"><span class="nav-number">4.</span> <span class="nav-text">为什么选择梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么做才能梯度下降"><span class="nav-number">5.</span> <span class="nav-text">怎么做才能梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个尴尬的细节"><span class="nav-number">6.</span> <span class="nav-text">一个尴尬的细节</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方向导数和梯度"><span class="nav-number">2.</span> <span class="nav-text">方向导数和梯度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降是什么"><span class="nav-number">3.</span> <span class="nav-text">梯度下降是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择梯度下降"><span class="nav-number">4.</span> <span class="nav-text">为什么选择梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么做才能梯度下降"><span class="nav-number">5.</span> <span class="nav-text">怎么做才能梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个尴尬的细节"><span class="nav-number">6.</span> <span class="nav-text">一个尴尬的细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">7.</span> <span class="nav-text">附录</span></a></li></ol></div>
             
 
           </div>

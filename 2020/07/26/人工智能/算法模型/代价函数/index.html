@@ -90,14 +90,14 @@
 
 <meta name="description" content="导读这里将会从一个简单的例子引入话题。例子是一个自变量和一个因变量构成的一元一次函数。因为同时兼顾了有趣和浅显，例子也是相当的乱来，能会意就行，吐槽就免了吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="回归函数和代价函数">
+<meta property="og:title" content="代价函数">
 <meta property="og:url" content="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Sakebow的小博客">
 <meta property="og:description" content="导读这里将会从一个简单的例子引入话题。例子是一个自变量和一个因变量构成的一元一次函数。因为同时兼顾了有趣和浅显，例子也是相当的乱来，能会意就行，吐槽就免了吧。">
 <meta property="og:image" content="https://sakebow.gitee.io/images/background/illust_80183815_20200714_143825.jpg">
 <meta property="og:image" content="https://sakebow.gitee.io/images/background/illust_79288093_20200714_142659.png">
 <meta property="article:published_time" content="2020-07-26T01:27:00.000Z">
-<meta property="article:modified_time" content="2020-07-26T14:56:41.624Z">
+<meta property="article:modified_time" content="2020-07-30T08:52:53.761Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="算法模型">
 <meta name="twitter:card" content="summary">
@@ -147,7 +147,7 @@ var _hmt = _hmt || [];
 </script>
 
 
-  <title>回归函数和代价函数 | Sakebow的小博客</title>
+  <title>代价函数 | Sakebow的小博客</title>
   
 
 
@@ -355,7 +355,7 @@ var _hmt = _hmt || [];
 
         
         
-          <h1 class="post-title" itemprop="name headline">回归函数和代价函数</h1>
+          <h1 class="post-title" itemprop="name headline">代价函数</h1>
         
 
         <div class="post-meta">
@@ -475,7 +475,8 @@ var _hmt = _hmt || [];
       
         <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>这里将会从一个简单的例子引入话题。例子是一个自变量和一个因变量构成的一元一次函数。因为同时兼顾了有趣和浅显，例子也是相当的乱来，能会意就行，吐槽就免了吧。</strong></p>
 <a id="more"></a>
-<h2 id="一个小例子"><a href="#一个小例子" class="headerlink" title="一个小例子"></a>一个小例子</h2><blockquote>
+<h2 id="回归函数"><a href="#回归函数" class="headerlink" title="回归函数"></a>回归函数</h2><p>在说明代价函数前我们先复习回归函数。</p>
+<blockquote>
 <p>现在你突发奇想，想知道<strong>猫娘年龄和猫粮食用量之间的关系</strong>，你跑遍了全世界找了所有的<strong>20万只猫娘</strong>，问到了食量，作了个匿名记录，记下了<strong>年龄</strong>和<strong>食量</strong>的关系，并总结出了一张<strong>散点图</strong>。你看着你家幼小的猫娘，看了看散点表，<strong>预测</strong>出了她这个年龄大概吃多少。当然，你非常疼爱你的猫娘，<strong>不够吃的话肯定还是会加</strong>，<strong>吃不下也会多加调整</strong>。</p>
 <p><img src="https://sakebow.gitee.io/images/background/illust_80183815_20200714_143825.jpg" width="200" alt="pid=143825"></p>
 </blockquote>
@@ -595,7 +596,7 @@ var _hmt = _hmt || [];
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/" title="回归函数和代价函数">http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/</a>
+    <a href="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/" title="代价函数">http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -738,7 +739,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -846,7 +847,7 @@ var _hmt = _hmt || [];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个小例子"><span class="nav-number">2.</span> <span class="nav-text">一个小例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代价函数"><span class="nav-number">3.</span> <span class="nav-text">代价函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归函数"><span class="nav-number">2.</span> <span class="nav-text">回归函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代价函数"><span class="nav-number">3.</span> <span class="nav-text">代价函数</span></a></li></ol></div>
             
 
           </div>
