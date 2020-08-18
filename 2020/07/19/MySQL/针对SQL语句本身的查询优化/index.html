@@ -90,12 +90,12 @@
 
 <meta name="description" content="导读现在项目愈加复杂的需求中越来越离不开数据库了。而实际项目中，查询往往占绝大多数。所以查询的优化是整个项目的关键。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQL查询优化">
-<meta property="og:url" content="http://www.sakebow.cn/2020/07/19/MySQL/SQL%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:title" content="针对SQL语句本身的查询优化">
+<meta property="og:url" content="http://www.sakebow.cn/2020/07/19/MySQL/%E9%92%88%E5%AF%B9SQL%E8%AF%AD%E5%8F%A5%E6%9C%AC%E8%BA%AB%E7%9A%84%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="Sakebow的小博客">
 <meta property="og:description" content="导读现在项目愈加复杂的需求中越来越离不开数据库了。而实际项目中，查询往往占绝大多数。所以查询的优化是整个项目的关键。">
 <meta property="article:published_time" content="2020-07-19T14:24:00.000Z">
-<meta property="article:modified_time" content="2020-07-31T15:14:47.721Z">
+<meta property="article:modified_time" content="2020-08-15T15:42:55.123Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -128,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="http://www.sakebow.cn/2020/07/19/MySQL/SQL查询优化/"/>
+  <link rel="canonical" href="http://www.sakebow.cn/2020/07/19/MySQL/针对SQL语句本身的查询优化/"/>
 
 
 
@@ -144,7 +144,7 @@ var _hmt = _hmt || [];
 </script>
 
 
-  <title>SQL查询优化 | Sakebow的小博客</title>
+  <title>针对SQL语句本身的查询优化 | Sakebow的小博客</title>
   
 
 
@@ -335,7 +335,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sakebow.cn/2020/07/19/MySQL/SQL%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/">
+    <link itemprop="mainEntityOfPage" href="http://www.sakebow.cn/2020/07/19/MySQL/%E9%92%88%E5%AF%B9SQL%E8%AF%AD%E5%8F%A5%E6%9C%AC%E8%BA%AB%E7%9A%84%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sakebow">
@@ -352,7 +352,7 @@ var _hmt = _hmt || [];
 
         
         
-          <h1 class="post-title" itemprop="name headline">SQL查询优化</h1>
+          <h1 class="post-title" itemprop="name headline">针对SQL语句本身的查询优化</h1>
         
 
         <div class="post-meta">
@@ -405,8 +405,8 @@ var _hmt = _hmt || [];
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/07/19/MySQL/SQL%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/07/19/MySQL/SQL%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/" itemprop="commentsCount"></span>
+                <a href="/2020/07/19/MySQL/%E9%92%88%E5%AF%B9SQL%E8%AF%AD%E5%8F%A5%E6%9C%AC%E8%BA%AB%E7%9A%84%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/07/19/MySQL/%E9%92%88%E5%AF%B9SQL%E8%AF%AD%E5%8F%A5%E6%9C%AC%E8%BA%AB%E7%9A%84%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -478,7 +478,7 @@ var _hmt = _hmt || [];
 <h2 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a><code>FROM</code></h2><p>我们将会把<code>FROM</code>后面跟着的所有的表全部加载到内存。听起来是为了方便筛选数据，但是这么做对于海量数据的表将会是毁灭性的。就单纯的像学生管理系统的学生表，涉及姓名、密码、民族、政治面貌、入学时间、毕业时间、奖惩记录等等可能上百个字段，几万行数据，相当的消耗内存。如果真的是联立表，推荐使用<code>JOIN</code>进行联立。</p>
 <h2 id="JOIN-amp-ON"><a href="#JOIN-amp-ON" class="headerlink" title="JOIN&amp;ON"></a><code>JOIN</code>&amp;<code>ON</code></h2><p><code>ON</code>将会在联立两个表的数据之前仅加载一张表的数据，然后另一张表通过一定的条件合并到第一张表中，相对于直接联立会减小很多压力。所以，本例中的<code>SQL</code>语句可以修改为：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> 手办表.对应人物, 手办表.服饰, 手办表.价格, 番剧表.番剧名称, 番剧表.出场人物</span><br><span class="line"><span class="keyword">FROM</span> 番剧表</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> 手办表</span><br><span class="line"><span class="keyword">ON</span> 手办表.对应人物 = 番剧表.出场人物</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> 手办表.对应人物, 手办表.服饰, 手办表.价格, 番剧表.番剧名称, 番剧表.出场人物</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> 手办表.价格 <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
-<p>实际查询的数据两者是一样的。实际上两者在查询时间上也略有区别，但是这里数据实在太少，区别不明显。如果是查询中国街道表将会有非常明显的变化。</p>
+<p>虽然在本例中查询出来的结果是一样的，但是查询过程略有不同：<code>LEFT JOIN</code>会保留左表所有数据，即使没有匹配成功也会显示，<code>RIGHT JOIN</code>则是保留右表；两者在查询时间上也略有区别，但是这里数据实在太少，区别不明显。如果是查询中国街道表将会有非常明显的变化。</p>
 <h2 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a><code>WHERE</code></h2><p><code>WHERE</code>作为筛选条件，虽然说没有非常明显的优化方式，但是还是想说：尽量少用字符串作为匹配条件。在匹配的时候往往会整个串遍历，时间复杂度最少也是<code>KMP</code>算法的$O(m+n)$，而数字则为$O(1)$，相对来说会少一个复杂度。不过如果字符串很短，例如学号、教工号这类不超过15个字符的就随意了。</p>
 <h2 id="GROUP-BY-amp-HAVING"><a href="#GROUP-BY-amp-HAVING" class="headerlink" title="GROUP BY&amp;HAVING"></a><code>GROUP BY</code>&amp;<code>HAVING</code></h2><p><code>GROUP BY</code>和<code>HAVING</code>作为分组条件没有什么可以优化的了，只能说根据业务需求进行调整。</p>
 <h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a><code>SELECT</code></h2><p><code>SELECT</code>将会从内存中选择列，这没什么争议。但是如果使用<code>*</code>作为属性列表将会让系统首先查找哪些字段符合条件，是极其消耗资源的方法。哪怕表内几百的字段都是需要查询的，最好也要一个个写上去。</p>
@@ -543,7 +543,7 @@ var _hmt = _hmt || [];
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.sakebow.cn/2020/07/19/MySQL/SQL%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/" title="SQL查询优化">http://www.sakebow.cn/2020/07/19/MySQL/SQL%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/</a>
+    <a href="http://www.sakebow.cn/2020/07/19/MySQL/%E9%92%88%E5%AF%B9SQL%E8%AF%AD%E5%8F%A5%E6%9C%AC%E8%BA%AB%E7%9A%84%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/" title="针对SQL语句本身的查询优化">http://www.sakebow.cn/2020/07/19/MySQL/%E9%92%88%E5%AF%B9SQL%E8%AF%AD%E5%8F%A5%E6%9C%AC%E8%BA%AB%E7%9A%84%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -686,7 +686,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -697,7 +697,7 @@ var _hmt = _hmt || [];
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -708,7 +708,7 @@ var _hmt = _hmt || [];
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
