@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="算法模型," />
+  <meta name="keywords" content="建模工具," />
 
 
 
@@ -88,19 +88,19 @@
 
 
 
-<meta name="description" content="导读当然，本篇完全有理由和我之前写的梯度下降一文并在一起。但是，我还是觉得应当单独拉出来。前一篇梯度下降仅仅只是针对梯度下降的原理和流程作了一些阐释，用三个维度的例子说明了一个通用解法。而这里才是实际应用的具体表现，同时也包含很多小技巧。从这里开始，就是动真格的了！">
+<meta name="description" content="导读终于，使用Ubuntu系统的我遇到了最尴尬的问题：建模工具Matlab没有linux发行版。虽然可以使用wine勉强跑起来，但毕竟不是运行在Windows内核下，所以往往有很多事情都非常尴尬。所以，我看上了这一款：octave。不仅支持Ubuntu，还能够兼容Matlab，是非常不错的替代品。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多元梯度函数的梯度下降">
-<meta property="og:url" content="http://www.sakebow.cn/2020/08/01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%A4%9A%E5%85%83%E6%A2%AF%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/index.html">
+<meta property="og:title" content="建模工具：octave">
+<meta property="og:url" content="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7%EF%BC%9Aoctave/index.html">
 <meta property="og:site_name" content="Sakebow的小博客">
-<meta property="og:description" content="导读当然，本篇完全有理由和我之前写的梯度下降一文并在一起。但是，我还是觉得应当单独拉出来。前一篇梯度下降仅仅只是针对梯度下降的原理和流程作了一些阐释，用三个维度的例子说明了一个通用解法。而这里才是实际应用的具体表现，同时也包含很多小技巧。从这里开始，就是动真格的了！">
-<meta property="og:image" content="https://sakebow.gitee.io/images/emoji/fuck-off.jpg">
-<meta property="article:published_time" content="2020-08-01T03:25:00.000Z">
-<meta property="article:modified_time" content="2020-08-27T04:25:13.326Z">
+<meta property="og:description" content="导读终于，使用Ubuntu系统的我遇到了最尴尬的问题：建模工具Matlab没有linux发行版。虽然可以使用wine勉强跑起来，但毕竟不是运行在Windows内核下，所以往往有很多事情都非常尴尬。所以，我看上了这一款：octave。不仅支持Ubuntu，还能够兼容Matlab，是非常不错的替代品。">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/octave%E7%95%8C%E9%9D%A2.png">
+<meta property="article:published_time" content="2020-07-26T15:23:00.000Z">
+<meta property="article:modified_time" content="2020-09-02T16:23:43.586Z">
 <meta property="article:author" content="Sakebow">
-<meta property="article:tag" content="算法模型">
+<meta property="article:tag" content="建模工具">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://sakebow.gitee.io/images/emoji/fuck-off.jpg">
+<meta name="twitter:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/octave%E7%95%8C%E9%9D%A2.png">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="http://www.sakebow.cn/2020/08/01/人工智能/算法模型/多元梯度函数的梯度下降/"/>
+  <link rel="canonical" href="http://www.sakebow.cn/2020/07/26/人工智能/算法模型/建模工具：octave/"/>
 
 
 
@@ -146,7 +146,7 @@ var _hmt = _hmt || [];
 </script>
 
 
-  <title>多元梯度函数的梯度下降 | Sakebow的小博客</title>
+  <title>建模工具：octave | Sakebow的小博客</title>
   
 
 
@@ -337,7 +337,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sakebow.cn/2020/08/01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%A4%9A%E5%85%83%E6%A2%AF%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">
+    <link itemprop="mainEntityOfPage" href="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7%EF%BC%9Aoctave/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sakebow">
@@ -354,7 +354,7 @@ var _hmt = _hmt || [];
 
         
         
-          <h1 class="post-title" itemprop="name headline">多元梯度函数的梯度下降</h1>
+          <h1 class="post-title" itemprop="name headline">建模工具：octave</h1>
         
 
         <div class="post-meta">
@@ -366,8 +366,8 @@ var _hmt = _hmt || [];
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-01T11:25:00+08:00">
-                2020-08-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-26T23:23:00+08:00">
+                2020-07-26
               </time>
             
 
@@ -407,8 +407,8 @@ var _hmt = _hmt || [];
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/08/01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%A4%9A%E5%85%83%E6%A2%AF%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/08/01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%A4%9A%E5%85%83%E6%A2%AF%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" itemprop="commentsCount"></span>
+                <a href="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7%EF%BC%9Aoctave/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7%EF%BC%9Aoctave/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -435,7 +435,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k字
+                  1.3k字
                 </span>
               
 
@@ -451,7 +451,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7分钟
+                  5分钟
                 </span>
               
             </div>
@@ -472,89 +472,84 @@ var _hmt = _hmt || [];
       
 
       
-        <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>当然，本篇完全有理由和我之前写的<a href="/2020/07/26/人工智能/算法模型/梯度下降/">梯度下降</a>一文并在一起。但是，我还是觉得应当单独拉出来。前一篇<a href="/2020/07/26/人工智能/算法模型/梯度下降/">梯度下降</a>仅仅只是针对梯度下降的原理和流程作了一些阐释，用三个维度的例子说明了一个通用解法。而这里才是实际应用的具体表现，同时也包含很多小技巧。从这里开始，就是动真格的了！</strong></p>
+        <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>终于，使用<code>Ubuntu</code>系统的我遇到了最尴尬的问题：建模工具<code>Matlab</code>没有<code>linux</code>发行版。虽然可以使用<code>wine</code>勉强跑起来，但毕竟不是运行在<code>Windows</code>内核下，所以往往有很多事情都非常尴尬。所以，我看上了这一款：<code>octave</code>。不仅支持<code>Ubuntu</code>，还能够兼容<code>Matlab</code>，是非常不错的替代品。</strong></p>
 <a id="more"></a>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>当然，还是那个海拔图，有高有低，有近有远。你要做的，就是从山顶上下山。环顾四周，一跳接一跳地往山下走。</p>
-<h2 id="代价函数的确定"><a href="#代价函数的确定" class="headerlink" title="代价函数的确定"></a>代价函数的确定</h2><p>当然，代价函数就是我们需要训练的目标函数。只要代价函数最小，我们最后训练的结果就会接近事实。</p>
-<p>可是，光是二元函数构成的三维图就已经包含了很多的不确定性，陷入局部最优解、收敛慢、内存溢出……这都是很无奈但是可控的问题。不如我们逆转过来：既然没有便利，就创造便利。</p>
-<p>这里就还是用你的猫娘作为例子，但是这次代入了更多自变量：</p>
-<blockquote>
-<p>你再次收集了20万猫娘的信息，包括年龄（<code>age</code>）、体重（<code>weight</code>）、身高（<code>height</code>）、最大跳跃距离（<code>distence</code>）、胸围（<code>bust</code>）、腰围（<code>waist</code>）、臀围（<code>hip</code>）、基础社会科学考试分数（<code>score</code>）……</p>
+<h2 id="界面展示"><a href="#界面展示" class="headerlink" title="界面展示"></a>界面展示</h2><p>先看看<code>octave</code>的软件界面，体验一下吧。</p>
+<p><img src="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/octave%E7%95%8C%E9%9D%A2.png" alt="octave界面"></p>
+<p>可以看到左边由上至下依次是：文件目录、工作空间和历史记录，而左边则是命令行界面。</p>
+<p>是不是非常熟悉？没错，这简直不能再像<code>Matlab</code>了。即使顶部功能菜单并没有<code>Matlab</code>那么丰富，却也足够了。</p>
+<h2 id="更换命令行"><a href="#更换命令行" class="headerlink" title="更换命令行"></a>更换命令行</h2><p>如果你有丰富的<code>shell</code>编程经验，那么你应该对这个<code>&gt;&gt;</code>非常熟悉。<code>Matlab</code>使用的是<code>&gt;&gt;</code>，<code>MySQL</code>使用的是<code>&gt;</code>，<code>sqlplus</code>（<em><code>Oracle</code></em>）使用的是<code>&gt;</code>，<code>Python</code>使用的是<code>&gt;&gt;&gt;</code>，<code>Ubuntu</code>普通用户使用的是<code>$</code>，<code>Ubuntu</code>超管使用的是<code>#</code>……</p>
+<p>如果说你用惯了想要换，还是可以的。直接输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 这段字符串复制自我的Ubuntu终端</span></span><br><span class="line">PS1("sakebow@Lenovo-V310-14IKB:~$ ")</span><br></pre></td></tr></table></figure>
+<p>这样就能够保持和终端一模一样的风格了。当然为了区分也可以改称其他的，比如</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ……懂的都懂……</span></span><br><span class="line">PS1("お兄ちゃん、頑張るね、大好きだよ❤　")</span><br></pre></td></tr></table></figure>
+<h2 id="清空矩阵"><a href="#清空矩阵" class="headerlink" title="清空矩阵"></a>清空矩阵</h2><p>在<code>Ubuntu</code>系统中你可以直接使用<code>Ctrl+L</code>清空命令行。所有的指令会存在历史记录<code>Command History</code>栏内</p>
+<p>当然你也可以输入<code>clc</code>并回车就能够清空命令行</p>
+<h2 id="快速矩阵"><a href="#快速矩阵" class="headerlink" title="快速矩阵"></a>快速矩阵</h2><blockquote>
+<p>这些<code>Octave</code>内置的快速矩阵摘自摘自<a href="https://www.youtube.com/watch?v=X0xLTKRWPgo&amp;list=PL1A2CSdiySGJ6oZe6" target="_blank" rel="noopener">油土鳖上一位印度阿三的教程</a>（英语略微有一些咖喱味，但已经很不错了）</p>
 </blockquote>
-<p>虽然可能还有很多指标，但是现在就先列举这8项。是不是觉得非常的麻烦？而且这下我们连图都画不出来了，甚至无法想象8个自变量如何构成一个解空间，更无法想象涉及8个自变量的函数将会是怎样一个扭曲的形态。</p>
-<p>行，套公式嘛，<strong>矩阵求解</strong>。</p>
-<h2 id="函数化简"><a href="#函数化简" class="headerlink" title="函数化简"></a>函数化简</h2><blockquote>
-<p>你整理出了一张含有$n$行数据的表，其中每一行数据都代表一只猫娘的所有收集到的信息，所以你为每一行整理了一个矩阵：</p>
-<script type="math/tex; mode=display">\left[\begin{matrix}
-age_i（岁） \\weight_i（千克）\\height_i（米）\\distance_i（米）\\bust_i（厘米）\\waist_i（厘米）\\hip_i（厘米）
-\end{matrix}\right],i\in\{1,2,3,\ldots,n\}</script></blockquote>
-<p><strong>这里插播一句：</strong></p>
-<p><em>因为面对这样一个生物，对于科研人员来说就是个名副其实的黑匣子：什么都不知道，只知道输入和输出。所以在确定函数关系式的时候相当的麻烦。所以往往是一个个变量分析，优先找出一个个独立不相关的变量，然后分析相关变量的影响。这里就完全不是拟合算法能够做到的了，而是来自不同领域的科研人员齐心协力研究发现最终的出来的结果。这里因为赌的成分过高，并且和梯度下降并没有什么直接的关系，所以直接跳过。现在就直接跳到你找到了每个自变量的精确幂指数和对数底数以及对应的线性关系的情况。</em></p>
-<blockquote>
-<p>然后你又双叒叕凭着你对猫娘的热爱找出了这8个变量的大致关系：</p>
 <script type="math/tex; mode=display">
-y=f(age,weight,height,distance,bust,waist,hip)\\
-\Downarrow\\
-y=\epsilon+\alpha_1a+\alpha_2weight^2+\alpha_3height+\alpha_4d^3+\frac{\alpha_5}{3}(b^2+waist^2+hip^2)</script><p>其中，</p>
-<script type="math/tex; mode=display">\epsilon,\alpha_1,\alpha_2,\alpha_3,\alpha_4,\alpha_5\in\mathbb{R}</script></blockquote>
-<p><em>如果你还有印象，那么你应该记得$\epsilon$服从正态分布$N(0,\sigma^2)$，是随机误差。在一开始决定各种自变量的系数的时候往往会先忽视这个小东西，然后在全部得出结果之后加上以保证函数能够兼容一些“<strong>偶然</strong>”</em></p>
-<blockquote>
-<p>看到这样群魔乱舞的函数，你感觉到背脊发凉。完全没办法想象的解空间、完全无法想象的图形走向，更不用说最终目标的图像意义都无法解释……（<em>当然，这里是为了节目效果如此设计的</em>。）</p>
-<p>这没难倒你。你把式子化为<strong>矩阵</strong>形式表达，就变成了这样：</p>
-<script type="math/tex; mode=display">
-y=\left[\begin{matrix}
-  1&\alpha_1&\alpha_2&\alpha_3&\alpha_4&\alpha_5\over3&\alpha_5\over3&\alpha_5\over3
-\end{matrix}
-\right]\times\left[\begin{matrix}
-\epsilon\\age\\weight^2\\height\\distance^3\\bust^2\\waist^2\\hip^2
-\end{matrix}\right]\\
-\Downarrow\\y=
-\left[\begin{matrix}
-  1&\alpha_1&\alpha_2&\alpha_3&\alpha_4&\alpha_5\over3&\alpha_5\over3&\alpha_5\over3
-\end{matrix}
-\right]\\
-\times
-\left[\begin{matrix}
-  \epsilon\\age\\weight\\height\\distance\\bust\\waist\\hip
-\end{matrix}
-\right]\\
-\times
-\left[\begin{matrix}
-  \epsilon\\&1\\&&weight\\&&&height\\&&&&distance\\&&&&&bust\\&&&&&&waist\\&&&&&&&hip
-\end{matrix}
-\right]\\
-\times
-\left[\begin{matrix}
-  1\\&1\\&&1\\&&&1\\&&&&distance\\&&&&&1\\&&&&&&1\\&&&&&&&1
-\end{matrix}
-\right]</script></blockquote>
-<p><em>由于版面问题，这个公式只能勉强这么写着了……</em></p>
-<p><img src="https://sakebow.gitee.io/images/emoji/fuck-off.jpg" width="150" /></p>
-<p>先不管版面了，若稍微简化一些，我们发现系数和幂指数<strong>完全相同</strong>的$bust$、$waist$和$hip$可以<strong>合并</strong>为一个变量$\eta_1$。</p>
-<blockquote>
-<p>再简化一些，更抽象一些，那就成为了：</p>
-<script type="math/tex; mode=display">y=\alpha^T\eta</script><p>其中，$\alpha$是待定系数的矩阵，而$\eta$则是自变量经过各自合适变化之后的矩阵，即：</p>
-<script type="math/tex; mode=display">
-\alpha^T=\left[\begin{matrix}
-  \alpha_1&\alpha_2\cdots\alpha_n
-\end{matrix}\right]_n,\\
-\eta=\left[\begin{matrix}
-  \eta_1\\\eta_2\\\vdots\\\eta_n
-\end{matrix}\right]_n,</script><p>而$\eta_i$则能代表很多，可以是$x_i$，也可以是$(x_i+x_{i+1})^2$等等。</p>
-</blockquote>
-<p>到这里，也就只是单纯的将变量合并，将复杂的公式变成简单易懂的矩阵向量，强行转成2个矩阵维度的<strong>解空间</strong>。当然，我们还是想象不到，只不过大致可以理解为某种类似$x$轴和$y$轴的神奇坐标轴在帮助我们标记位置。这么一想的话，就算是不能想象数轴的样子，也能够想象出解空间是个什么样了，而我们最终要求的目标函数最小值大概也能模模糊湖地猜出来在哪。</p>
-<h2 id="目标函数最终展开"><a href="#目标函数最终展开" class="headerlink" title="目标函数最终展开"></a>目标函数最终展开</h2><p>但是你发现，到这里还是和上次讲到的梯度下降没有区别。没错，后面还有内容。</p>
-<p>由于我们已经将目标函数改成了多元一次函数，所以，我们需要将目标函数彻底展开成为级数的形式，方便我们进一步设计算法。</p>
-<p>还记得我们最初的公式么？</p>
-<script type="math/tex; mode=display">\beta_i=\beta_i-\frac{\alpha}{m}\sum^n_{i=1}(f(x_i)-y_i)^2</script><p>我们的目标就是让$\frac{1}{m}\sum^n_{i=1}(f(x_i)-y_i)^2$尽可能地小。那么问题就简单了，针对这个函数分析就好了。另：</p>
-<script type="math/tex; mode=display">\phi(\beta)=\frac{1}{m}\sum^n_{i=1}(f(x_i)-y_i)^2</script><p>求个导：</p>
-<script type="math/tex; mode=display">\dot{\phi(\beta)}=\frac{2}{m}\sum^n_{i=1}[f(x_i)-y_i]\dot{f(x_i)}</script><p>这里最核心的部分就是$\dot{f(x_i)}$的理解。首先，我们寻找的是有关系数的函数，所以在这里的自变量是$\beta$，所以求导的时候不应当是已经知道具体数值的$x_i$，而是完全未知的$\beta_i$，故求导结果为$x_i$。即：</p>
-<script type="math/tex; mode=display">\dot{\phi(\beta)}=\frac{2}{m}\sum^n_{i=1}[\dot{f(x_i)}-y_i]x_i</script><p>为了求导不要新增太多没有意义的单项式或多项式，所以我们将系数$2$删掉，也就是将目标函数改为：</p>
-<script type="math/tex; mode=display">\phi(\beta)=\frac{1}{2m}\sum^n_{i=1}(f(x_i)-y_i)^2</script><p>这也就是吴恩达教授的课程中一直使用的函数的由来。求导之后就是：</p>
-<script type="math/tex; mode=display">\dot{\phi(\beta)}=\frac{1}{m}\sum^n_{i=1}[f(x_i)-y_i]x_i</script><p>简单多了，不是么？</p>
-<p>所以我们进而修改一下机器学习的算法：</p>
-<script type="math/tex; mode=display">\theta_j=\theta_j-\frac{\alpha}{m}\sum^n_{i=1}[f(x_i)-y_i]x_i</script><p>到这，似乎就对计算机来说非常的方便了。</p>
-<h2 id="theta-0-和-x-0"><a href="#theta-0-和-x-0" class="headerlink" title="$\theta_0$和$x_0$"></a>$\theta_0$和$x_0$</h2><p>对于一些课程中，你一定会遇到加设待定常数$\theta_0$和固定初始参数$x_0=1$的教师。为什么要这么做？我个人认为和数列添加初项是一样的。有些算法并不能很好地概括初项，所以强行加上去方便计算机处理。有些非常巧合的数列能够不需要初项，这就看怎么处理了。</p>
+ones(n, m) = \left[
+  \begin{matrix}
+    1, \cdots, 1\\\vdots\\
+    1, \cdots, 1
+  \end{matrix}
+\right]_{n\times m}
+\\
+zeros(n, m) = \left[
+  \begin{matrix}
+    0, \cdots, 0\\\vdots\\
+    0, \cdots, 0
+  \end{matrix}
+\right]_{n\times m}
+\\
+eye(n) = \left[
+  \begin{matrix}
+    1, 0, 0, \cdots, 0\\
+    0, 1, 0, \cdots, 0\\
+    0, 0, 1, \cdots, 0\\\vdots\\
+    0, 0, 0, \cdots, 1
+  \end{matrix}
+\right]_n = E
+\\
+eye(n, n + 1) = \left[
+  \begin{matrix}
+    1, 0, 0, \cdots, 0, 0\\
+    0, 1, 0, \cdots, 0, 0\\
+    0, 0, 1, \cdots, 0, 0\\\vdots\\
+    0, 0, 0, \cdots, 1, 0
+  \end{matrix}
+\right]_{n\times(n+1)}
+\\</script><p>而<code>rand(n,m)</code>则是生成<strong>n行m列</strong>的<strong>均匀分布随机数矩阵</strong>（<em>uniformly random matrix</em>），每个数字都是<strong>介于0到1之间的7位小数</strong>，且每个数字出现概率服从均匀分布$U(0, 1)$；</p>
+<p><code>randn(n,m)</code>是生成一共<strong>n列m行</strong>的<strong>正态分布随机数矩阵</strong>（<em>normally random matrix</em>），每个数字服从正态分布$N(0, 1)$。乍一看这组数据毫无特点，实际上是$P(\mu-\sigma&lt;x&lt;\mu+\sigma)\approx0.6826$。这也就说明了为什么数字里面会有<strong>大于$1$和小于$-1$的数字了</strong></p>
+<h2 id="矩阵构造"><a href="#矩阵构造" class="headerlink" title="矩阵构造"></a>矩阵构造</h2><p>在<code>C</code>、<code>C++</code>、<code>Java</code>、<code>C#</code>等等语言中构造矩阵永远是一个很难受的工程，拿<code>Java</code>中的<code>List&lt;List&lt;?&gt;&gt;</code>来说，向其中添加元素是一项无比复杂的工程。</p>
+<p>而在<code>octave</code>和<code>Matlab</code>中，就只需要使用</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; s = [<span class="number">1</span>, <span class="number">2</span>; <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">s = </span><br><span class="line">  <span class="number">1</span> <span class="number">2</span></span><br><span class="line">  <span class="number">3</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p>在这里你可以使用<strong>逗号</strong>作为分割符，也可以仅用<strong>空格</strong>作为分割符。</p>
+<p>当然，我们还有矩阵的选择：</p>
+<ul>
+<li><code>S(m, n)</code>是选取矩阵<code>S</code>中<strong>第m行第n列</strong>的一个元素</li>
+<li><code>S(m, [x, y, z])</code>是选择矩阵中<strong>第m行第x、y、z列</strong>的一共三个元素。如果还需要添加元素则在<code>[]</code>内追加</li>
+<li><em>下方冒号表达式继续介绍</em></li>
+</ul>
+<h2 id="冒号表达式"><a href="#冒号表达式" class="headerlink" title="冒号表达式"></a>冒号表达式</h2><p>如果你熟悉<code>C</code>、<code>C++</code>、<code>Java</code>、<code>C#</code>等等（<em><code>Python</code>除外</em>），你应该会经常使用到冒号表达式，即是：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输出该学生是否可以购买打折的火车票</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; 学生.学生证 === null ? <span class="string">"火车票不能打折"</span> : <span class="string">"火车票可以打折"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p>但是在<code>octave</code>和<code>Matlab</code>就完全不一样了。冒号表达式会这么用：<code>[step:]start:end</code>，即创建一个从<code>start</code>到<code>end</code>的数组，其中每个数字之间间隔<code>step</code>，默认<code>step</code>值为1，即依次递增。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; s = <span class="number">1</span> : <span class="number">5</span></span><br><span class="line">&gt;&gt; <span class="built_in">ans</span> =</span><br><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span>]</span><br><span class="line">&gt;&gt; </span><br><span class="line">&gt;&gt; s = <span class="number">2</span>:<span class="number">2</span>:<span class="number">10</span></span><br><span class="line">&gt;&gt; <span class="built_in">ans</span> =</span><br><span class="line">[<span class="number">2</span> <span class="number">4</span> <span class="number">6</span> <span class="number">8</span> <span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+<p>当然冒号不止这一个用途。刚刚我们说了矩阵的构造，在矩阵中冒号还能够用作选择器。</p>
+<p>我们在选择矩阵中元素的时候会使用一个<strong>数组</strong>作为范围，而如果这个范围<strong>正好</strong>可以用冒号表示的时候，就可以是这样：</p>
+<ul>
+<li><p><code>S(m, [start : end])</code>，也就是说选取<strong>第m行从start开始到end结束的所有元素</strong></p>
+</li>
+<li><p>如果没有规定<code>start</code>和<code>end</code>，也就像是：<code>S(m, :)</code>，那么就是选取<strong>第m行一整行</strong></p>
+</li>
+</ul>
+<h2 id="其他数学函数"><a href="#其他数学函数" class="headerlink" title="其他数学函数"></a>其他数学函数</h2><ul>
+<li><code>ceil(x)</code> - 取比x大的第一个最近的整数，即向上取整</li>
+<li><code>floor(x)</code> - 取比x小的第一个最近的整数，即向下取整</li>
+<li><code>round(x)</code> - 取距离x最近的一个整数。如果$x=0.7$，则结果为$1$；如果$x=0.3$，则结果为$0$</li>
+<li><code>max(x)</code> / <code>min(x)</code> - 取一个数组中最大/最小的数。<em>但是在官方给的说明里面指明的是vector，也就是说这个函数同样适用于矩阵、向量等等</em></li>
+</ul>
 
       
     </div>
@@ -604,7 +599,7 @@ y=\left[\begin{matrix}
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.sakebow.cn/2020/08/01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%A4%9A%E5%85%83%E6%A2%AF%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" title="多元梯度函数的梯度下降">http://www.sakebow.cn/2020/08/01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%A4%9A%E5%85%83%E6%A2%AF%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</a>
+    <a href="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7%EF%BC%9Aoctave/" title="建模工具：octave">http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7%EF%BC%9Aoctave/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -619,7 +614,7 @@ y=\left[\begin{matrix}
       
         <div class="post-tags">
           
-            <a href="/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/" rel="tag"> <i class="fa fa-tag"></i> 算法模型</a>
+            <a href="/tags/%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7/" rel="tag"> <i class="fa fa-tag"></i> 建模工具</a>
           
         </div>
       
@@ -632,8 +627,8 @@ y=\left[\begin{matrix}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7%EF%BC%9Aoctave/" rel="next" title="建模工具：octave">
-                <i class="fa fa-chevron-left"></i> 建模工具：octave
+              <a href="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="next" title="梯度下降">
+                <i class="fa fa-chevron-left"></i> 梯度下降
               </a>
             
           </div>
@@ -642,8 +637,8 @@ y=\left[\begin{matrix}
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/08/06/diary/%E5%9B%9E%E8%80%81%E5%AE%B6%E7%9A%84%E5%9B%9B%E5%A4%A9%E5%81%87%E6%9C%9F/" rel="prev" title="回老家的四天假期">
-                回老家的四天假期 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/08/01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%A4%9A%E5%85%83%E6%A2%AF%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="prev" title="多元梯度函数的梯度下降">
+                多元梯度函数的梯度下降 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -855,7 +850,7 @@ y=\left[\begin{matrix}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代价函数的确定"><span class="nav-number">3.</span> <span class="nav-text">代价函数的确定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数化简"><span class="nav-number">4.</span> <span class="nav-text">函数化简</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标函数最终展开"><span class="nav-number">5.</span> <span class="nav-text">目标函数最终展开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#theta-0-和-x-0"><span class="nav-number">6.</span> <span class="nav-text">$\theta_0$和$x_0$</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#界面展示"><span class="nav-number">2.</span> <span class="nav-text">界面展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更换命令行"><span class="nav-number">3.</span> <span class="nav-text">更换命令行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清空矩阵"><span class="nav-number">4.</span> <span class="nav-text">清空矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速矩阵"><span class="nav-number">5.</span> <span class="nav-text">快速矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵构造"><span class="nav-number">6.</span> <span class="nav-text">矩阵构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒号表达式"><span class="nav-number">7.</span> <span class="nav-text">冒号表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他数学函数"><span class="nav-number">8.</span> <span class="nav-text">其他数学函数</span></a></li></ol></div>
             
 
           </div>
