@@ -96,8 +96,18 @@
 <meta property="og:description" content="导读终于，使用Ubuntu系统的我遇到了最尴尬的问题：建模工具Matlab没有linux发行版。虽然可以使用wine勉强跑起来，但毕竟不是运行在Windows内核下，所以往往有很多事情都非常尴尬。所以，我看上了这一款：octave。不仅支持Ubuntu，还能够兼容Matlab，是非常不错的替代品。">
 <meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/octave%E7%95%8C%E9%9D%A2.png">
 <meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/octave%E4%BF%9D%E5%AD%98%E6%95%B0%E6%8D%AE.png">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E6%9C%AC%E6%8A%98%E7%BA%BF%E5%9B%BE.png">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9B%B4%E6%8D%A2%E6%A0%B7%E5%BC%8F.png">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9B%B4%E6%8D%A2%E9%A2%9C%E8%89%B2.png">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%95%A3%E7%82%B9%E5%9B%BE.png">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9F%B1%E7%8A%B6%E5%9B%BE.png">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AD%89%E9%AB%98%E7%BA%BF.png">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9E%81%E5%9D%90%E6%A0%87.png">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%9E%BA%E6%97%8B%E7%BA%BF.png">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E9%A5%BC%E7%8A%B6%E5%9B%BE.png">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AA%81%E5%87%BA%E9%83%A8%E5%88%86%E5%85%83%E7%B4%A0%E7%9A%84%E9%A5%BC%E5%9B%BE.png">
 <meta property="article:published_time" content="2020-07-26T15:23:00.000Z">
-<meta property="article:modified_time" content="2020-09-03T15:13:00.581Z">
+<meta property="article:modified_time" content="2020-09-11T10:43:11.839Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="建模工具">
 <meta name="twitter:card" content="summary">
@@ -436,7 +446,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.4k字
+                  4.1k字
                 </span>
               
 
@@ -452,7 +462,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9分钟
+                  15分钟
                 </span>
               
             </div>
@@ -539,6 +549,7 @@ eye(n, n + 1) = \left[
 <ul>
 <li><code>[A B]</code>像是<code>[1 2]</code>，将两个数字横着拼起来</li>
 <li><code>[A; B]</code>则是<code>[1; 2]</code>，将两个数字竖着拼起来</li>
+<li><code>A&#39;</code>是矩阵的转置，就是$A^T$</li>
 </ul>
 <p>当然，我们还有矩阵的选择：</p>
 <ul>
@@ -585,6 +596,58 @@ eye(n, n + 1) = \left[
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 创建临时文件</span></span><br><span class="line">f = tmpfile</span><br><span class="line"><span class="comment">% 将变量存入临时文件</span></span><br><span class="line">save f variable</span><br><span class="line"><span class="comment">% &#123;</span></span><br><span class="line">  拿同名变量处理一大堆事情</span><br><span class="line">&#125; <span class="comment">%</span></span><br><span class="line"><span class="comment">% 读取临时文件</span></span><br><span class="line">load f</span><br><span class="line"><span class="comment">% 这个时候同名变量就被覆盖了</span></span><br></pre></td></tr></table></figure>
 <p>打个比方的话，就像是<code>C</code>语言的<strong>局部变量</strong>和<strong>全局变量</strong>一样。</p>
 <p>当然，这只是一个非常极端的例子，我们强烈建议各小组之间事先商量好再码字，正如<code>SpringBoot</code>所倡导的：“<strong>约束大于业务</strong>”、“<strong>习惯大于编码</strong>”</p>
+<h2 id="统计图绘制"><a href="#统计图绘制" class="headerlink" title="统计图绘制"></a>统计图绘制</h2><p>统计图必定是有数据支持的，但是现在没有数据……那么就随机生成吧：<code>rand(1, 100)</code>。于是工作空间中就有了<code>ans</code>这个变量，同时还有了一个共<strong>1行</strong>、<strong>100列</strong>的矩阵，也就是数组。</p>
+<p>然后，我们就画图：<code>plot(ans)</code>，于是产生了一个很简单的折线图：</p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/基本折线图.png" alt="最简单的折线图"></p>
+<p>因为是随机生成的数字，所以也看不出什么规律。</p>
+<p>你可能会有点惊讶，为什么明明只有<code>ans</code>一个变量，谈不上所谓因变量和自变量，他是怎么画出来的？实际上这里是将<strong>下标</strong>作为横坐标、<strong><code>ans</code>的值</strong>作为纵坐标画出来的。</p>
+<h2 id="统计图绘制样式"><a href="#统计图绘制样式" class="headerlink" title="统计图绘制样式"></a>统计图绘制样式</h2><p>如果说你不需要折线图，而是散点图，那么就更改绘图样式吧：<code>plot(ans, &#39;*&#39;)</code></p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/更换样式.png" alt="把折线图换成散点图"></p>
+<p>当然你觉得<code>*</code>不太美观的话也可以换成中文的<code>·</code>（<em>中文输入下波浪线按钮不加<code>shift</code></em>）或者日文的<code>・</code>（<em>日文输入下问号按钮不加<code>shift</code></em>）</p>
+<p>为了防止很多图像看混了，可以使用不同的颜色标记：<code>plot(ans, &#39;1&#39;)</code></p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/更换颜色.png" alt="更改颜色"></p>
+<p>各种各样的数字代表了各种各样的<strong>颜色</strong>，而各种各样的字符代表了各种各样的<strong>描点</strong>。</p>
+<p>如果你什么都不写，那么默认就是使用<code>-</code>，也就是折线图。</p>
+<h2 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h2><p>好吧，用<code>plot</code>画出来的散点图多少还是有点点奇怪。那么我们干脆用专门画散点图的方法：<code>scatter</code>。</p>
+<p>还是一样的，我们拿到了一组数据：<code>x = randn(1, 100)</code>，另外我们再来一组数据：<code>y = randn(1, 100)</code>，然后画出随机散点图：</p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/散点图.png" alt="散点图"></p>
+<p>同样的，我们能够使用家参数的方式改变图像的样式：<code>scatter(x, y, &#39;*&#39;)</code>。只不过这里支持的字符就比较少了，经测试似乎仅支持将圆圈更换为<code>*</code>。</p>
+<h2 id="柱状图"><a href="#柱状图" class="headerlink" title="柱状图"></a>柱状图</h2><p>柱状图也是一种重要的工具，在统计总数并比较多条数据的差值时用得多。就比如100个服从正态分布的随机数构成的柱状图中，能够清晰地看出各个概率之间分布的差值：</p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/柱状图.png" alt="柱状图"></p>
+<p>我们知道，$P(0-1&lt;x&lt;0+1)\approx0.6826$，所以数据比较倾向于向$(-1, 1)$这个区间集中。</p>
+<h2 id="等高线"><a href="#等高线" class="headerlink" title="等高线"></a>等高线</h2><p>就像是地理的等高线、电磁场的等势线一样，存在的目的就是为了说明哪一段是数值上相等的。在绘制的时候，我们需要提供一个至少<strong>两行两列</strong>的矩阵，然后就由<code>contour</code>方法寻找矩阵中值算出等高线。</p>
+<p>比如对于$ans=\left[\begin{matrix}1&amp;2\\3&amp;4\\5&amp;6\\7&amp;8\end{matrix}\right]$这个矩阵画出来的等高线就是<code>contour(ans)</code>：</p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/等高线.png" alt="等高线"></p>
+<h2 id="极坐标"><a href="#极坐标" class="headerlink" title="极坐标"></a>极坐标</h2><p>高中我们认识并狠狠地练习了<strong>极坐标</strong>这些题目，所以我们就直接从最简短的开始：$\rho=2\cos\theta$。相信你很清楚这个等式可以化为$x^2+y^2=x$，是以$(1,0)$为圆心、$1$为半径的圆。</p>
+<p>那么就确定两个变量：<code>p = linspace(0, 1)</code>和<code>o = linspace(0, 2 * pi)</code></p>
+<p><em>注：linspace(x, y) = x:0.01:y，即从x到y中每隔0.01取一个点</em></p>
+<p>然后，画极坐标：polar(p, o)</p>
+<p>就出现了这样的图：</p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/极坐标.png" alt="极坐标"></p>
+<p>似乎和我们平常见到的直角坐标系不一样。不过没有关系，是不是在很多影视作品中看到类似的？<strong>雷达</strong>嘛。在战场上，你发送了敌机的$(x, y, z)$坐标，<strong>这谁懂啊</strong>。干脆点，报哪个方向方向多少度，往那打。这种情况下极坐标比直角坐标好用多了。</p>
+<p>还有其他很有意思的：比如我们将刚刚的<code>p</code>和<code>o</code>调换一下位置，就成了螺旋线。</p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/螺旋线.png" alt="螺旋线"></p>
+<h2 id="饼状图"><a href="#饼状图" class="headerlink" title="饼状图"></a>饼状图</h2><p>饼状图只是为了查看占比，所以大批量的随机数在这里并不适合作为样本。所以这里就随机生成三个数：<code>ans = randn(1, 3)</code></p>
+<p><em>由于饼状图是组内比较，所以只能使用一组数据，即<strong>行向量</strong>或者<strong>列向量</strong>作为参数。如果生成<code>ans = randn(10, 10)</code>作为样本则会报错。使用时还请注意。</em></p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/饼状图.png" alt="饼状图"></p>
+<p>可以看到，<code>octave</code>拿到数据之后立马进行了权重的计算，最终得出了这个结果。所以我们在实际实验中就只需要把数据整理成<strong>行向量</strong>或者<strong>列向量</strong>传入，<code>octave</code>就能够在一定程度上。</p>
+<p>既然饼状图是查看一个部分或者多个部分的占比，为了让图片更清晰，就可以让一些部分联系起来。</p>
+<p>时间回溯到你收集猫娘数据的那些日子（<del>别吐槽了，听就是了</del>）</p>
+<p>你了解到全世界的猫娘们的年龄从0岁开始往上的数量依次是<code>neko = [16247, 18752, 19165, 17251, 11471, 18714, 10961, 5428, 13725, 8715, 10031, 13298, 8715, 9716, 4562, 9612, 3610]</code>（<em>随手瞎打的</em>）。你想清晰地看出在0到3岁的猫娘占比，于是你使用第二个参数：<code>explode</code>。这个参数应当是一个数组。如果数值为0，则会与下一个块区相接；而如果非0，即使是负数也会明显分开。</p>
+<p>于是我们为了清晰地看出0到3岁的小猫娘的数量，我们使用<code>pie (neko, [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])</code>，就会产生这样的效果：</p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/突出部分元素的饼图.png" alt="突出部分元素"></p>
+<p>可以看到，设置为非零的前三个部分被分开了，占比$8\%+9\%+10\%=27\%$。这是不是比不突出任何元素的饼图看起来更直观呢？</p>
+<h2 id="选择支"><a href="#选择支" class="headerlink" title="选择支"></a>选择支</h2><p>当然，作为一门高级语言，选择支是必要的。</p>
+<p>如果你是想通过选择支筛选不同年龄段，那么就使用：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> age &lt; <span class="number">3</span>,</span><br><span class="line">  <span class="comment">% filter for age &lt; 3</span></span><br><span class="line"><span class="keyword">elseif</span> age &lt; <span class="number">10</span>,</span><br><span class="line">  <span class="comment">% filter for 3 &lt; age &lt; 10</span></span><br><span class="line"><span class="keyword">else</span>,</span><br><span class="line">  <span class="comment">% filter for age &gt; 10</span></span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+<p>这个逗号估计就是在命令划分的时候不太好识别标志加上的。虽然和<code>Java</code>、<code>Python</code>略有出入，但我相信这绝对有他的道理。</p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p><code>while</code>循环相信各位都熟悉得不能再熟悉了。实际上<code>while</code>和<code>if</code>的用法实际上是一样的。毕竟都是判断条件并转入选择支。唯一的区别估计就是<code>if</code>语句能够接<code>else if</code>和<code>else</code>来筛选不同的条件，而<code>while</code>只能始终选择同一个条件。</p>
+<p><code>for</code>循环和<code>while</code>循环又有着相似之处。</p>
+<p>在<code>while</code>中，你可能会这么写：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="built_in">i</span> &lt; <span class="number">100</span>,</span><br><span class="line">  <span class="comment">% do something</span></span><br><span class="line">  <span class="built_in">i</span>++</span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+<p>而如果是<code>for</code>循环，你可以简化为：</p>
+<p><code>matlab</code></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>如果你是<code>Windows</code>环境下的纯命令行，那么你在执行了上述的画图命令之后，还需要执行<code>hold on</code>命令让图像显示出来，而<code>close</code>命令则是关闭图像。</p>
 
       
     </div>
@@ -885,7 +948,7 @@ eye(n, n + 1) = \left[
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#界面展示"><span class="nav-number">2.</span> <span class="nav-text">界面展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更换命令行"><span class="nav-number">3.</span> <span class="nav-text">更换命令行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Linux的特点"><span class="nav-number">4.</span> <span class="nav-text">基于Linux的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清空矩阵"><span class="nav-number">5.</span> <span class="nav-text">清空矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速矩阵"><span class="nav-number">6.</span> <span class="nav-text">快速矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵构造"><span class="nav-number">7.</span> <span class="nav-text">矩阵构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒号表达式"><span class="nav-number">8.</span> <span class="nav-text">冒号表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个数计算"><span class="nav-number">9.</span> <span class="nav-text">个数计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他数学函数"><span class="nav-number">10.</span> <span class="nav-text">其他数学函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集的导入和导出"><span class="nav-number">11.</span> <span class="nav-text">数据集的导入和导出</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#界面展示"><span class="nav-number">2.</span> <span class="nav-text">界面展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更换命令行"><span class="nav-number">3.</span> <span class="nav-text">更换命令行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Linux的特点"><span class="nav-number">4.</span> <span class="nav-text">基于Linux的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清空矩阵"><span class="nav-number">5.</span> <span class="nav-text">清空矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速矩阵"><span class="nav-number">6.</span> <span class="nav-text">快速矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵构造"><span class="nav-number">7.</span> <span class="nav-text">矩阵构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒号表达式"><span class="nav-number">8.</span> <span class="nav-text">冒号表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个数计算"><span class="nav-number">9.</span> <span class="nav-text">个数计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他数学函数"><span class="nav-number">10.</span> <span class="nav-text">其他数学函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集的导入和导出"><span class="nav-number">11.</span> <span class="nav-text">数据集的导入和导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计图绘制"><span class="nav-number">12.</span> <span class="nav-text">统计图绘制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计图绘制样式"><span class="nav-number">13.</span> <span class="nav-text">统计图绘制样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散点图"><span class="nav-number">14.</span> <span class="nav-text">散点图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#柱状图"><span class="nav-number">15.</span> <span class="nav-text">柱状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#等高线"><span class="nav-number">16.</span> <span class="nav-text">等高线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极坐标"><span class="nav-number">17.</span> <span class="nav-text">极坐标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#饼状图"><span class="nav-number">18.</span> <span class="nav-text">饼状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择支"><span class="nav-number">19.</span> <span class="nav-text">选择支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-number">20.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">21.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
