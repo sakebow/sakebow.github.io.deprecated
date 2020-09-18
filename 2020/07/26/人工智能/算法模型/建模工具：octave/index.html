@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E9%A5%BC%E7%8A%B6%E5%9B%BE.png">
 <meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AA%81%E5%87%BA%E9%83%A8%E5%88%86%E5%85%83%E7%B4%A0%E7%9A%84%E9%A5%BC%E5%9B%BE.png">
 <meta property="article:published_time" content="2020-07-26T15:23:00.000Z">
-<meta property="article:modified_time" content="2020-09-11T14:09:55.306Z">
+<meta property="article:modified_time" content="2020-09-14T08:56:58.708Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="建模工具">
 <meta name="twitter:card" content="summary">
@@ -446,7 +446,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.5k字
+                  5.8k字
                 </span>
               
 
@@ -462,7 +462,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  16分钟
+                  21分钟
                 </span>
               
             </div>
@@ -505,7 +505,7 @@ var _hmt = _hmt || [];
 <h2 id="清空矩阵"><a href="#清空矩阵" class="headerlink" title="清空矩阵"></a>清空矩阵</h2><p>在<code>Ubuntu</code>系统中你可以直接使用<code>Ctrl+L</code>清空命令行。所有的指令会存在历史记录<code>Command History</code>栏内</p>
 <p>当然你也可以输入<code>clc</code>并回车就能够清空命令行</p>
 <h2 id="快速矩阵"><a href="#快速矩阵" class="headerlink" title="快速矩阵"></a>快速矩阵</h2><blockquote>
-<p>这些<code>Octave</code>内置的快速矩阵摘自摘自<a href="https://www.youtube.com/watch?v=X0xLTKRWPgo&amp;list=PL1A2CSdiySGJ6oZe6" target="_blank" rel="noopener">油土鳖上一位印度阿三的教程</a>（英语略微有一些咖喱味，但已经很不错了）</p>
+<p>这些<code>Octave</code>内置的快速矩阵摘自摘自<a href="https://www.youtube.com/watch?v=X0xLTKRWPgo&amp;list=PL1A2CSdiySGJ6oZe6" target="_blank" rel="noopener">油土鳖上一位印度阿三的教程</a>（<em>英语略微有一些咖喱味，但已经很不错了</em>）</p>
 </blockquote>
 <script type="math/tex; mode=display">
 ones(n, m) = \left[
@@ -587,7 +587,7 @@ eye(n, n + 1) = \left[
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">save <span class="built_in">randn</span>.json <span class="built_in">ans</span></span><br></pre></td></tr></table></figure>
 <p>于是就有了如下效果：</p>
 <p><img src="https://sakebow.gitee.io/images/机器学习/octave保存数据.png" alt="保存了十万条随机数"></p>
-<p>但是呢，为了能够更直观地区分各个文件，我们尽可能按照大家默认的规矩来，这里推荐万能的<code>.csv</code>文件。更何况，我这里导出的文件并不符合<code>json</code>文件的编写规范。</p>
+<p>但是呢，为了能够更直观地区分各个文件，我们尽可能按照大家默认的规矩来，这里推荐万能的<code>.csv</code>文件；官方更是推荐使用<code>.mat</code>文件。更何况，我这里导出的文件并不符合<code>json</code>文件的编写规范。</p>
 <p>就像是<code>Java</code>的导包一样，我们会使用<code>import</code>导入一整个<code>jar</code>包。而在<code>octave</code>中，我们将会使用<code>load</code>命令导入文件。</p>
 <p>如果再次使用，我们就使用<code>load</code>命令，即：<code>load randn.dat</code>（<em>我这里是.json</em>）</p>
 <p><strong>看起来很简单？我们再来点奇葩的：</strong></p>
@@ -651,6 +651,29 @@ eye(n, n + 1) = \left[
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> neko = nekos,</span><br><span class="line">  <span class="keyword">if</span> neko.name == <span class="string">'chocola'</span>,</span><br><span class="line">    sprintf(<span class="string">"%i"</span>, neko.id)</span><br><span class="line">    <span class="keyword">continue</span>; <span class="comment">% 强制结束本次循环</span></span><br><span class="line">  <span class="keyword">end</span>;</span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
 <p>有了<code>continue</code>，程序就不会结束，反而是直接结束<code>continue</code>后面的所有步骤，强行结束本次循环。全部显示出来之后我们再对比这些编号是不是我们想要的编号。</p>
 <p>和<code>Java</code>、<code>Python</code>等等有着非常多的相似之处呢。即使完全没接触过<code>matlab</code>，相信你们也能用丰富的编程经验理解用法。</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>函数看起来非常高端，实际上你可以看成多个普通命令的合集。</p>
+<p>函数是有固定的套路的：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> $&#123;<span class="title">variable</span>&#125; = $&#123;<span class="title">function</span> <span class="title">name</span>&#125; <span class="params">($&#123;argument list&#125;)</span></span></span><br><span class="line">  <span class="comment">% to do list</span></span><br><span class="line">endfunction;</span><br></pre></td></tr></table></figure>
+<p>但是你得明白：函数毕竟是一个包含了很多行的整体。如果你使用纯命令行编辑整个函数，一旦某个地方有所疏忽，一运行函数就有可能会报错，然后<strong>整个函数重写</strong>。这是相当考验熟练度、耐心和细心的工作。当然，肯定不会让你有这么难受的体验的。</p>
+<p><code>octave</code>为了能够在数学处理上由所优势，就决定兼容<code>matlab</code>所使用的<code>.m</code>文件。在这个文件中，我们能够使用各种各样的变量记录函数的定义，这样即使出现了错误我们也能够通过错误信息定位到不正确的地方并修改。这样就避免了整个函数重写的惨痛经历。</p>
+<p>如果你只有命令行，或者说只愿意使用命令行，<code>octave</code>也是提供了专门的命令：<code>edit ${file name}</code>。如果是<code>Ubuntu</code>系统，<code>octave</code>将会在<code>~/octave</code>文件夹下创建或者修改文件。在这里尤其注意文件的命名，一方面是因为这样子能够很清晰地弄清楚什么文件保存了什么函数，另一方面也是因为有些文件名是<code>octave</code>内定的<strong>特殊文件</strong>，比如<code>test.m</code>是<code>octave</code>规定的测试文件，其中含有非常多的内置函数和测试函数供用户调用、测试。而如果只是一般的命名就没有什么特殊的，只是会加上很多版权说明，并默认提供一个空函数模板以供用户根据需求修改。</p>
+<p>有点难懂？那我们举个例子，主人公还是那个热爱猫娘的你。这次的你尽了全力也没能收集全所有的数据，有些猫娘一被问到年龄就狠狠地挠你的嘴，有些则因为怕生逃掉了，也有些则在接近之前你就被主人当成可疑人物带走了……总之，你虽然找到了20万只猫娘，却只收集了5000条残缺不全的数据，不是掉了这个就是少了那个。但是该寻找的还是要寻找，那就是查清相同年龄里成绩最好和成绩最差的两只猫娘的信息。</p>
+<p>在写这个函数之前，我们首先明白几个非常重要的点：</p>
+<ul>
+<li><code>octave</code>是以<code>matlab</code>为模板创建的全平台兼容的软件，所以有什么不懂可以直接查询<code>matlab</code>的教程；</li>
+<li><code>octave</code>与<code>matlab</code>非常相似，都是以<code>C</code>为基础搭建的，所以并没有<strong>面向对象编程</strong>的概念，整个程序就是为了<strong>面向过程</strong>而设定的。</li>
+</ul>
+<p>所以，我们如果使用<code>octave</code>处理猫娘们的数据的时候，只能把所有想要的全部<strong>手打</strong>或者<strong>通过脚本筛选</strong>，最终达成只包含需要被处理的部分的、单纯列出所有而不是分类整合的数据集。如果是使用各种各样括号分开的<code>json</code>数据则无法被处理为一个个对象，却只能分成许许多多的单条数据。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 文件名：filter.m</span></span><br><span class="line"><span class="comment">% 从一堆数据中寻找最小的数据</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter_mini</span> = <span class="title">filter</span><span class="params">(x)</span></span></span><br><span class="line">  ret = x(<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">2</span>:<span class="built_in">length</span>(x),</span><br><span class="line">    <span class="keyword">if</span> x(<span class="built_in">i</span>) &lt; ret,</span><br><span class="line">      ret = x(<span class="built_in">i</span>)</span><br><span class="line">    endif;</span><br><span class="line">  endfor;</span><br><span class="line">endfunction;</span><br></pre></td></tr></table></figure>
+<p>在这里需要非常注意的是：<strong>一个文件只能编辑一个函数</strong>，<strong>每个函数的名称必须和文件名保持一致</strong>，否则会报警告：<strong>函数名和文件名不匹配</strong>。调用则是很普通的使用文件名即可，代入参数便能得到结果。</p>
+<p>可是，我要找出猫娘的<code>id</code>啊，你这只能找出分数欸。那就这样，我们先按照猫娘的<code>id</code>顺序排列，我们找出最大和最小的索引，再从这些索引中找出<code>id</code>就好咯。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[low, low_index, high, high_index]</span> = <span class="title">filter</span><span class="params">(x)</span></span></span><br><span class="line">  low = x(<span class="number">1</span>); high = x(<span class="number">1</span>); low_index = <span class="number">0</span>; high_index = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">2</span>:<span class="built_in">length</span>(x),</span><br><span class="line">    <span class="keyword">if</span> x(<span class="built_in">i</span>) &lt; low,</span><br><span class="line">      low = x(<span class="built_in">i</span>)</span><br><span class="line">      low_index = <span class="built_in">i</span></span><br><span class="line">    <span class="keyword">elseif</span> x(<span class="built_in">i</span>) &gt; high,</span><br><span class="line">      high = x(<span class="built_in">i</span>)</span><br><span class="line">      high_index = <span class="built_in">i</span></span><br><span class="line">    endif</span><br><span class="line">  endfor</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+<p>这样看起来没什么问题。但是却依然引出了另一个问题：一旦找出符合<code>if</code>语句的分数，程序就会立马返回并打印，然后你就发现了一大堆数字堆在那里，并只能通过肉眼筛选真正符合条件的数字。如果说明得学术一点，那就是：“<strong>打印出大量的局部最优解，并只能通过肉眼寻找全局最优解</strong>”。是不是很让人抓狂？</p>
+<p>还是有解决办法的。也就是在调用的时候规定返回值：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[a, b, c, d] = filter(param)</span><br></pre></td></tr></table></figure>
+<p>这样的话虽然还是会打印一大堆数字，却能够很明显地看出全局最优解的结果了。</p>
+<p>当然，有函数就一定有错误处理：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[low, low_index, high, high_index]</span> = <span class="title">filter</span><span class="params">(x)</span></span></span><br><span class="line">  <span class="comment">% 如果不是列向量或者行向量，报错。</span></span><br><span class="line">  <span class="keyword">if</span> <span class="built_in">isvector</span>(x),</span><br><span class="line">    error(<span class="string">"filter expects a vector"</span>)</span><br><span class="line">  endif</span><br><span class="line">  low = x(<span class="number">1</span>); high = x(<span class="number">1</span>); low_index = <span class="number">0</span>; high_index = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">2</span>:<span class="built_in">length</span>(x),</span><br><span class="line">    <span class="keyword">if</span> x(<span class="built_in">i</span>) &lt; low,</span><br><span class="line">      low = x(<span class="built_in">i</span>)</span><br><span class="line">      low_index = <span class="built_in">i</span></span><br><span class="line">    <span class="keyword">elseif</span> x(<span class="built_in">i</span>) &gt; high,</span><br><span class="line">      high = x(<span class="built_in">i</span>)</span><br><span class="line">      high_index = <span class="built_in">i</span></span><br><span class="line">    endif</span><br><span class="line">  endfor</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>如果你是<code>Windows</code>环境下的纯命令行，那么你在执行了上面提到的一些画图命令之后，还需要执行<code>hold on</code>命令让图像显示出来，而<code>close</code>命令则是关闭图像。当然，毕竟是<code>Windows</code>窗体程序，你也可以选择点击右上角的<strong>关闭窗口</strong>按钮关掉这张图片。</p>
 
       
@@ -729,8 +752,8 @@ eye(n, n + 1) = \left[
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/26/hexo/hexo%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93%E5%99%A8/" rel="next" title="Hexo添加数学公式渲染器">
-                <i class="fa fa-chevron-left"></i> Hexo添加数学公式渲染器
+              <a href="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="next" title="梯度下降">
+                <i class="fa fa-chevron-left"></i> 梯度下降
               </a>
             
           </div>
@@ -739,8 +762,8 @@ eye(n, n + 1) = \left[
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="prev" title="梯度下降">
-                梯度下降 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/08/01/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%A4%9A%E5%85%83%E6%A2%AF%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9A%84%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="prev" title="多元梯度函数的梯度下降">
+                多元梯度函数的梯度下降 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -844,7 +867,7 @@ eye(n, n + 1) = \left[
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -866,7 +889,7 @@ eye(n, n + 1) = \left[
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -952,7 +975,7 @@ eye(n, n + 1) = \left[
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#界面展示"><span class="nav-number">2.</span> <span class="nav-text">界面展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更换命令行"><span class="nav-number">3.</span> <span class="nav-text">更换命令行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Linux的特点"><span class="nav-number">4.</span> <span class="nav-text">基于Linux的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清空矩阵"><span class="nav-number">5.</span> <span class="nav-text">清空矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速矩阵"><span class="nav-number">6.</span> <span class="nav-text">快速矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵构造"><span class="nav-number">7.</span> <span class="nav-text">矩阵构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒号表达式"><span class="nav-number">8.</span> <span class="nav-text">冒号表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个数计算"><span class="nav-number">9.</span> <span class="nav-text">个数计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他数学函数"><span class="nav-number">10.</span> <span class="nav-text">其他数学函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集的导入和导出"><span class="nav-number">11.</span> <span class="nav-text">数据集的导入和导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计图绘制"><span class="nav-number">12.</span> <span class="nav-text">统计图绘制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计图绘制样式"><span class="nav-number">13.</span> <span class="nav-text">统计图绘制样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散点图"><span class="nav-number">14.</span> <span class="nav-text">散点图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#柱状图"><span class="nav-number">15.</span> <span class="nav-text">柱状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#等高线"><span class="nav-number">16.</span> <span class="nav-text">等高线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极坐标"><span class="nav-number">17.</span> <span class="nav-text">极坐标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#饼状图"><span class="nav-number">18.</span> <span class="nav-text">饼状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择支"><span class="nav-number">19.</span> <span class="nav-text">选择支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-number">20.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">21.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#界面展示"><span class="nav-number">2.</span> <span class="nav-text">界面展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更换命令行"><span class="nav-number">3.</span> <span class="nav-text">更换命令行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Linux的特点"><span class="nav-number">4.</span> <span class="nav-text">基于Linux的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清空矩阵"><span class="nav-number">5.</span> <span class="nav-text">清空矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速矩阵"><span class="nav-number">6.</span> <span class="nav-text">快速矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵构造"><span class="nav-number">7.</span> <span class="nav-text">矩阵构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒号表达式"><span class="nav-number">8.</span> <span class="nav-text">冒号表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个数计算"><span class="nav-number">9.</span> <span class="nav-text">个数计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他数学函数"><span class="nav-number">10.</span> <span class="nav-text">其他数学函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集的导入和导出"><span class="nav-number">11.</span> <span class="nav-text">数据集的导入和导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计图绘制"><span class="nav-number">12.</span> <span class="nav-text">统计图绘制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计图绘制样式"><span class="nav-number">13.</span> <span class="nav-text">统计图绘制样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散点图"><span class="nav-number">14.</span> <span class="nav-text">散点图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#柱状图"><span class="nav-number">15.</span> <span class="nav-text">柱状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#等高线"><span class="nav-number">16.</span> <span class="nav-text">等高线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#极坐标"><span class="nav-number">17.</span> <span class="nav-text">极坐标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#饼状图"><span class="nav-number">18.</span> <span class="nav-text">饼状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择支"><span class="nav-number">19.</span> <span class="nav-text">选择支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-number">20.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">21.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">22.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
