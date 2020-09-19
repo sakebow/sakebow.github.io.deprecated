@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="算法模型," />
+  <meta name="keywords" content="SpringBoot," />
 
 
 
@@ -88,17 +88,19 @@
 
 
 
-<meta name="description" content="导读因为是紧急学习，所以这里将会是无原理速通。实际上这也是在研究生数学建模竞赛中短短的五天内紧急学习的成果。虽然不会有什么高见，但也还是希望各位能够尽可能指正。">
+<meta name="description" content="导读Swagger是为了能够方便对接而产生的框架。在本篇中将会默认大家都有一定的Java Web开发基础和SpringBoot框架使用经验，并在这些基础和经验之上说明一些需要注意的点。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TSNE紧急学习">
-<meta property="og:url" content="http://www.sakebow.cn/2020/09/17/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/TSNE%E7%B4%A7%E6%80%A5%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="Swagger集成小贴士">
+<meta property="og:url" content="http://www.sakebow.cn/2020/09/19/Java/SpringBoot/Swagger%E9%9B%86%E6%88%90%E5%B0%8F%E8%B4%B4%E5%A3%AB/index.html">
 <meta property="og:site_name" content="Sakebow的小博客">
-<meta property="og:description" content="导读因为是紧急学习，所以这里将会是无原理速通。实际上这也是在研究生数学建模竞赛中短短的五天内紧急学习的成果。虽然不会有什么高见，但也还是希望各位能够尽可能指正。">
-<meta property="article:published_time" content="2020-09-17T01:14:00.000Z">
-<meta property="article:modified_time" content="2020-09-18T02:19:08.061Z">
+<meta property="og:description" content="导读Swagger是为了能够方便对接而产生的框架。在本篇中将会默认大家都有一定的Java Web开发基础和SpringBoot框架使用经验，并在这些基础和经验之上说明一些需要注意的点。">
+<meta property="og:image" content="https://sakebow.gitee.io/images/spring-boot-web/%E9%9B%86%E6%88%90SwaggerUI%E5%B9%B6%E8%BF%90%E8%A1%8C.png">
+<meta property="article:published_time" content="2020-09-19T15:35:00.000Z">
+<meta property="article:modified_time" content="2020-09-19T15:55:15.318Z">
 <meta property="article:author" content="Sakebow">
-<meta property="article:tag" content="算法模型">
+<meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sakebow.gitee.io/images/spring-boot-web/%E9%9B%86%E6%88%90SwaggerUI%E5%B9%B6%E8%BF%90%E8%A1%8C.png">
 
 
 
@@ -128,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="http://www.sakebow.cn/2020/09/17/人工智能/算法模型/TSNE紧急学习/"/>
+  <link rel="canonical" href="http://www.sakebow.cn/2020/09/19/Java/SpringBoot/Swagger集成小贴士/"/>
 
 
 
@@ -144,7 +146,7 @@ var _hmt = _hmt || [];
 </script>
 
 
-  <title>TSNE紧急学习 | Sakebow的小博客</title>
+  <title>Swagger集成小贴士 | Sakebow的小博客</title>
   
 
 
@@ -335,7 +337,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sakebow.cn/2020/09/17/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/TSNE%E7%B4%A7%E6%80%A5%E5%AD%A6%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://www.sakebow.cn/2020/09/19/Java/SpringBoot/Swagger%E9%9B%86%E6%88%90%E5%B0%8F%E8%B4%B4%E5%A3%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sakebow">
@@ -352,7 +354,7 @@ var _hmt = _hmt || [];
 
         
         
-          <h1 class="post-title" itemprop="name headline">TSNE紧急学习</h1>
+          <h1 class="post-title" itemprop="name headline">Swagger集成小贴士</h1>
         
 
         <div class="post-meta">
@@ -364,8 +366,8 @@ var _hmt = _hmt || [];
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-17T09:14:00+08:00">
-                2020-09-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-19T23:35:00+08:00">
+                2020-09-19
               </time>
             
 
@@ -387,8 +389,8 @@ var _hmt = _hmt || [];
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" itemprop="url" rel="index">
-                    <span itemprop="name">人工智能</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -405,8 +407,8 @@ var _hmt = _hmt || [];
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/09/17/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/TSNE%E7%B4%A7%E6%80%A5%E5%AD%A6%E4%B9%A0/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/09/17/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/TSNE%E7%B4%A7%E6%80%A5%E5%AD%A6%E4%B9%A0/" itemprop="commentsCount"></span>
+                <a href="/2020/09/19/Java/SpringBoot/Swagger%E9%9B%86%E6%88%90%E5%B0%8F%E8%B4%B4%E5%A3%AB/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/09/19/Java/SpringBoot/Swagger%E9%9B%86%E6%88%90%E5%B0%8F%E8%B4%B4%E5%A3%AB/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -433,7 +435,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  994字
+                  543字
                 </span>
               
 
@@ -449,7 +451,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4分钟
+                  2分钟
                 </span>
               
             </div>
@@ -470,16 +472,19 @@ var _hmt = _hmt || [];
       
 
       
-        <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>因为是紧急学习，所以这里将会是无原理速通。实际上这也是在研究生数学建模竞赛中短短的五天内紧急学习的成果。虽然不会有什么高见，但也还是希望各位能够尽可能指正。</strong></p>
+        <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>Swagger是为了能够方便对接而产生的框架。在本篇中将会默认大家都有一定的<code>Java Web</code>开发基础和<code>SpringBoot</code>框架使用经验，并在这些基础和经验之上说明一些需要注意的点。</strong></p>
 <a id="more"></a>
-<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><p>我们先来看看<a href="https://scikit-learn.org/stable/auto_examples/manifold/plot_t_sne_perplexity.html#sphx-glr-auto-examples-manifold-plot-t-sne-perplexity-py" target="_blank" rel="noopener">一个例子</a></p>
-<p>单纯的贴出所有的代码就没意思了。所以这里我将会用注释的方式来解释这个程序到底在干什么：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Author: Narine Kokhlikyan &lt;narine@slice.com&gt;</span></span><br><span class="line"><span class="comment"># License: BSD</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># print(__doc__) -- 不知道什么用</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导包：numpy，matplotlib，sklearn，time</span></span><br><span class="line"><span class="comment"># 如果你是ubuntu19及以上系统，请使用pip3安装依赖包，因为只内置了pip3</span></span><br><span class="line"><span class="comment"># 如果你是windows或者ubuntu19以下系统，你也可以使用pip下载依赖</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> matplotlib.ticker <span class="keyword">import</span> NullFormatter</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> manifold, datasets</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 确定样本数量和支线数量</span></span><br><span class="line">n_samples = <span class="number">300</span></span><br><span class="line">n_components = <span class="number">2</span></span><br><span class="line"><span class="comment"># 绘制图片，图片中包含3行5列图表，每张图表宽15，长8</span></span><br><span class="line">(fig, subplots) = plt.subplots(<span class="number">3</span>, <span class="number">5</span>, figsize=(<span class="number">15</span>, <span class="number">8</span>))</span><br><span class="line"><span class="comment"># 设置不同的困惑度</span></span><br><span class="line">perplexities = [<span class="number">5</span>, <span class="number">30</span>, <span class="number">50</span>, <span class="number">100</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用sklearn库的make_circles方法生成同心圆</span></span><br><span class="line"><span class="comment"># 其中规定一共n_samples个点，两个圆圈的距离比例为0.5，异常点占比5%</span></span><br><span class="line">X, y = datasets.make_circles(n_samples=n_samples, factor=<span class="number">.5</span>, noise=<span class="number">.05</span>)</span><br><span class="line"><span class="comment"># 如果y是0，记为红色</span></span><br><span class="line">red = y == <span class="number">0</span></span><br><span class="line"><span class="comment"># 如果y是1，记为绿色</span></span><br><span class="line">green = y == <span class="number">1</span></span><br><span class="line"><span class="comment"># 创建多个子图</span></span><br><span class="line">ax = subplots[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"><span class="comment"># </span></span><br><span class="line">ax.scatter(X[red, <span class="number">0</span>], X[red, <span class="number">1</span>], c=<span class="string">"r"</span>)</span><br><span class="line">ax.scatter(X[green, <span class="number">0</span>], X[green, <span class="number">1</span>], c=<span class="string">"g"</span>)</span><br><span class="line">ax.xaxis.set_major_formatter(NullFormatter())</span><br><span class="line">ax.yaxis.set_major_formatter(NullFormatter())</span><br><span class="line">plt.axis(<span class="string">'tight'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, perplexity <span class="keyword">in</span> enumerate(perplexities):</span><br><span class="line">    ax = subplots[<span class="number">0</span>][i + <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    t0 = time()</span><br><span class="line">    tsne = manifold.TSNE(n_components=n_components, init=<span class="string">'random'</span>,</span><br><span class="line">                         random_state=<span class="number">0</span>, perplexity=perplexity)</span><br><span class="line">    Y = tsne.fit_transform(X)</span><br><span class="line">    t1 = time()</span><br><span class="line">    print(<span class="string">"circles, perplexity=%d in %.2g sec"</span> % (perplexity, t1 - t0))</span><br><span class="line">    ax.set_title(<span class="string">"Perplexity=%d"</span> % perplexity)</span><br><span class="line">    ax.scatter(Y[red, <span class="number">0</span>], Y[red, <span class="number">1</span>], c=<span class="string">"r"</span>)</span><br><span class="line">    ax.scatter(Y[green, <span class="number">0</span>], Y[green, <span class="number">1</span>], c=<span class="string">"g"</span>)</span><br><span class="line">    ax.xaxis.set_major_formatter(NullFormatter())</span><br><span class="line">    ax.yaxis.set_major_formatter(NullFormatter())</span><br><span class="line">    ax.axis(<span class="string">'tight'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Another example using s-curve</span></span><br><span class="line">X, color = datasets.make_s_curve(n_samples, random_state=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">ax = subplots[<span class="number">1</span>][<span class="number">0</span>]</span><br><span class="line">ax.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">2</span>], c=color)</span><br><span class="line">ax.xaxis.set_major_formatter(NullFormatter())</span><br><span class="line">ax.yaxis.set_major_formatter(NullFormatter())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, perplexity <span class="keyword">in</span> enumerate(perplexities):</span><br><span class="line">    ax = subplots[<span class="number">1</span>][i + <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    t0 = time()</span><br><span class="line">    tsne = manifold.TSNE(n_components=n_components, init=<span class="string">'random'</span>,</span><br><span class="line">                         random_state=<span class="number">0</span>, perplexity=perplexity)</span><br><span class="line">    Y = tsne.fit_transform(X)</span><br><span class="line">    t1 = time()</span><br><span class="line">    print(<span class="string">"S-curve, perplexity=%d in %.2g sec"</span> % (perplexity, t1 - t0))</span><br><span class="line"></span><br><span class="line">    ax.set_title(<span class="string">"Perplexity=%d"</span> % perplexity)</span><br><span class="line">    ax.scatter(Y[:, <span class="number">0</span>], Y[:, <span class="number">1</span>], c=color)</span><br><span class="line">    ax.xaxis.set_major_formatter(NullFormatter())</span><br><span class="line">    ax.yaxis.set_major_formatter(NullFormatter())</span><br><span class="line">    ax.axis(<span class="string">'tight'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Another example using a 2D uniform grid</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">1</span>, int(np.sqrt(n_samples)))</span><br><span class="line">xx, yy = np.meshgrid(x, x)</span><br><span class="line">X = np.hstack([</span><br><span class="line">    xx.ravel().reshape(<span class="number">-1</span>, <span class="number">1</span>),</span><br><span class="line">    yy.ravel().reshape(<span class="number">-1</span>, <span class="number">1</span>),</span><br><span class="line">])</span><br><span class="line">color = xx.ravel()</span><br><span class="line">ax = subplots[<span class="number">2</span>][<span class="number">0</span>]</span><br><span class="line">ax.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=color)</span><br><span class="line">ax.xaxis.set_major_formatter(NullFormatter())</span><br><span class="line">ax.yaxis.set_major_formatter(NullFormatter())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, perplexity <span class="keyword">in</span> enumerate(perplexities):</span><br><span class="line">    ax = subplots[<span class="number">2</span>][i + <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    t0 = time()</span><br><span class="line">    tsne = manifold.TSNE(n_components=n_components, init=<span class="string">'random'</span>,</span><br><span class="line">                         random_state=<span class="number">0</span>, perplexity=perplexity)</span><br><span class="line">    Y = tsne.fit_transform(X)</span><br><span class="line">    t1 = time()</span><br><span class="line">    print(<span class="string">"uniform grid, perplexity=%d in %.2g sec"</span> % (perplexity, t1 - t0))</span><br><span class="line"></span><br><span class="line">    ax.set_title(<span class="string">"Perplexity=%d"</span> % perplexity)</span><br><span class="line">    ax.scatter(Y[:, <span class="number">0</span>], Y[:, <span class="number">1</span>], c=color)</span><br><span class="line">    ax.xaxis.set_major_formatter(NullFormatter())</span><br><span class="line">    ax.yaxis.set_major_formatter(NullFormatter())</span><br><span class="line">    ax.axis(<span class="string">'tight'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>在这里面涉及了一些非常新颖的词汇：</p>
-<h2 id="迷惑度"><a href="#迷惑度" class="headerlink" title="迷惑度"></a>迷惑度</h2><p>迷惑度，又称<code>perplexity</code>，是<code>NLP</code>算法中评价算法拟合度好坏的标准。虽然针对不同的问题，<code>perplexity</code>是越大越好还是越小越好并没有一个非常统一的答案。不过，在大多数情况下，迷惑度基本上是越小越好。</p>
-<p>那么什么是迷惑度？我们来打个比方：</p>
-<p>你家里的猫娘带着朋友来家里玩了。可是猫娘之间的交流就可以不说人话了，不管是肢体语言、腺体激素分泌还是尾巴的动作，都是她们交流的方式。这个时候你就非常的迷惑：“<strong>我是谁？我在哪？她们在说啥？</strong>”。突然，另一只猫娘冲着你“喵”了一声。突如其来的事情让你在风中零乱，<strong>迷惑度直接飙升到100%</strong>。</p>
-<p>突然你家的猫娘看着你在不知所云的神情，用人话说明了她想吃饼干（<em>虽然看起来很没礼貌，但很可爱就原谅她了</em>）。<strong>你恍然大悟，迷惑度降到最低</strong>，然后像个侍奉主子的奴才一样端上了饼干。</p>
+<h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>首先我们需要导入<code>Swagger</code>的依赖，如下所示：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;swagger.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;swagger.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后，高度集成的<code>SpringBoot</code>框架还为我们准备了程序入口，我们只需要在${项目根目录}/src/main/java/${自定义包名}下新建<code>java</code>文件。如果你使用的是<code>IDEA</code>，直接新建<code>config.SwaggerConfig</code>文件；如果你使用的是<code>SpringToolSuite</code>（即<code>STS</code>），那么就需要在${自定义包名}下新建包<code>config</code>，再在包下新建<code>java</code>文件，命名为<code>SwaggerConfig</code>。如果你使用的是<code>eclipse</code>，请首先集成<code>STS</code>，然后重复在<code>STS</code>上的操作。</p>
+<p>在<code>SwaggerConfig.java</code>文件中，我们只需要在类上声明注解即可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你除了添加两个注解以外什么都不需要做。如果你不是很明白为什么，建议首先将<code>SpringBoot</code>框架启动原理再看一看，预习也好，复习也罢。</p>
+<p>启动项目，在浏览器中输入<code>http://localhost:8080/swagger-ui.html</code>，你就能够看到主页面：</p>
+<p><img src="https://sakebow.gitee.io/images/spring-boot-web/集成SwaggerUI并运行.png" alt="Swagger界面"></p>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>当然，并不是所有人都是这么顺利的，有些人会报<code>404 Error</code>。</p>
+<p>如果你集成了其他安全框架，例如<code>Spring Security</code>、<code>Shiro</code>等等具备拦截请求功能的框架，你将无法访问。这个就需要进一步的配置了，也就不是本篇单纯讨论<code>SwaggerUI</code>的文章能够说清楚的问题了。</p>
+<p>如果你没有集成其他安全框架，那么应该就是版本的问题了。直到编辑博客的今天（<em>2020-09-19</em>）为止，<code>SwaggerUI3.0.0</code>无法使用。我们只需要将版本重新改为<code>2.9.2</code>就好了。</p>
 
       
     </div>
@@ -529,7 +534,7 @@ var _hmt = _hmt || [];
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.sakebow.cn/2020/09/17/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/TSNE%E7%B4%A7%E6%80%A5%E5%AD%A6%E4%B9%A0/" title="TSNE紧急学习">http://www.sakebow.cn/2020/09/17/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/TSNE%E7%B4%A7%E6%80%A5%E5%AD%A6%E4%B9%A0/</a>
+    <a href="http://www.sakebow.cn/2020/09/19/Java/SpringBoot/Swagger%E9%9B%86%E6%88%90%E5%B0%8F%E8%B4%B4%E5%A3%AB/" title="Swagger集成小贴士">http://www.sakebow.cn/2020/09/19/Java/SpringBoot/Swagger%E9%9B%86%E6%88%90%E5%B0%8F%E8%B4%B4%E5%A3%AB/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -544,7 +549,7 @@ var _hmt = _hmt || [];
       
         <div class="post-tags">
           
-            <a href="/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/" rel="tag"> <i class="fa fa-tag"></i> 算法模型</a>
+            <a href="/tags/SpringBoot/" rel="tag"> <i class="fa fa-tag"></i> SpringBoot</a>
           
         </div>
       
@@ -557,8 +562,8 @@ var _hmt = _hmt || [];
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/15/Java/SpringBoot/JWT%E7%AE%80%E4%BB%8B/" rel="next" title="JWT简介">
-                <i class="fa fa-chevron-left"></i> JWT简介
+              <a href="/2020/09/19/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E7%AE%97%E6%B3%95/" rel="next" title="随机森林算法">
+                <i class="fa fa-chevron-left"></i> 随机森林算法
               </a>
             
           </div>
@@ -567,8 +572,8 @@ var _hmt = _hmt || [];
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/09/19/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E7%AE%97%E6%B3%95/" rel="prev" title="随机森林算法">
-                随机森林算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/09/23/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95/" rel="prev" title="决策树算法">
+                决策树算法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -672,7 +677,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -780,7 +785,7 @@ var _hmt = _hmt || [];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个例子"><span class="nav-number">2.</span> <span class="nav-text">一个例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迷惑度"><span class="nav-number">3.</span> <span class="nav-text">迷惑度</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖"><span class="nav-number">2.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误处理"><span class="nav-number">3.</span> <span class="nav-text">错误处理</span></a></li></ol></div>
             
 
           </div>
