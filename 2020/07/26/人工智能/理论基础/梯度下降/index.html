@@ -88,20 +88,20 @@
 
 
 
-<meta name="description" content="导读这里将会从一个简单的例子引入话题。例子是一个自变量和一个因变量构成的一元一次函数。因为同时兼顾了有趣和浅显，例子也是相当的乱来，能会意就行，吐槽就免了吧。">
+<meta name="description" content="导读你可能又觉得梯度下降是一个完全没有接触过的新词。不过放心，依然能对上。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="代价函数">
-<meta property="og:url" content="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:title" content="梯度下降">
+<meta property="og:url" content="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/index.html">
 <meta property="og:site_name" content="Sakebow的小博客">
-<meta property="og:description" content="导读这里将会从一个简单的例子引入话题。例子是一个自变量和一个因变量构成的一元一次函数。因为同时兼顾了有趣和浅显，例子也是相当的乱来，能会意就行，吐槽就免了吧。">
-<meta property="og:image" content="https://sakebow.gitee.io/images/background/illust_80183815_20200714_143825.jpg">
-<meta property="og:image" content="https://sakebow.gitee.io/images/background/illust_79288093_20200714_142659.png">
-<meta property="article:published_time" content="2020-07-26T01:27:00.000Z">
-<meta property="article:modified_time" content="2020-07-30T08:52:53.761Z">
+<meta property="og:description" content="导读你可能又觉得梯度下降是一个完全没有接触过的新词。不过放心，依然能对上。">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%BC%94%E7%A4%BA.jpg">
+<meta property="og:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%A2%AF%E5%BA%A6%E8%AF%B4%E6%98%8E%E5%9B%BE.png">
+<meta property="article:published_time" content="2020-07-26T15:23:00.000Z">
+<meta property="article:modified_time" content="2020-09-19T00:02:43.308Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="算法模型">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://sakebow.gitee.io/images/background/illust_80183815_20200714_143825.jpg">
+<meta name="twitter:image" content="https://sakebow.gitee.io/images/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%BC%94%E7%A4%BA.jpg">
 
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://www.sakebow.cn/2020/07/26/人工智能/算法模型/代价函数/"/>
+  <link rel="canonical" href="http://www.sakebow.cn/2020/07/26/人工智能/理论基础/梯度下降/"/>
 
 
 
@@ -147,7 +147,7 @@ var _hmt = _hmt || [];
 </script>
 
 
-  <title>代价函数 | Sakebow的小博客</title>
+  <title>梯度下降 | Sakebow的小博客</title>
   
 
 
@@ -338,7 +338,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sakebow">
@@ -355,7 +355,7 @@ var _hmt = _hmt || [];
 
         
         
-          <h1 class="post-title" itemprop="name headline">代价函数</h1>
+          <h1 class="post-title" itemprop="name headline">梯度下降</h1>
         
 
         <div class="post-meta">
@@ -367,7 +367,7 @@ var _hmt = _hmt || [];
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-26T09:27:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-26T23:23:00+08:00">
                 2020-07-26
               </time>
             
@@ -408,8 +408,8 @@ var _hmt = _hmt || [];
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/" itemprop="commentsCount"></span>
+                <a href="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -436,7 +436,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k字
+                  4.2k字
                 </span>
               
 
@@ -452,7 +452,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7分钟
+                  15分钟
                 </span>
               
             </div>
@@ -473,80 +473,171 @@ var _hmt = _hmt || [];
       
 
       
-        <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>这里将会从一个简单的例子引入话题。例子是一个自变量和一个因变量构成的一元一次函数。因为同时兼顾了有趣和浅显，例子也是相当的乱来，能会意就行，吐槽就免了吧。</strong></p>
+        <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>你可能又觉得梯度下降是一个完全没有接触过的新词。不过放心，依然能对上。</strong></p>
 <a id="more"></a>
-<h2 id="回归函数"><a href="#回归函数" class="headerlink" title="回归函数"></a>回归函数</h2><p>在说明代价函数前我们先复习回归函数。</p>
+<h2 id="方向导数和梯度"><a href="#方向导数和梯度" class="headerlink" title="方向导数和梯度"></a>方向导数和梯度</h2><p>在说明怎么进行梯度下降之前，我们需要复习一下方向导数和梯度。</p>
+<p>就拿最简单的两个变量为例：</p>
 <blockquote>
-<p>现在你突发奇想，想知道<strong>猫娘年龄和猫粮食用量之间的关系</strong>，你跑遍了全世界找了所有的<strong>20万只猫娘</strong>，问到了食量，作了个匿名记录，记下了<strong>年龄</strong>和<strong>食量</strong>的关系，并总结出了一张<strong>散点图</strong>。你看着你家幼小的猫娘，看了看散点表，<strong>预测</strong>出了她这个年龄大概吃多少。当然，你非常疼爱你的猫娘，<strong>不够吃的话肯定还是会加</strong>，<strong>吃不下也会多加调整</strong>。</p>
-<p><img src="https://sakebow.gitee.io/images/background/illust_80183815_20200714_143825.jpg" width="200" alt="pid=143825"></p>
+<p>下图就是一张海拔图。</p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/二元函数梯度下降演示.jpg" alt="下降演示"></p>
+<p>有一天，你乘坐的飞机失事了，在山顶坠毁，只有你一个人活了下来。弹尽粮绝的你几近绝望。但是你看到眼前有一大片水源，你想着找到了水源就能够活下去。所以你决定在你饿倒、冻死、被野兽咬杀之前，<strong>尽快达到山底的水源</strong>，越快越好。在这种紧急情况下，已经<strong>没有时间让你把所有的路全都探索一遍</strong>了，因为你随时可能在山上出事。</p>
+<p>在陡峭的山上，有若干个比较平缓的落脚点。你站在出发的落脚点上，环顾四周，发现了若干能够安全到达的落脚点。于是你在这几个里面选择了最低的一个，跳了过去。接着在下一个落脚点继续寻找更低的落脚点。</p>
 </blockquote>
-<p><strong>我知道你很想吐槽，现在憋着。</strong></p>
-<p>首先，通过这个例子，我们先重点强调一些细节：</p>
+<p>这就是“<strong>下降</strong>”，而<strong>梯度</strong>则是选择一条<strong>最优下降方向</strong>的参考。</p>
+<p>所以问题来了，怎么样才能选出<strong>最优下降方向</strong>？如果就只是找遍目力所及的所有落脚点、计算落差，这样当然可行，但是代价太大。所以，我们在这里将使用一定的<strong>数学方法</strong>推算出来。</p>
+<p>首先对于在平面$D$（<em>海平面</em>）上具有连续一阶偏导数的二元函数$z=f(x,y)$（<em>山高计算式</em>）上的任意一点，都有一个向量：</p>
+<script type="math/tex; mode=display">\vec{grad}f(x,y)=\{\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}\}</script><p>又由于方向导数：</p>
+<script type="math/tex; mode=display">\vec{f_L}(x_0,y_0)=({\partial f\over\partial x},{\partial f\over\partial y})\cdot(cos\theta,sin\theta)</script><p>所以，不难得出：</p>
+<blockquote>
+<p>方向导数是二元函数$z=f(x,y)$在各个方向上的变化量，而当方向导数最大的时候，必定是方向导数和梯度方向重合的时候。而<strong>方向导数最大时</strong>，<strong>函数增长最快</strong>；反之亦然，<strong>方向导数最大时的反方向函数减少最快</strong>。</p>
+<p>也就是说，我们在下山的时候唯一需要注意的就是：寻找梯度。</p>
+</blockquote>
+<p>当然我们还有一些需要注意的细节，<strong>下山的速度</strong>就是其中之一，它有个学术名称叫做<strong>学习率（<em><code>learning rate</code></em>）</strong>，多记为$\eta$。当学习率提高的时候，下山的速率就非常快，很快你就会达到一个区域最优解，但也可能因为步长太大忽略了某个关键点甚至可能导致不收敛；而学习率降低的时候，下山速率就非常低，只不过这样的话你能够找到更多的落脚点，从而一定程度上减少了陷入局部最优解的可能。</p>
+<p>拿下面这个图举个例子：</p>
+<p><img src="https://sakebow.gitee.io/images/机器学习/梯度说明图.png" alt="梯度说明"></p>
+<p>很清楚地看到，在$x\in(0,1)$和$x\in(4,5)$的时候，函数下降速度和上升速度都非常快，这个时候可以<strong>适当减少学习率</strong>，就像是<strong>单机FPS游戏里放慢步伐寻找隐藏点</strong>一样，避免错过了任何一个细节。但是过小的步伐会导致收敛速度非常慢，一直再重复无效的学习；而在$x\in(1,4)$的时候，函数不管是上升还是下降都非常缓慢，基本没有什么起伏，可以<strong>适当加快步伐</strong>，就像是<strong>GalGame二刷回收CG</strong>一样，只抓重点，忽略细节。但是过大的步伐会导致你忽略掉$x\in(3,4)$的极值点。</p>
+<p>总的来说，<strong>步长小了可能会陷入局部最优解；而步长大了可能会离最优解越来越远，最终得出错误的结果</strong>。</p>
+<p><em>不过呢，三维我们还能勉强想象，但是拓展到四维、五维等超越3个维度的坐标系时，作为三次元的我们将无法想象那样的存在。所以，我们目前所能做的极限就是讨论三元变量的关系了。有没有三维以上的方向导数解法？当然有，本篇说明的就是<strong>通用解法</strong>，只不过对于三维以上的数据就<strong>无法说明几何意义</strong>了。</em></p>
+<h2 id="梯度下降是什么"><a href="#梯度下降是什么" class="headerlink" title="梯度下降是什么"></a>梯度下降是什么</h2><p>经过复习，聪明的你应该能够明白，所谓梯度下降即是：</p>
 <ul>
-<li><p>十几万只猫娘是你的<strong>样本容量</strong>，虽然数量不是很大，但是足以说明问题；</p>
+<li><p>从图像的意义上来看，就可以总结为：任意选取一个落脚点，然后搜索周边看能不能找到更低的落脚点。这个点不出意外的话应该在梯度方向的反方向上。</p>
 </li>
-<li><p>这里自变量是年龄，因变量是食量，只是一个单纯的<strong>一元一次方程</strong>;</p>
-</li>
-<li><p>虽然能够收集非常多数据，但是你<strong>只能画出散点图</strong>；</p>
-</li>
-<li><p>你需要为你的小猫娘<strong>预测</strong>食量；</p>
+<li><p>从数学的意义上来看，就可以总结为：任意选取<strong>损失函数</strong>上的一个点，一步一步寻找区域极值，并坚信其中一个极值是全域最小值，逐渐逼近使得<strong>损失函数</strong>的值最小的点。</p>
 </li>
 </ul>
-<p>明白了这些细节之后，我们应该怎么操作呢？从初中到大学我们学到的<strong>线性回归方程</strong>就是为了这个问题服务的。</p>
-<p>通过散点图，你可以使用一条直线贯穿大部分的点，一些<strong>少有偏离可能是个体差异</strong>，比如活泼、好动、成长期<del>还有发情期</del>等等；同样也一定有<strong>过于偏离</strong>这条直线的散点数据，<strong>少量则有可能是记录错误</strong>，而大量的话要么是<strong>有其他决定条件</strong>，要么是<strong>数学模型选择错误</strong>。<strong>这里我们就假定没有其他条件而且数学模型就是一元一次函数</strong>。</p>
-<p>如果你大学认真学习了《概率论与数理统计》，那么你应该对线性回归方程不陌生。</p>
-<p>于是你熟练地写出：</p>
+<p><em>数学的角度听起来有点贪心算法的味道了？有一说一，确实。当然，不出意外的话，极值中确实会有最值；只不过时常会有意外，也就是说，最值不在极值中，而是在边界。</em></p>
+<p>“<strong>不识庐山真面目，只缘身在此山中</strong>”。这也正是贪心算法的“贪心”所在啊，偏偏想要<strong>使用最少的次数碰运气似的找到最优解</strong>。实际上，你朝梯度的反方向看到的“<strong>最低点</strong>”，也仅仅是通过一般的数学计算才出现的<strong>预测的点</strong>，实际最低点甚至可能出现在<strong>任何地方</strong>。虽然异常的尴尬，但这也正是贪心算法想要解决的，不是么？起码7位数的数据遍历起来实在是有点难受啊……</p>
+<h2 id="为什么选择梯度下降"><a href="#为什么选择梯度下降" class="headerlink" title="为什么选择梯度下降"></a>为什么选择梯度下降</h2><p>这个方法不仅用于线性方程求解，而且还适用于机器学习的很多个领域。找到代价函数最小值和各维度的值，同时找出根据很多自变量变化的因变量拟合函数，可以在非常多的方面说明问题，比如<strong>决策</strong>、<strong>推荐</strong>、<strong>预测</strong>、<strong>分类</strong>等等。</p>
+<p>其实最重要的是，他能够用比较低的时间复杂度找到最好的一个解。这对于信息爆炸式增长的今天是非常有必要的。中国14亿人，就算只有一半的网民，也是7亿的并发量；面对这7亿用户的偏好分析，实在是等不起十几天慢慢磨出一份精简的报告。</p>
+<h2 id="随机梯度下降"><a href="#随机梯度下降" class="headerlink" title="随机梯度下降"></a>随机梯度下降</h2><p>好了，现在开始进入正题：梯度下降的步骤。</p>
+<p>我们先不要弄得太复杂，还是老例子：</p>
 <blockquote>
-<p>猫娘的食量<code>Y</code>和猫娘的年龄<code>x</code>之间有线性关系，设</p>
-<p>Y = $\beta_0$ + ${\beta_1}x+\epsilon$，其中$\beta_0$和$\beta_1$是待定系数，$\epsilon$是随机误差，满足$\epsilon$~$N(0,\sigma^2)$</p>
+<p>时间回溯到你研究猫娘食量那会。你确确实实拿到了20万数据，每个数据都是以（年龄，食量）这样的坐标形式出现。这看起来没什么问题，只不过你突然发现猫娘们的食量增长速度在成年之后随着年龄的增长而不断趋于平稳，成年之前却疯狂增长。你觉得线性方程不再适用。这样的函数你似乎希望是对数函数，可是这是不是因为有其他因素的影响？</p>
+<p>于是，你凭着对猫娘疯狂的热爱，开始了第二波数据收集。这次你拿到了年龄(age)、身高(height)、体重(weight)和食量(quantity)四个数据，构成了函数$Q=f(a,h,w)$。</p>
 </blockquote>
-<p>既然$\epsilon$服从正态分布，那么<code>Y</code>呢？</p>
-<p>由于<code>Y</code>与<code>x</code>的关系为线性关系，所以就有：</p>
-<p>$EY=E(\beta_0+{\beta_1}x)=\beta_0+{\beta_1}E(x)$</p>
-<p>所以你接着写下：</p>
+<p>这次涉及了三个维度和一个自变量，虽然复杂了很多，但也勉强能够画出来。只不过梯度下降的图像意义便不再是<strong>下山</strong>了，而是构建一个平面或者瞄准某一个中心。</p>
 <blockquote>
-<p>依题意，$Y$~$N(\beta_0+{\beta_1}x,\sigma^2)$</p>
+<p><del>你凭着自己的性癖</del>……你随机选择了一位猫娘，将她的数据使用矩阵形式记录了下来：</p>
+<script type="math/tex; mode=display">neko_0=\left[\begin{matrix}
+  a_0\\h_0\\w_0
+\end{matrix}\right]</script><p>紧接着，下一个数据就是：</p>
+<script type="math/tex; mode=display">neko_1=\left[\begin{matrix}
+  a_1\\h_1\\w_1
+\end{matrix}\right]
+=\left[\begin{matrix}
+  a_0\\h_0\\w_0
+\end{matrix}\right]
+-\eta\left[\begin{matrix}
+{\partial\over\partial a} f(a_0,h_0,w_0)\\
+{\partial\over\partial h} f(a_0,h_0,w_0)\\
+{\partial\over\partial w} f(a_0,h_0,w_0)
+\end{matrix}\right]</script></blockquote>
+<p>当然，$neko_1$是有实际数值的，而使用<code>学习率</code>、$neko_0$和<code>损失函数的偏导数</code>计算出来的$neko_1$并不是真实的数据。那么使用哪一个数据？当然是都使用。因为现在猫娘的食量和年龄变成了非线性关系，也就是说在<strong>x取值范围同样长的情况下</strong>，不同取值范围中函数的<strong>变化量不一样</strong>，部分密集，部分稀疏。所以应对<strong>密集部分</strong>我们需要<strong>加大学习率</strong>，尽快过渡到稀疏部分，从而减少重复学习的时间；应对<strong>稀疏部分</strong>我们要<strong>减少学习率</strong>，尽量避免忽略了重要区间的情况。</p>
+<blockquote>
+<p>好了，现在你通过数学计算拿到了$neko_1$，于是你准备获取$neko_2$。同样的，代入公式：</p>
+<script type="math/tex; mode=display">neko_2=\left[\begin{matrix}
+  a_2\\h_2\\w_2
+\end{matrix}\right]
+=\left[\begin{matrix}
+  a_1\\h_1\\w_1
+\end{matrix}\right]
+-\eta\left[\begin{matrix}
+{\partial\over\partial a} f(a_1,h_1,w_1)\\
+{\partial\over\partial h} f(a_1,h_1,w_1)\\
+{\partial\over\partial w} f(a_1,h_1,w_1)
+\end{matrix}\right]</script><p>经过一番辛苦，你也得出来了这个数据。但是你实在算不下去了，虽然对猫娘包含热情，但是在完全机械的计算过程中，再怎么高涨的热情都会逐渐被消耗殆尽。于是你希望计算机能够帮助运算，便大致写下了一串伪代码：</p>
+<p><code>repeat until convergence {</code></p>
+<script type="math/tex; mode=display">\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+:=
+\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+-\eta
+\left[\begin{matrix}
+  {\partial\over\partial a} f(a_i,h_i,w_i)\\
+  {\partial\over\partial h} f(a_i,h_i,w_i)\\
+  {\partial\over\partial w} f(a_i,h_i,w_i)
+\end{matrix}\right]</script><p><code>}</code></p>
 </blockquote>
-<p>你可能会怀疑到这一步能够得出什么。这个只能说在一定的正确率范围内预测这个事实，而不能完完全全的当作必然。</p>
-<p>那么，怎么预测呢？在这个只有离散型数据的图表中，如何才可以制定一个尽可能正确的线性方程呢？这就需要<strong>最小二乘估计</strong>。</p>
-<p>我们先忽略$\epsilon$的影响，因为无法预测；然后将线性方程简化为我们能够预测的样子，并将我们所收集的样本值一一对应进去。所以你写着：</p>
-<script type="math/tex; mode=display">\hat{y_i}=\hat{\beta_0}+\hat{\beta_1}x_i</script><p>需要注意的是，这个是我们的预测函数，而不是实际规律。没人知道实际规律，因为总有这样那样的误差，只能说尽可能的出一个大家都认同的规律。</p>
-<p>代入每一个实际的$x_i$，我们都能获得一个预测的$\hat{y_i}$。而实际的$x_i$却又对应事实成立的$y_i$，两者的差就是偏离度。为了尽可能拟合数据，我们应当尽可能缩小这个偏差。于是，我们准备求出每一组偏差距离，也就是<strong>y坐标差的绝对值</strong>，即$|y_i-\hat{y_i}|$，也就是$|y_i-\beta_0-{\beta_1}x|$，并让他最小。这部分就是高数的<strong>拉格朗日定理</strong>了。</p>
-<p>于是你接着写下：</p>
+<p><em>伪代码中<code>=</code>和<code>:=</code>略有区别，分别是<strong>相等</strong>和<strong>赋值</strong>的意思</em></p>
+<p>这样看似乎没有什么大问题，但是在实际代码实现中，我们尤其需要注意一个很难注意到的细节：</p>
+<p><strong>这个矩阵形式的写法意味着$a_i$、$h_i$、$w_i$是同步更新的！！！</strong></p>
+<p><strong>这个矩阵形式的写法意味着$a_i$、$h_i$、$w_i$是同步更新的！！！</strong></p>
+<p><strong>这个矩阵形式的写法意味着$a_i$、$h_i$、$w_i$是同步更新的！！！</strong></p>
+<p>重要的事情说三遍！如果不是同步的话，<strong>错误的梯度下降</strong>伪代码将会变成这样：</p>
 <blockquote>
-<p>由20组已知数据组$(x_i,y_i)$，则将x、y设为已知量，令n=200,000，且</p>
-<script type="math/tex; mode=display">L(\beta_0,\beta_1)=\sum^{n}_{i=1}(y_i-\beta_0-{\beta_1}x_i)^2</script><p>分别对$\beta_0$和$\beta_1$求偏导，并令偏导为0，能够得出两个等式：</p>
-<script type="math/tex; mode=display">{\frac{\partial L(\beta_0,\beta_1)}{\partial\beta_0}}=-2\sum^{n}_{i=1}(y_i-\beta_0-{\beta_1}x)=0\cdots①</script><script type="math/tex; mode=display">{\frac{\partial L(\beta_0,\beta_1)}{\partial\beta_1}}=-2\sum^{n}_{i=1}(y_i-\beta_0-{\beta_1}x)=0\cdots②</script><p>解得：</p>
-<script type="math/tex; mode=display">\beta_0=\frac{(\sum^n_{i=1}y_i)(\sum^n_{i=1}x_i^2)-(\sum^n_{i=1}x_i)(\sum^n_{i=1}x_iy_i)}{n(\sum^n_{i=1}x_i^2)-(\sum^n_{i=1}x_i)^2}</script><script type="math/tex; mode=display">\beta_1=\frac{n(\sum^n_{i=1}x_iy_i)-(\sum^n_{i=1}x_i)(\sum^n_{i=1}y_i)}{n(\sum^n_{i=1}x_i^2)-(\sum^n_{i=1}x_i)^2}</script></blockquote>
-<p>相信你解到这一步的时候都快疯掉了，直接看答案的估计也蒙圈了。你放心，这玩意在2020年绝对不会靠人算，如果真的碰到了那也只能祝你好运了。</p>
-<p>不过就算是这种算式也是能够简化到一定地步的。别忘了还有这些：</p>
+<p><code>repeat until convergence {</code></p>
+<script type="math/tex; mode=display">
+ temp_a={\partial\over\partial a} f(a_i,h_i,w_i)\cdots①\\
+ a_i = temp_a\\
+ temp_h={\partial\over\partial h} f(a_i,h_i,w_i)\cdots②\\
+ \ldots</script><p><code>}</code></p>
+</blockquote>
+<p>注意到了吗？①式和②式中，$a_i$的值不同了！这是严重的逻辑错误！</p>
+<p><strong>正确的梯度下降</strong>伪代码就应该是这样：</p>
 <blockquote>
-<p>记$\bar{x}=\frac{\sum^n_{i=1}x_i}{n}$，$\bar{y}=\frac{\sum^n_{i=1}y_i}{n}$</p>
-<p>整理得：</p>
-<script type="math/tex; mode=display">\hat{\beta_1}=\frac{\sum^n_{i=1}x_iy_i-n\bar{x}\bar{y}}{\sum^n_{i=1}x_i^2-n\bar{x}^2}</script><script type="math/tex; mode=display">\hat{\beta_0}=\bar{y}-\bar{x}\hat{\beta_1}</script></blockquote>
-<p>是不是觉得好看多了？而且这样子也更便于计算。</p>
+<p><code>repeat until convergence {</code></p>
+<script type="math/tex; mode=display">
+ temp_a=a_i-\eta{\partial\over\partial a} f(a_i,h_i,w_i)\\
+ temp_h=h_i-\eta{\partial\over\partial h} f(a_i,h_i,w_i)\\
+ temp_w=w_i-\eta{\partial\over\partial w} f(a_i,h_i,w_i)\\
+ a_i = temp_a\\
+ h_i = temp_h\\
+ w_i = temp_w</script><p><code>}</code></p>
+</blockquote>
+<p><strong>要么全部修改，要么全不修改</strong>。像极了数据库的<strong>原子性</strong>不是么？</p>
+<p><em>在说明时我强调了是<strong>错误的梯度下降伪代码</strong>，而不是<strong>错误的伪代码</strong>，这是因为这本来就是一种正确的算法，但不是梯度下降，而是一种其他的什么代码。这就要各位读者继续读下去来寻找正确答案了。</em></p>
+<p>没错，这就是通用解法，无论多少维，用这个矩阵解法都会有一个结果。随着学习的进行，导数或者偏导数都会逐渐变化，$\eta$也应当随之而变化。他也有另外一个名字，叫<strong>随机梯度下降</strong>，因为我们刚刚是随机选择初始点、根据梯度寻找下一跳、逐步靠近最优解，所以收敛的时候有很大的随机性，收敛时也会在局部最优附近疯狂抖动。还是用个反常的例子类比：</p>
 <blockquote>
-<p>故代入方程得：</p>
-<script type="math/tex; mode=display">\hat{Y}=\hat{\beta_0}+\hat{\beta_1}x</script></blockquote>
-<p>这下子你就能够用这个方程来预测你的小猫娘会吃多少啦！</p>
-<p><img src="https://sakebow.gitee.io/images/background/illust_79288093_20200714_142659.png" width="250" alt="pid=142659"></p>
-<h2 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h2><p>好了，讲了这么久的回归函数，是不是完全不知道这玩意和代价函数有什么关系？别担心，慢慢来。</p>
-<p>在机器学习中，我们主要希望计算机尽可能贴近事实，也就是尽可能计算最为贴近所有样本的一元线性函数（<em>当然也有可能是别的什么函数，这里以一元线性为例</em>）。</p>
-<p>既然是尽可能贴近，我们就会在其中筛选不贴近的、折衷较为贴近的、选取最为贴近的。于是：</p>
-<ul>
-<li><p>针对<strong>单个样本</strong>，我们规定了<strong>损失函数</strong>，也就是在整个线性规划的过程中产生偏差的量；</p>
-</li>
-<li><p>针对<strong>全部取样样本</strong>，我们规定了<strong>代价函数</strong>，也就是研究在线性规划中整个取样的样本产生偏差的量；</p>
-</li>
-<li><p>针对<strong>最终结果</strong>，我们规定了<strong>目标函数</strong>，也就是在尽可能照顾到所有取样样本之后研究出的最贴近事实的函数</p>
-</li>
-</ul>
-<p>一开始听起来像是三个新词？这么一说明，是不是开始和以前的线性规划对上了？</p>
-<p><strong>损失函数</strong>，其实就是<strong>残差</strong>，以前我们记为$e$；而<strong>代价函数</strong>其实就是残差的绝对值的和，但是因为计算不方便，我们全部平方了，也就是残差的平方和，最后求导再除2就是最终结果；而<strong>目标函数</strong>，就是在<strong>代价函数在取值范围内最小</strong>的情况下拟合出来的函数。</p>
-<p>好了，到这里答案就出来了。代价函数就是求解线性方程时使用的拉格朗日定理构造的函数。之前我们定义的是：</p>
-<script type="math/tex; mode=display">L(\beta_0,\beta_1)=\sum^{n}_{i=1}(y_i-\beta_0-{\beta_1}x_i)^2</script><p>但是同时要兼顾到计算的简便，我们再取一个求导之后不会有系数的函数：</p>
-<script type="math/tex; mode=display">L(\beta_0,\beta_1)=\frac{\sum^{n}_{i=1}(\beta_0+{\beta_1}x_i-y_i)^2}{2n}</script><p>不仅在求导的时候去掉了系数$2$，还避免了符号问题，顺便还提供了一个$\frac{1}{n}$方便计算均值。不得不说，<strong>NICE</strong>！</p>
-<p>你担心这样复杂的算法会拖垮计算机速度？当然不是把这个模型直接搬给计算机去算的啦，这只不过是数学推导过程，最后还是要根据计算机的特点尽可能化简成只有次数不多的加减、涵盖了几乎全部的重复劳动的算法。</p>
+<p>你的猫娘很生气，你想逗她开心。你身边有很多东西，毛球、老鼠玩具、吉他、钢琴等等。你知道这些她都喜欢，但是你不知道这次怎么样才能让她开心。于是你开始疯狂试探。</p>
+<p>有时候她笑了一下，有时候又挠你几下，有时候保持冷漠……在心情在变好和变坏之间反复横跳。最后，你终于拿出口琴吹起了她喜欢的音乐，把她哄好了。</p>
+</blockquote>
+<p>当然，公式归公式，解法是解法，这两个可以不需要严格意义上保持一致。也就是说，如果$f(a,h,w)$在求导的时候极大地增加了复杂度，就比如$\sqrt{\frac{1+sinx}{1-cosx}}$，我们可以人为地分段、化简，变成方便计算的其他公式，就像吴恩达教授的视频课程中将线性方程$Y=\beta_0+\beta_1x$中待定系数的求解从二次通过求导降为一次。（<em>如果你不清楚为什么是二次，请查看我之前写的<a href="/2020/07/26/人工智能/算法模型/代价函数">代价函数</a>一文</em>）</p>
+<h2 id="一个尴尬的细节"><a href="#一个尴尬的细节" class="headerlink" title="一个尴尬的细节"></a>一个尴尬的细节</h2><p>好了，到了这里，相信各位读者对梯度下降也有一定的了解了。那么，各位有没有注意到一个小小的细节：<strong>我们是为什么需要根据一定的步长移动</strong>？其实是基于“<strong>最初随机选到的点并不是极值点</strong>”这一前提下展开的。那么我们就极端一点，最初就那么运气不好，选到了极值点，会怎么样呢？很显然，极值点的导数或偏导数都是0，最终我们的计算式也就化简成为了：</p>
+<script type="math/tex; mode=display">\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+:=
+\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+-\eta
+\left[\begin{matrix}
+  {\partial\over\partial a} f(a_i,h_i,w_i)\\
+  {\partial\over\partial h} f(a_i,h_i,w_i)\\
+  {\partial\over\partial w} f(a_i,h_i,w_i)
+\end{matrix}\right]
+=
+\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+-\eta\times0=
+\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]</script><p>也就是说在这里我们将原地踏步。如果这里并不是全域最优解，而是局部最优解，我们也就像一开始介绍梯度下降是所说的一样：<strong>陷入局部最优解</strong>。这也正是<strong>步长过小</strong>造成的<strong>必然结果</strong>。</p>
+<p>当然，既然有让你陷入局部最优解的情况，也有只能收敛到全局最优解的情况。用比较学术一点的话来说，就是“<strong>目标函数$f(a,h,w)$是一个凹函数</strong>”（<em>国外这里叫<strong>凸函数</strong>，因为看的方向不一样所以叫法不一样</em>），即目标函数的二阶偏导数<strong>恒大于0</strong>。这就导致一阶偏导数最多也就1个零点，即最多有一个极值，原函数要么是个碗，极值即最值；要么就单调，端点是最值。</p>
+<p>很尴尬，也很无奈。当然办法还是有的，也就是<strong>贪心算法</strong>。这就依靠大家打怪升级之后解锁新篇章了，这里只介绍这么多有关梯度的内容。</p>
+<h2 id="批量（Bacth）梯度下降"><a href="#批量（Bacth）梯度下降" class="headerlink" title="批量（Bacth）梯度下降"></a>批量（<code>Bacth</code>）梯度下降</h2><p>我相信你会等不及找答案的。所以这里提供一个临时的解决办法：批量梯度下降。</p>
+<p>为什么是批量？在这里我们每次迭代都会整个训练集都试一遍，然后找到一个局部最优解，然后剪枝，重新遍历整个数据集，然后又找到下一个局部最优解，再剪枝……整个过程将会行走在非常标准的直通线路上。</p>
+<p>当然，缺点也非常明显，整个训练一遍意味着需要大量的内存和大量的计算。如果训练集足够大，内存将无法一次性执行完，要么直接<code>OutOfMemoryException</code>，要么在内存加载的内容全部计算完后等待磁盘经过漫长的时间加载所需的下一批数据。整体来说还是相当的憋屈，所以也在逐渐的弃用这个方法。</p>
+<p>是不是有点能理解了呢？</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>在吴恩达教授的课程中，解向量是这么求的：</p>
+<script type="math/tex; mode=display">
+\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+:=
+\left[\begin{matrix}
+  a_i\\h_i\\w_i
+\end{matrix}\right]
+-\eta
+\left[\begin{matrix}
+  {\partial\over\partial a} f(a_0,h_0,w_0)\\
+  {\partial\over\partial h} f(a_0,h_0,w_0)\\
+  {\partial\over\partial w} f(a_0,h_0,w_0)
+\end{matrix}\right]</script><p>其中在循环之中不停调整$a_0$、$h_0$、$w_0$的值。实际上这么做的核心目的依然是保持同步，只不过用本篇所讲述的方法是普遍都在使用的方法，因为看起来更简洁。</p>
 
       
     </div>
@@ -596,7 +687,7 @@ var _hmt = _hmt || [];
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/" title="代价函数">http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E4%BB%A3%E4%BB%B7%E5%87%BD%E6%95%B0/</a>
+    <a href="http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" title="梯度下降">http://www.sakebow.cn/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -624,8 +715,8 @@ var _hmt = _hmt || [];
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/25/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E6%A8%A1%E5%9E%8B%E6%8F%8F%E8%BF%B0/" rel="next" title="模型描述">
-                <i class="fa fa-chevron-left"></i> 模型描述
+              <a href="/2020/07/26/hexo/hexo%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93%E5%99%A8/" rel="next" title="Hexo添加数学公式渲染器">
+                <i class="fa fa-chevron-left"></i> Hexo添加数学公式渲染器
               </a>
             
           </div>
@@ -634,8 +725,8 @@ var _hmt = _hmt || [];
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/07/26/hexo/hexo%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93%E5%99%A8/" rel="prev" title="Hexo添加数学公式渲染器">
-                Hexo添加数学公式渲染器 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/07/26/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7%EF%BC%9Aoctave/" rel="prev" title="建模工具：octave">
+                建模工具：octave <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -847,7 +938,7 @@ var _hmt = _hmt || [];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归函数"><span class="nav-number">2.</span> <span class="nav-text">回归函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代价函数"><span class="nav-number">3.</span> <span class="nav-text">代价函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方向导数和梯度"><span class="nav-number">2.</span> <span class="nav-text">方向导数和梯度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降是什么"><span class="nav-number">3.</span> <span class="nav-text">梯度下降是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择梯度下降"><span class="nav-number">4.</span> <span class="nav-text">为什么选择梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机梯度下降"><span class="nav-number">5.</span> <span class="nav-text">随机梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个尴尬的细节"><span class="nav-number">6.</span> <span class="nav-text">一个尴尬的细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批量（Bacth）梯度下降"><span class="nav-number">7.</span> <span class="nav-text">批量（Bacth）梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">8.</span> <span class="nav-text">附录</span></a></li></ol></div>
             
 
           </div>
