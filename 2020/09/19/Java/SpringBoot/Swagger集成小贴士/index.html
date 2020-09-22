@@ -96,7 +96,7 @@
 <meta property="og:description" content="导读Swagger是为了能够方便对接而产生的框架。在本篇中将会默认大家都有一定的Java Web开发基础和SpringBoot框架使用经验，并在这些基础和经验之上说明一些需要注意的点。">
 <meta property="og:image" content="https://sakebow.gitee.io/images/spring-boot-web/%E9%9B%86%E6%88%90SwaggerUI%E5%B9%B6%E8%BF%90%E8%A1%8C.png">
 <meta property="article:published_time" content="2020-09-19T15:35:00.000Z">
-<meta property="article:modified_time" content="2020-09-19T15:55:15.318Z">
+<meta property="article:modified_time" content="2020-09-20T15:46:43.109Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
@@ -435,7 +435,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  543字
+                  635字
                 </span>
               
 
@@ -476,7 +476,7 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 <h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><p>首先我们需要导入<code>Swagger</code>的依赖，如下所示：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;swagger.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;swagger.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>然后，高度集成的<code>SpringBoot</code>框架还为我们准备了程序入口，我们只需要在${项目根目录}/src/main/java/${自定义包名}下新建<code>java</code>文件。如果你使用的是<code>IDEA</code>，直接新建<code>config.SwaggerConfig</code>文件；如果你使用的是<code>SpringToolSuite</code>（即<code>STS</code>），那么就需要在${自定义包名}下新建包<code>config</code>，再在包下新建<code>java</code>文件，命名为<code>SwaggerConfig</code>。如果你使用的是<code>eclipse</code>，请首先集成<code>STS</code>，然后重复在<code>STS</code>上的操作。</p>
+<p>然后，高度集成的<code>SpringBoot</code>框架还为我们准备了程序入口，我们只需要在<code>{项目根目录}/src/main/java/{自定义包名}</code>下新建<code>java</code>文件。如果你使用的是<code>IDEA</code>，直接新建<code>config.SwaggerConfig</code>文件；如果你使用的是<code>SpringToolSuite</code>（即<code>STS</code>），那么就需要在${自定义包名}下新建包<code>config</code>，再在包下新建<code>java</code>文件，命名为<code>SwaggerConfig</code>。如果你使用的是<code>eclipse</code>，请首先集成<code>STS</code>，然后重复在<code>STS</code>上的操作。</p>
 <p>在<code>SwaggerConfig.java</code>文件中，我们只需要在类上声明注解即可：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>你除了添加两个注解以外什么都不需要做。如果你不是很明白为什么，建议首先将<code>SpringBoot</code>框架启动原理再看一看，预习也好，复习也罢。</p>
@@ -484,8 +484,10 @@ var _hmt = _hmt || [];
 <p><img src="https://sakebow.gitee.io/images/spring-boot-web/集成SwaggerUI并运行.png" alt="Swagger界面"></p>
 <h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>当然，并不是所有人都是这么顺利的，有些人会报<code>404 Error</code>。</p>
 <p>如果你集成了其他安全框架，例如<code>Spring Security</code>、<code>Shiro</code>等等具备拦截请求功能的框架，你将无法访问。这个就需要进一步的配置了，也就不是本篇单纯讨论<code>SwaggerUI</code>的文章能够说清楚的问题了。</p>
-<p>如果你没有集成其他安全框架，那么应该就是版本的问题了。直到编辑博客的今天（<em>2020-09-19</em>）为止，<code>SwaggerUI3.0.0</code>无法使用。我们只需要将版本重新改为<code>2.9.2</code>就好了。</p>
-
+<p>如果你没有集成其他安全框架，那么应该就是版本的问题了。直到编辑博客的今天（<em>2020-09-19</em>）为止，<code>SwaggerUI3.0.0</code>无法使用。我们只需要将版本重新改为<code>2.9.2</code>，然后右键-&gt;<code>Maven</code>-&gt;<code>Reimport</code>就好了。</p>
+<h2 id="注解说明"><a href="#注解说明" class="headerlink" title="注解说明"></a>注解说明</h2><p><code>Swagger</code>提供的注解非常全面，不仅仅能够标记所有的后端接口，还能够标记所有的实体类。所以在前后端交互的时候，前端能够在每一个细节上都能做的非常好，且在每一个细节上都能够完善。</p>
+<p>比如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -572,8 +574,8 @@ var _hmt = _hmt || [];
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/09/23/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95/" rel="prev" title="决策树算法">
-                决策树算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/09/22/JavaScript/Vue/Electron-vue%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="prev" title="Electron-vue环境搭建">
+                Electron-vue环境搭建 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -677,7 +679,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -785,7 +787,7 @@ var _hmt = _hmt || [];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖"><span class="nav-number">2.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误处理"><span class="nav-number">3.</span> <span class="nav-text">错误处理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖"><span class="nav-number">2.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误处理"><span class="nav-number">3.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注解说明"><span class="nav-number">4.</span> <span class="nav-text">注解说明</span></a></li></ol></div>
             
 
           </div>

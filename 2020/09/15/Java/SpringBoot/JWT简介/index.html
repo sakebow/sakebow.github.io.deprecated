@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Sakebow的小博客">
 <meta property="og:description" content="导读JWT，全称Json Web Token，我们平常所说的token实际上就是说JWT技术中的T。">
 <meta property="article:published_time" content="2020-09-15T15:33:00.000Z">
-<meta property="article:modified_time" content="2020-09-16T09:16:35.628Z">
+<meta property="article:modified_time" content="2020-09-20T12:03:12.727Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
@@ -433,7 +433,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  891字
+                  1.4k字
                 </span>
               
 
@@ -449,7 +449,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  5分钟
                 </span>
               
             </div>
@@ -486,6 +486,19 @@ var _hmt = _hmt || [];
 <h3 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h3><p><strong>签名</strong>就像是交付的时候有个安全员通过唯一指定的识别器来确认操作的用户确实是你，而不是其他的什么人。</p>
 <p>所以签名这部分就是头部和负载的结合，再使用一个<strong>随机盐</strong>再次编码。每当用户发送请求的时候，服务器都会首先使用第一部分和第二部分使用<strong>只有服务器知道</strong>的随机盐加密，再和第三部分比对。加密后的信息和第三部分是相同的，那么就是正确的，本次识别器确认了用户信息，否则就是非法登录。</p>
 <p>这个算法从逻辑上能够在一定程度上保证请求信息不会被其他用户非法使用。但是呢，这个算法还是不能够保证别有用心的人修改你的个人隐私。这就很无奈了。</p>
+<h2 id="一个小例子"><a href="#一个小例子" class="headerlink" title="一个小例子"></a>一个小例子</h2><p>这个小例子虽然用到了<code>SpringBoot</code>，但是只使用了框架内的测试功能，单纯地使用命令行输出所有的结果。</p>
+<p>由于我们并没有用到<code>SpringBoot</code>自带的测试类，所以就只是单纯地在<code>{项目根目录}/src/main/test/{自定义包名}</code>下新建<code>JWTTest.java</code>，并直接使用<code>JWT</code>工具类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testJWT</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// set expire time</span></span><br><span class="line">  Calendar calendar = Calendar.getInstance();</span><br><span class="line">  calendar.add(Calendar.SECOND, <span class="number">90</span>);</span><br><span class="line">  <span class="comment">// create jwt</span></span><br><span class="line">  HashMap&lt;String, Object&gt; headers = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">  headers.put(<span class="string">"type"</span>, <span class="string">"JSON"</span>);</span><br><span class="line">  String token = JWT.create()</span><br><span class="line">                    .withHeader(headers)</span><br><span class="line">                    .withClaim(<span class="string">"user"</span>, <span class="string">"sakebow"</span>)</span><br><span class="line">                    .withClaim(<span class="string">"id"</span>, <span class="string">"20202104126"</span>)</span><br><span class="line">                    .withExpiresAt(calendar.getTime())</span><br><span class="line">                    .sign(Algorithm.HMAC256(<span class="string">"~@#sakebow?!~"</span>));</span><br><span class="line">  System.out.println(token);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码运行之后就会生成一长串代码：</p>
+<p><code>eyJ0eXAiOiJKV1QiLCJ0eXBlIjoiSlNPTiIsImFsZyI6IkhTMjU2In0.eyJpZCI6IjIwMjAyMTA0MTI2IiwiZXhwIjoxNjAwNjAwNjM1LCJ1c2VyIjoic2FrZWJvdyJ9.xigradwatkwZYO1QZJ98_sa6qH9L-_8uYyi5_HUSRjE</code></p>
+<p>看起来毫无章法？不过没有关系，我们还能解码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDecodeJWT</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  String token =  <span class="string">"eyJ0eXAiOiJKV1QiLCJ0eXBlIjoiSlNPTiIsImFsZyI6IkhTMjU2In0.eyJpZCI6IjIwMjAyMTA0MTI2IiwiZXhwIjoxNjAwNjAwNjM1LCJ1c2VyIjoic2FrZWJvdyJ9.xigradwatkwZYO1QZJ98_sa6qH9L-_8uYyi5_HUSRjE"</span>;</span><br><span class="line">  JWTVerifier jwtVerifier = JWT</span><br><span class="line">          .require(Algorithm.HMAC256(<span class="string">"~@#sakebow?!~"</span>))</span><br><span class="line">          .build();</span><br><span class="line">  DecodedJWT decodedJWT = jwtVerifier.verify(token);</span><br><span class="line">  System.out.println(decodedJWT.getHeader() + <span class="string">", "</span> + decodedJWT.getPayload());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>JWTVerifier</code>除了解码以外，还会核对前面两个部分合在一起加密是否与最后一段相等。同时，<code>JWT</code>还会经常变化，这也正为<code>JWT</code>提供了一定的安全性。</p>
+<h2 id="随机盐"><a href="#随机盐" class="headerlink" title="随机盐"></a>随机盐</h2><p>不知道你们注意到没有，在<code>JWT</code>加密中有一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sign(Algorithm.HMAC256(<span class="string">"~@#sakebow?!~"</span>));</span><br></pre></td></tr></table></figure>
+<p>实际上这个<code>~@#sakebow?!~</code>就是我们自己规定的<strong>随机盐</strong>，也就是根据这个片段对我们发送的数据进行加密。因为这个片段基本上只有开发着自己知道，所以安全性还是可以保证的。但是，安全性可不仅限于用户自己使用。</p>
+<p>如果说其他别有用心的用户拿到了这个数据，伪造了其他人的信息，发送了非法请求，到了服务器结果就会被当成已经授权的人，然后回应请求。这将会让整个程序会变得非常危险。所以，这段随机盐<strong>决不可以保存在客户端</strong>。</p>
+<p>是不是有点能理解了呢？</p>
 
       
     </div>
@@ -678,7 +691,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -786,7 +799,7 @@ var _hmt = _hmt || [];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session和Token的对比"><span class="nav-number">2.</span> <span class="nav-text">Session和Token的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Token的结构"><span class="nav-number">3.</span> <span class="nav-text">Token的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#头部"><span class="nav-number">3.1.</span> <span class="nav-text">头部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负载"><span class="nav-number">3.2.</span> <span class="nav-text">负载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#签名"><span class="nav-number">3.3.</span> <span class="nav-text">签名</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session和Token的对比"><span class="nav-number">2.</span> <span class="nav-text">Session和Token的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Token的结构"><span class="nav-number">3.</span> <span class="nav-text">Token的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#头部"><span class="nav-number">3.1.</span> <span class="nav-text">头部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负载"><span class="nav-number">3.2.</span> <span class="nav-text">负载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#签名"><span class="nav-number">3.3.</span> <span class="nav-text">签名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个小例子"><span class="nav-number">4.</span> <span class="nav-text">一个小例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机盐"><span class="nav-number">5.</span> <span class="nav-text">随机盐</span></a></li></ol></div>
             
 
           </div>
