@@ -96,7 +96,7 @@
 <meta property="og:description" content="导读Swagger是为了能够方便对接而产生的框架。在本篇中将会默认大家都有一定的Java Web开发基础和SpringBoot框架使用经验，并在这些基础和经验之上说明一些需要注意的点。">
 <meta property="og:image" content="https://sakebow.gitee.io/images/spring-boot-web/%E9%9B%86%E6%88%90SwaggerUI%E5%B9%B6%E8%BF%90%E8%A1%8C.png">
 <meta property="article:published_time" content="2020-09-19T15:35:00.000Z">
-<meta property="article:modified_time" content="2020-10-11T14:15:08.023Z">
+<meta property="article:modified_time" content="2020-10-11T15:16:40.017Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
@@ -435,7 +435,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  941字
+                  947字
                 </span>
               
 
@@ -488,7 +488,7 @@ var _hmt = _hmt || [];
 <h2 id="注解说明"><a href="#注解说明" class="headerlink" title="注解说明"></a>注解说明</h2><p><code>Swagger</code>提供的注解非常全面，不仅仅能够标记所有的后端接口，还能够标记所有的实体类。所以在前后端交互的时候，前端能够在每一个细节上都能做的非常好，且在每一个细节上都能够完善。</p>
 <p>比如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>)</span><br><span class="line"><span class="comment">// 说明该类的作用</span></span><br><span class="line"><span class="meta">@Api</span>(tags=&#123;<span class="string">"test"</span>, <span class="string">"hello"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">  <span class="meta">@RequestMapping</span>(method = RequestMethod.GET, value = <span class="string">"/swagger2"</span>)</span><br><span class="line">  <span class="comment">// 说明方法的作用</span></span><br><span class="line">  <span class="meta">@ApiOperation</span>(value = <span class="string">"test swagger2"</span>)</span><br><span class="line">  <span class="comment">// 说明方法用了哪些参数</span></span><br><span class="line">  <span class="meta">@ApiImplicitParams</span>(</span><br><span class="line">    <span class="comment">// 针对每一个参数进行说明</span></span><br><span class="line">    <span class="meta">@ApiImplicitParam</span>(</span><br><span class="line">      name = <span class="string">"world"</span>,</span><br><span class="line">      value = <span class="string">"nonsense"</span>,</span><br><span class="line">      dataType = <span class="string">"String"</span>,</span><br><span class="line">      paramType = <span class="string">"query"</span>,</span><br><span class="line">      required = <span class="keyword">true</span></span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line">  <span class="comment">// 说明方法有哪些返回值</span></span><br><span class="line">  <span class="meta">@ApiResponses</span>(value = &#123;</span><br><span class="line">    <span class="comment">// 针对每一种返回值进行说明</span></span><br><span class="line">    <span class="comment">// 每个方法内置了4种状态，200、401（认证失败）、403（禁止访问）、404（不存在）</span></span><br><span class="line">    <span class="comment">// 这里可以针对这些默认属性的说明修改，比如将“不存在”改为“资源不存在”</span></span><br><span class="line">    <span class="meta">@ApiResponse</span>(code = <span class="number">404</span>, message = <span class="string">"Resource not Found"</span>),</span><br><span class="line">    <span class="meta">@ApiResponse</span>(code = <span class="number">200</span>, message = <span class="string">"Hello World!"</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">(@RequestParam String world)</span> </span>&#123; <span class="keyword">return</span> <span class="string">"hello"</span>; &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 在接口文档中不将此方法列入</span></span><br><span class="line">  <span class="meta">@ApiIgnore</span></span><br><span class="line">  <span class="meta">@RequestMapping</span>(method = RequestMethod.POST, value = <span class="string">"/swagger2/ignore"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">world</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"ignore"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当然，我们还有<code>@ApiModel</code>，但是这些不会一开始就显示在接口文档中，而是在点击每个接口中有一个<code>Try it!</code>按钮之后按照这个类型显示出来。虽然很方便，但也有不太方便的地方。很多教程中都会叫我们封装统一返回类型，于是这样就失去了对一般实体类</p>
+<p>当然，我们还有<code>@ApiModel</code>，但是这些不会一开始就显示在接口文档中，而是在点击每个接口中有一个<code>Try it!</code>按钮之后按照这个类型显示出来。虽然很方便，但也有不太方便的地方。很多教程中都会叫我们封装统一返回类型，于是在原有类型上使用注解就没有任何反馈了。</p>
 
       
     </div>
@@ -681,7 +681,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
