@@ -510,6 +510,216 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sakebow.gitee.io/2020/11/10/%E8%BF%90%E7%BB%B4/docker/Windows%E4%B8%8B%E4%BD%BF%E7%94%A8Docker%E6%90%AD%E5%BB%BAGitLab%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sakebow">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon/UN.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sakebow的小博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/11/10/%E8%BF%90%E7%BB%B4/docker/Windows%E4%B8%8B%E4%BD%BF%E7%94%A8Docker%E6%90%AD%E5%BB%BAGitLab%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">Windows下使用Docker搭建GitLab服务器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-10T17:22:00+08:00">
+                2020-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index">
+                    <span itemprop="name">运维</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>也不是所有的公司都崇尚<code>Linux</code>哲学，也有非常多的公司热衷于使用<code>Windows</code>当作服务器。所以这里介绍一下在如何在<code>Windows</code>下使用<code>Docker</code>搭建<code>GitLab</code>。</strong></p>
+<h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装<code>Docker</code></h2><p>安装包：<a href="https://pan.baidu.com/s/1Ek_Z4LOAV80Pf2V4FKFs2Q" target="_blank" rel="noopener">提取码：ary4</a></p>
+<p>在<code>Windows</code>下安装<code>Docker</code>就非常难受了，需要解决非常多的约束。</p>
+<h3 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h3><p>有些人非常讨厌更新所以使用一些脚本把更新关掉了。但是人家<code>Docker</code>必须要更新才能安装，你气不气嘛。</p>
+<p>如果你是<code>Windows10</code>，在“更新和安全”$\rightarrow$“<code>Windows</code>更新”，在里面找到“检查更新”按钮，点击即可。到最后，会提示你重启以应用更新。当然，你可以选择现在重启，但是我们推荐把下面的步骤做完之后再更新。</p>
+<h3 id="添加“适用于Linux的Windows子系统”"><a href="#添加“适用于Linux的Windows子系统”" class="headerlink" title="添加“适用于Linux的Windows子系统”"></a>添加“适用于<code>Linux</code>的<code>Windows</code>子系统”</h3><p>在编辑这篇博客的时候，<code>Docker</code>已经出道了2.5.0，所以需要这样的设置。</p>
+<p>打开“控制面板”$\rightarrow$“程序”$\rightarrow$“程序和功能”$\rightarrow$“启用或关闭<code>Windows</code>功能”$\rightarrow$“适用于<code>Linux</code>的<code>Windows</code>子系统”（最下方倒数第三个），勾选，然后点击“确定”。</p>
+<p><img src="https://sakebow.gitee.io/images/SpringCloud/安装WSL.png" alt="操作截图"></p>
+<p>接着<code>Windows</code>就能够帮你下载这些东西。等待完成之后，系统会提示需要重启，重启之后就应用了更改。这个时候重启吧，但是别忘了，在开机之前还有一点点事情要做。</p>
+<h3 id="VT开启"><a href="#VT开启" class="headerlink" title="VT开启"></a><code>VT</code>开启</h3><p>你的<code>Windows</code>需要开启<code>virtual technology</code>，也就是<strong>虚拟化</strong>，打游戏的时候经常要开启的那个。有些主板可能比较难找，但一定会有，实在找不到去问问度娘吧，主办版本太多了也没办法一一说明。</p>
+<h3 id="结束？"><a href="#结束？" class="headerlink" title="结束？"></a>结束？</h3><p><strong>试着打开<code>Docker Desktop</code>的安装包吧！</strong></p>
+<p>看到这里是不是以为马上就要结束了？<strong>当然没有</strong>。只不过往后的步骤有提示而已，别担心啦。</p>
+<p>打开安装包之后，他会提示：需要安装<code>Linux</code>内核以支持<code>Docker</code>的运行。这里她也非常贴心的给出了链接，点进去下载就好了。</p>
+<p>这里我也给出我自己已经下载好的吧：<a href="https://pan.baidu.com/s/1TALJ76QmVgm0VrumzDkUQw" target="_blank" rel="noopener">提取码：14m1</a></p>
+<p>下载好了之后安装，这个过程是不会让你选择路径的。因为安装包不大，所以也没什么影响，放心安装。</p>
+<p>等全部安装完之后，就可以真正意义上打开<code>Docker Desktop</code>的安装包了。</p>
+<p>之后便是等待安装结束。<code>Docker</code>安装文件给的提示是注销用户再重新登录即可，可能使用<code>Linux</code>的人比较习惯这种操作。不过呢，既然是傻瓜式的<code>Windows</code>，直接重启计算机就好了。（<em>仅限开机较快的同学</em>）</p>
+<p>到这里，就能够打开<code>Docker Desktop</code>正常使用了。</p>
+<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>在<code>Linux</code>系统中，直接修改<code>/etc/docker/daemon.json</code>就够了。但是<code>Windows</code>系统中可没有这个。所以直接打开任务栏中的<code>Docker</code>，按照下图步骤进行设置</p>
+<p><img src="https://sakebow.gitee.io/images/SpringCloud/Windows的docker换源.png" alt="Docker界面"></p>
+<p>其中国内源可以选择：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Docker国内镜像源</span></span><br><span class="line">https://registry.docker-cn.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 网易Docker源</span></span><br><span class="line">http://hub-mirror.c.163.com</span><br></pre></td></tr></table></figure>
+<p>当然你还可以选择阿里云的私人镜像站，都是非常不错的。这里就不一一介绍了。</p>
+<p>最后，安装一下<code>Git</code>客户端吧。在<code>Windows</code>上如果不进行任何配置的话，只能使用<code>Git Bash</code>。但是考虑到<code>GitLab</code>一定要用到<code>Git</code>客户端，所以也就安装了算了吧。</p>
+<p>国内的话更推荐使用<a href="http://npm.taobao.org/mirrors/git-for-windows/v2.29.2.windows.2/" target="_blank" rel="noopener">淘宝的Git-2.29.2.2镜像</a>。</p>
+<p>就是这样啦。接下来我们开始搭建<code>GitLab</code>。</p>
+<p>打开命令行（实际上是<code>Git</code>客户端），输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">docker pull twang2218/gitlab-ce-zh # 拉取镜像</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">下载时间很长，我们趁下载的时间准备`docker-compose.yml`：</span><br><span class="line"></span><br><span class="line">```yml</span><br><span class="line">version: '3' # 版本号</span><br><span class="line">services: # 开启服务</span><br><span class="line">  gitlab: # 服务名称</span><br><span class="line">    image: 'twang2218/gitlab-ce-zh:latest' # 使用镜像</span><br><span class="line">    restart: always</span><br><span class="line">    hostname: 'GitLab' # 主机名称（自定义）</span><br><span class="line">    environment: # 环境配置</span><br><span class="line">      TZ: 'Asia/Shanghai'</span><br><span class="line">      GITLAB_OMNIBUS_CONFIG: |</span><br><span class="line">        external_url 'http://192.168.1.112:8080'</span><br><span class="line">        gitlab_rails['gitlab_shell_ssh_port'] = 4022</span><br><span class="line">        unicorn['port'] = 8888</span><br><span class="line">        nginx['listen_port'] = 8080</span><br><span class="line">    ports: # 端口映射，格式为“本机IP：Docker镜像内部IP”</span><br><span class="line">      - '1080:8080'</span><br><span class="line">      - '1043:8443'</span><br><span class="line">      - '1022:22'</span><br><span class="line">    volumes: # 挂载卷</span><br><span class="line">      # 前面是Windows的地址所以斜杠向右；后面是Linux的地址所以向左</span><br><span class="line">      - D:\codes\docker\gitlab\config:/etc/gitlab</span><br><span class="line">      - D:\codes\docker\gitlab\data:/var/opt/gitlab</span><br><span class="line">      - D:\codes\docker\gitlab\logs:/var/log/gitlab</span><br></pre></td></tr></table></figure>
+<p>粘贴后记得保存哦。</p>
+<p>等拉取完毕后，运行命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d # 以后台进程的方式运行容器</span><br></pre></td></tr></table></figure>
+<p>于是，<code>GitLab</code>就能够跑起来了。短暂地等待之后，使用“本机IP：端口号”的形式访问网站就好了。比如说我设置之后就可以使用：<code>http://10.33.76.59:1080</code>进入<code>GitLab</code>网站。</p>
+<p>如果你有看过我之前写的<a href="/2020/07/08/Java/SpringCloud/版本控制的另一种打开方式/">版本控制的另一种打开方式</a>，那么你对上述的过程应该很熟悉。但是在<code>Windows</code>下有所不同的是，在进入容器内的时候并不能使用<code>/bin/bash</code>，因为<code>Windows</code>系统压根就没有这个地址。</p>
+<p>所以只能使用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it $&#123;docker-container-id&#125; bash</span><br></pre></td></tr></table></figure>
+<p>也就是将<code>/bin/bash</code>更换为<code>bash</code>。</p>
+<p>这下就能进去了。剩下的改密码、创建什么的都和之前<a href="/2020/07/08/Java/SpringCloud/版本控制的另一种打开方式/">版本控制的另一种打开方式</a>一模一样了。</p>
+<p>是不是有点懂了呢？</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://sakebow.gitee.io/2020/11/02/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/%E4%BB%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%9D%A5%E7%9C%8B%E9%9D%99%E6%80%81%E7%BB%91%E5%AE%9A%E5%92%8C%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1406,183 +1616,6 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sakebow.gitee.io/2020/10/11/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E4%BB%80%E4%B9%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sakebow">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon/UN.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sakebow的小博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/10/11/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E4%BB%80%E4%B9%88/" itemprop="url">数据中台是什么</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-11T08:43:00+08:00">
-                2020-10-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index">
-                    <span itemprop="name">大数据</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  3.3k字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  11分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>现在，“数据中台”这个概念越来越火，但是数据中台到底是什么，服务对象是谁，目标又是什么？</strong></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/10/11/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E4%BB%80%E4%B9%88/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://sakebow.gitee.io/2020/10/11/%E7%94%B5%E7%BD%91%E7%A0%94%E7%A9%B6/%E6%99%BA%E8%83%BD%E5%BE%AE%E7%94%B5%E7%BD%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1710,6 +1743,183 @@ var _hmt = _hmt || [];
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/10/11/%E7%94%B5%E7%BD%91%E7%A0%94%E7%A9%B6/%E6%99%BA%E8%83%BD%E5%BE%AE%E7%94%B5%E7%BD%91/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sakebow.gitee.io/2020/10/11/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E4%BB%80%E4%B9%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sakebow">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon/UN.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sakebow的小博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/10/11/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E4%BB%80%E4%B9%88/" itemprop="url">数据中台是什么</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-11T08:43:00+08:00">
+                2020-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.3k字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>现在，“数据中台”这个概念越来越火，但是数据中台到底是什么，服务对象是谁，目标又是什么？</strong></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/10/11/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E4%BB%80%E4%B9%88/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1924,183 +2134,6 @@ var _hmt = _hmt || [];
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sakebow.gitee.io/2020/09/27/JavaScript/Vue/%E8%87%AA%E5%AE%9A%E4%B9%89module%E7%9A%84%E5%AF%BC%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sakebow">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon/UN.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sakebow的小博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/09/27/JavaScript/Vue/%E8%87%AA%E5%AE%9A%E4%B9%89module%E7%9A%84%E5%AF%BC%E5%85%A5/" itemprop="url">自定义module的导入</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-27T20:40:00+08:00">
-                2020-09-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  356字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>对于前端小白来说，ES5、ES6两套完全不一样的标准放在一起是很头疼的事。导入的时候同时使用两套不同的标准将会在<code>ESLint</code>存在的时候报错。</strong></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/09/27/JavaScript/Vue/%E8%87%AA%E5%AE%9A%E4%B9%89module%E7%9A%84%E5%AF%BC%E5%85%A5/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2155,7 +2188,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
