@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Sakebow的小博客">
 <meta property="og:description" content="导读机器学习中有非常多的算法，遗传算法就是其中之一。正因为有所特点，所以才被人们广为使用。">
 <meta property="article:published_time" content="2020-09-15T09:01:00.000Z">
-<meta property="article:modified_time" content="2020-10-03T11:07:02.895Z">
+<meta property="article:modified_time" content="2020-11-12T13:10:45.251Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="算法模型">
 <meta name="twitter:card" content="summary">
@@ -433,7 +433,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  794字
+                  2.2k字
                 </span>
               
 
@@ -449,7 +449,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  7分钟
                 </span>
               
             </div>
@@ -472,12 +472,19 @@ var _hmt = _hmt || [];
       
         <h2 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h2><p><strong>机器学习中有非常多的算法，遗传算法就是其中之一。正因为有所特点，所以才被人们广为使用。</strong></p>
 <a id="more"></a>
-<h2 id="遗传算法的定义"><a href="#遗传算法的定义" class="headerlink" title="遗传算法的定义"></a>遗传算法的定义</h2><p>为什么偏偏把这个算法叫做“<strong>遗传</strong>”算法？那是因为这个算法是一种<strong>进化算法</strong>，基本原理是效仿生物界中“<strong>物竞天择，适者生存</strong>”的演化法则。具体来说就是这个样子：</p>
+<h2 id="遗传算法的定义"><a href="#遗传算法的定义" class="headerlink" title="遗传算法的定义"></a>遗传算法的定义</h2><blockquote>
+<p>遗传算法是根据<strong>大自然中生物体进化规律</strong>而设计提出的，是模拟达尔文<strong>生物进化论</strong>的<strong>自然选择</strong>和<strong>遗传学机理</strong>的生物进化过程的<strong>计算模型</strong>，是一种通过模拟自然进化过程搜索<strong>最优解</strong>的方法。该算法通过数学的方式,利用计算机仿真运算,将问题的求解过程转换成类似生物进化中的<strong>染色体基因的交叉</strong>、<strong>变异</strong>等过程。在求解较为复杂的组合优化问题时,相对一些常规的优化算法,<strong>通常能够较快地获得较好的优化结果</strong>。</p>
+<p>——摘自<a href="https://baike.baidu.com/item/遗传算法/838140" target="_blank" rel="noopener">百度百科【遗传算法】</a></p>
+<p>遗传算法正是借鉴生物的自然选择和遗传进化机制而开发出的一种<strong>全局优化自适应概率搜索算法</strong>。</p>
+<p>——摘自《遗传算法原理及应用》 周明，孙树陈 著</p>
+</blockquote>
+<p>知晓了这些，是不是有大概的概念了？也就是说，遗传算法是一种<strong>模拟自然界变异和选择的过程</strong>而诞生的算法，目的是为了<strong>较快地获得较好的结果</strong>，也就是相较于其他的机器学习算法有着更快的收敛速度。</p>
+<p>为什么偏偏把这个算法叫做<strong>遗传</strong>算法？那是因为这个算法是一种<strong>进化算法</strong>，基本原理是效仿生物界中<strong>物竞天择，适者生存</strong>的演化法则。具体来说就是这个样子：</p>
 <ul>
 <li>在算法开始之前，所有的数据就作为一个<strong>生态圈</strong>出现在了我们的面前。</li>
 <li>生态圈中的任何一个个体都遵循一样的规律：<strong>有血</strong>、<strong>有肉</strong>、<strong>要呼吸</strong>；也就是说这个数据集中需要按照一定的结构表示成基本相似的数据类型。</li>
-<li>等到所有的生物都就位了之后（<em>数据集准备好了之后</em>），生态圈残酷的斗争和竞争就开始了。类比到数据集的筛选就是针对每个数据使用同一个适应度来评估数据的优劣。同样的，在这里优胜劣汰</li>
-<li>适应度并不是千篇一律的，而是针对每一个不同的问题有完全不同的解决方案。</li>
+<li>等到所有的生物都就位了之后（<em>数据集准备好了之后</em>），生态圈残酷的斗争和竞争就开始了。类比到数据集的筛选就是针对每个数据使用<strong>同一个适应度</strong>来评估数据的优劣。同样的，在这里优胜劣汰就对应这个筛选的过程，<strong>高</strong>于规定的适应度就能够<strong>保留</strong>下来，<strong>低</strong>于适应度的就会被<strong>剔除</strong>。<strong>多次迭代</strong>之后就会留下优秀的个体，也就是我们最终希望得到的结果。</li>
+<li><strong>每个问题的适应度并不是千篇一律的</strong>，而是针对每一个不同的问题有完全不同的解决方案，就像是羚羊更擅长跑而狮子更擅长撕咬。</li>
 </ul>
 <p>算法思想又是如何呢？</p>
 <ul>
@@ -487,10 +494,10 @@ var _hmt = _hmt || [];
 </ul>
 <h2 id="遗传算法的特点"><a href="#遗传算法的特点" class="headerlink" title="遗传算法的特点"></a>遗传算法的特点</h2><p>遗传算法之所以成为遗传算法，肯定是和生物学的“遗传”这个概念有很多是重合的。</p>
 <ul>
-<li>正因为遗传发生在单个个体上，所以算法能够独立地为每一个样本进行计算和筛选，并行性非常优秀；</li>
-<li>因为遗传是所有生物通用的，所以算法也能够涵盖绝大多数的问题；</li>
-<li>因为遗传能够通过自然选择使得一个物种在多个物种之间脱颖而出，所以具有非常优秀的全局优化性能；</li>
-<li>因为有时我们可以通过人工配种的方式使得某一个基因比较突出，所以遗传算法也有着非常高的可操作性；</li>
+<li>正因为遗传发生在单个个体上，所以算法能够<strong>独立</strong>地为每一个样本进行计算和筛选，<strong>并行性非常优秀</strong>；</li>
+<li>因为遗传是所有生物<strong>通用</strong>的，所以算法也能够<strong>涵盖绝大多数的问题</strong>；</li>
+<li>因为遗传能够通过自然选择使得一个物种<strong>在多个物种之间脱颖而出</strong>，所以具有<strong>非常优秀的全局优化性能</strong>；</li>
+<li>因为有时我们可以通过<strong>人工配种</strong>的方式使得某一个基因比较突出，所以遗传算法也有着<strong>非常高的可操作性</strong>；</li>
 </ul>
 <p>当然，有优点就肯定有缺点。</p>
 <ul>
@@ -498,6 +505,32 @@ var _hmt = _hmt || [];
 <li>因为基因变异是完全随机的，能够产生适应环境的个体，也能够产生不适应环境的个体。所以在收敛结果上也不是一直很完美；</li>
 </ul>
 <p>但是，也正因为这些可靠的优点和突出的缺点，在一些领域上也是备受瞩目的，如：函数优化、<code>TSP</code>优化、生产调度、智能控制、模式识别等等。</p>
+<h2 id="遗传算法流程简介"><a href="#遗传算法流程简介" class="headerlink" title="遗传算法流程简介"></a>遗传算法流程简介</h2><p>当然，算法最重要的是思考与实践。所以这里也讲一下《遗传算法原理及应用》一书中对遗传算法地解释。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>为了更好地根据我们的要求开展进化的选择，我们需要人工设定进化次数（<em>当然你也可以叫他“进化代数”，为了避开“代数”造成的歧义，我这里使用“次数”</em>）。</p>
+<p>设置允许最多进化次数$T$，并记录当前已进行的进化次数$t$，也就是一开始设置$t=0$。</p>
+<p>由于并没有具体的数据进行分析，所以这里我们选择随机生成一大批数据模拟一个群体$P$。所以，随机生成数量为$M$的个体组成初始群体$P(0)$。</p>
+<h3 id="个体评价"><a href="#个体评价" class="headerlink" title="个体评价"></a>个体评价</h3><p>好了，大舞台已经准备好了，接下来就是相互交叉变异外加筛选了。逐个评估第$t$次进化保留下来的群体$P(t)$中每一个个体的适应度$adaptability$，这里就简写为$adp_i(t)$。</p>
+<h3 id="选择运算"><a href="#选择运算" class="headerlink" title="选择运算"></a>选择运算</h3><p>刚刚我们已经得到了群体$P(t)$中每个个体的适应度，接下来就是通过和固定的标准适应度进行对比，剔除较低的个体、保留较高的个体，重新组成新的群体$P(t+1)$。</p>
+<p>就像是大自然中的“<strong>物竞天择</strong>”一样，只不过现在你就是规则，逐一选择你希望获得的个体。</p>
+<h3 id="交叉运算"><a href="#交叉运算" class="headerlink" title="交叉运算"></a>交叉运算</h3><p>直接说“交叉”可能不太好理解。所以，这里就直接使用生物界的词语：“交配”。</p>
+<p>“交配”在生物学中就是整个种群进行基因交流的过程。通过不断的交配、产生后代，通过我们所熟知的遗传学定律，就能够在自然选择中选出一些优秀的个体。</p>
+<p>同样的，交叉也就是让我们在数据集里面搜寻我们最希望在迭代中最希望出现的数据。</p>
+<h3 id="变异运算"><a href="#变异运算" class="headerlink" title="变异运算"></a>变异运算</h3><p>刚刚使用了交叉运算，也就是“交配”，这个运算是能够使用遗传学定律产生较为优秀地数据。但是交配并不是严格地产生相应比例的后代，而是有一定的概率产生突变体。虽然概率很小，这也是该群体能够在严格的自然选择中最终保留下来的重要原因。</p>
+<p>同样的，在遗传算法中，交叉就是使群体中的各种数据按照一定的比例进行交换。在这样的交换下，群体就有一定的概率向着你所期望的方向进化。从这个进化的群体里面筛选出优秀的个体，下一步进化也就会更快地朝着你所期望的方向继续进化。</p>
+<h3 id="终止判断"><a href="#终止判断" class="headerlink" title="终止判断"></a>终止判断</h3><p>还记得我们初始化的时候获得的$T$吗？那就是终止判断的标志。只不过是到了应该停下来的时间而已，没有什么需要注意的点。把生于群体中得分最高的数据拉出来当最优解就好了。</p>
+<h2 id="遗传算法数学原理"><a href="#遗传算法数学原理" class="headerlink" title="遗传算法数学原理"></a>遗传算法数学原理</h2><p>这一整套六个步骤下来就是遗传算法的全部内容了。到这里相信你还有很多不能理解的地方，接下来就是遗传算法的数学原理了。</p>
+<p>首先我们需要确定一个先决条件：</p>
+<ul>
+<li>群体是有限个</li>
+</ul>
+<p>如果有无限的数据，比如从0到1的所有小数，这就没有任何的意义。</p>
+<p>所以，我们能够拿到的数据应当是离散的。这里就用这组数据：</p>
+<script type="math/tex; mode=display">
+\left\{\begin{matrix}
+  S&=&\{1,2,3,4,5,6,7\}\\
+  x_1&\in&S\\
+  x_2&\in&S
+\end{matrix}\right.</script><p>这下最起码有$7*7=49$种排列组合。</p>
 
       
     </div>
@@ -690,7 +723,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -798,7 +831,7 @@ var _hmt = _hmt || [];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遗传算法的定义"><span class="nav-number">2.</span> <span class="nav-text">遗传算法的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遗传算法的特点"><span class="nav-number">3.</span> <span class="nav-text">遗传算法的特点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遗传算法的定义"><span class="nav-number">2.</span> <span class="nav-text">遗传算法的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遗传算法的特点"><span class="nav-number">3.</span> <span class="nav-text">遗传算法的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遗传算法流程简介"><span class="nav-number">4.</span> <span class="nav-text">遗传算法流程简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">4.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个体评价"><span class="nav-number">4.2.</span> <span class="nav-text">个体评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择运算"><span class="nav-number">4.3.</span> <span class="nav-text">选择运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交叉运算"><span class="nav-number">4.4.</span> <span class="nav-text">交叉运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变异运算"><span class="nav-number">4.5.</span> <span class="nav-text">变异运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#终止判断"><span class="nav-number">4.6.</span> <span class="nav-text">终止判断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遗传算法数学原理"><span class="nav-number">5.</span> <span class="nav-text">遗传算法数学原理</span></a></li></ol></div>
             
 
           </div>
