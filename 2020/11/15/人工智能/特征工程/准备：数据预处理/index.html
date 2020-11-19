@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Sakebow的小博客">
 <meta property="og:description" content="导读你现在拿到了许多数据，顺序是完全随机的。这已经不是单凭肉眼和逻辑推导就能分析出来的规律，只能通过机器学习来计算。那么，应该从哪一步开始？">
 <meta property="article:published_time" content="2020-11-15T11:42:00.000Z">
-<meta property="article:modified_time" content="2020-11-15T13:05:39.561Z">
+<meta property="article:modified_time" content="2020-11-19T02:10:07.661Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="特征工程">
 <meta name="twitter:card" content="summary">
@@ -433,7 +433,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  554字
+                  983字
                 </span>
               
 
@@ -449,7 +449,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1分钟
+                  3分钟
                 </span>
               
             </div>
@@ -481,7 +481,19 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>听到这里，你的<code>DNA</code>应该有反应了。没错，就是</p>
 <script type="math/tex; mode=display">若X\sim N(\mu,\sigma^2),那么Y=\frac{X-\mu}{\sigma}\sim N(0,1)</script><p>之前我们在做题的时候都是二话不说先化为标准正态分布，实际上这么做就是为了<strong>数据规格化</strong>。</p>
-<p>而对于不同分布的数据我们则是尽可能地转化为统一的分布，这个分布多半选择<strong>正态分布</strong>，因为正态分布的样本值和方差相互独立。</p>
+<p>而对于不同分布的数据我们则是尽可能地转化为统一的分布，这个分布多半选择<strong>正态分布</strong>，因为正态分布有非常多便于统计运算的性质。</p>
+<p>正因为数据的无量纲化之后能够将数据变为更为规范的、标准的数据集，所以往往在进行机器学习的时候为了能够更快地收敛、在更短的时间内给出更精确的结果，无量纲化也是重要的一步。当然，也可以跳过，这都看原数据的质量了。</p>
+<h2 id="无量纲化的意义"><a href="#无量纲化的意义" class="headerlink" title="无量纲化的意义"></a>无量纲化的意义</h2><blockquote>
+<p>机器学习和数据挖掘中所使用的数据，永远不可能是完美的。很多特征，对于分析和建模来说意义非凡，但对于实际收集数据的人却不是如此，因此数据挖掘之中，常常会有重要的字段缺失值很多，但又不能舍弃字段的情况。因此，数据预处理中非常重要的一项就是处理缺失值。</p>
+<p>——摘自<a href="https://blog.csdn.net/weixin_36325602/article/details/104134462" target="_blank" rel="noopener">CSDN用户AI_Engine：数据无量纲化</a></p>
+</blockquote>
+<p>听起来像极了对账的时候各种奇葩漏账、错别字的样子，不是么？机器面对这样一大批乱七八糟的东西也是一样的。“这TM是啥？”“那TM又是啥？”然后稀里糊涂给了个让你情不自禁说出“这TM什么鬼”的结果。</p>
+<p>如果说对于数据质量有很高要求的模型的话，非<strong>知识图谱</strong>莫属了。我们来看看定义：</p>
+<blockquote>
+<p>知识图谱，是<strong>显示知识发展进程与结构关系的一系列各种不同的图形</strong>，用可视化技术描述知识资源及其载体，<strong>挖掘</strong>、<strong>分析</strong>、<strong>构建</strong>、<strong>绘制</strong>和显示<strong>知识</strong>及它们之间的<strong>相互联系</strong>。</p>
+<p>——摘自<a href="https://baike.baidu.com/item/知识图谱/8120012" target="_blank" rel="noopener">百度百科【知识图谱】</a></p>
+</blockquote>
+<p>我们来回忆一下：</p>
 
       
     </div>
@@ -778,7 +790,7 @@ var _hmt = _hmt || [];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据无量纲化"><span class="nav-number">2.</span> <span class="nav-text">数据无量纲化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据无量纲化"><span class="nav-number">2.</span> <span class="nav-text">数据无量纲化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无量纲化的意义"><span class="nav-number">3.</span> <span class="nav-text">无量纲化的意义</span></a></li></ol></div>
             
 
           </div>
