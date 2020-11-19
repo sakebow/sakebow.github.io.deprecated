@@ -94,11 +94,13 @@
 <meta property="og:url" content="https://sakebow.gitee.io/2020/11/15/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/%E5%87%86%E5%A4%87%EF%BC%9A%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="Sakebow的小博客">
 <meta property="og:description" content="导读你现在拿到了许多数据，顺序是完全随机的。这已经不是单凭肉眼和逻辑推导就能分析出来的规律，只能通过机器学习来计算。那么，应该从哪一步开始？">
+<meta property="og:image" content="https://sakebow.gitee.io/images/emoji/60%E7%A0%81%E7%9A%84%E8%80%81%E5%A5%B6%E5%A5%B6.jpg">
 <meta property="article:published_time" content="2020-11-15T11:42:00.000Z">
-<meta property="article:modified_time" content="2020-11-19T02:10:07.661Z">
+<meta property="article:modified_time" content="2020-11-19T03:19:19.772Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="特征工程">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sakebow.gitee.io/images/emoji/60%E7%A0%81%E7%9A%84%E8%80%81%E5%A5%B6%E5%A5%B6.jpg">
 
 
 
@@ -433,7 +435,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  983字
+                  1.2k字
                 </span>
               
 
@@ -449,7 +451,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  4分钟
                 </span>
               
             </div>
@@ -488,12 +490,19 @@ var _hmt = _hmt || [];
 <p>——摘自<a href="https://blog.csdn.net/weixin_36325602/article/details/104134462" target="_blank" rel="noopener">CSDN用户AI_Engine：数据无量纲化</a></p>
 </blockquote>
 <p>听起来像极了对账的时候各种奇葩漏账、错别字的样子，不是么？机器面对这样一大批乱七八糟的东西也是一样的。“这TM是啥？”“那TM又是啥？”然后稀里糊涂给了个让你情不自禁说出“这TM什么鬼”的结果。</p>
-<p>如果说对于数据质量有很高要求的模型的话，非<strong>知识图谱</strong>莫属了。我们来看看定义：</p>
-<blockquote>
-<p>知识图谱，是<strong>显示知识发展进程与结构关系的一系列各种不同的图形</strong>，用可视化技术描述知识资源及其载体，<strong>挖掘</strong>、<strong>分析</strong>、<strong>构建</strong>、<strong>绘制</strong>和显示<strong>知识</strong>及它们之间的<strong>相互联系</strong>。</p>
-<p>——摘自<a href="https://baike.baidu.com/item/知识图谱/8120012" target="_blank" rel="noopener">百度百科【知识图谱】</a></p>
-</blockquote>
-<p>我们来回忆一下：</p>
+<p>听起来还是有点不太明白？举个例子。</p>
+<p>你想给你的小猫娘科普中国四大名著。但是很可惜，在使用电脑准备文案的时候，你把<strong>水浒传</strong>打成了<strong>水许传</strong>。最绝望的是，你的小猫娘学会了。可以想象，你的小猫娘蹦蹦跳跳的跑到别人面前大声喊出“水许传”的时候，你会有多尴尬。</p>
+<p>机器学习也是一样的，要是有个错误的数据，完全不会自己思考的机器就会把这个当作正确答案进行进一步的运算，然后得出一个错误的结果。像极了<strong>计算出老奶奶的速度是60km/h</strong>的小学生。</p>
+<p><img src="https://sakebow.gitee.io/images/emoji/60码的老奶奶.jpg" alt="计算错误就只好以60码的速度行走的老奶奶" height="350"></p>
+<p>当然，除了纠错补全，无量纲化还能够使用正态分布的许多种特性进行新的分析。例如：</p>
+<script type="math/tex; mode=display">若X\sim N(0,1),则
+\left\{
+\begin{matrix}
+  EX&=&0\\
+  DX&=&1\\
+\end{matrix}
+\right.</script><p>不仅如此，我们还能够通过查表的方式确定当前服从正态分布的变量对应了多少概率，就像我们高中非常熟悉的$P(-\sigma+\mu&lt;X&lt;+\sigma+\mu)=0.6826$等等。更进一步，我们还能够使用正态分布所引出的其他分布来进行更多的数学分析，就像是考研过程中被折磨了无数遍的$F(m,n)=\frac{n\sum^m_{i=1}x^2}{m\sum^n_{i=1}y^2}$等。</p>
+<p>是不是有点能理解了？</p>
 
       
     </div>
