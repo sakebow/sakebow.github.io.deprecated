@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Sakebow的小博客">
 <meta property="og:description" content="导读这里是学习JVM视频的一些笔记，版本是jdk8u144（提取码：s3xf）。我在这里使用的是JVM教程 2020年6月转ubuntu系统了，用的jdk8u221（提取码：r5vi）。">
 <meta property="article:published_time" content="2020-02-06T01:35:00.000Z">
-<meta property="article:modified_time" content="2020-12-08T20:09:12.000Z">
+<meta property="article:modified_time" content="2020-11-21T12:59:43.642Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="JVM">
 <meta name="twitter:card" content="summary">
@@ -433,7 +433,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.7k字
+                  1.8k字
                 </span>
               
 
@@ -486,6 +486,7 @@ var _hmt = _hmt || [];
 <h3 id="源码的阅读简直是一场噩梦"><a href="#源码的阅读简直是一场噩梦" class="headerlink" title="源码的阅读简直是一场噩梦"></a>源码的阅读简直是一场噩梦</h3><p><code>HashMap</code>、<code>ConcurrentHashMap</code>、<code>Spring</code>、<code>MyBatis</code>等等常用框架的源码是非常重要的，不仅是了解其中的<code>API</code>的调用，更是其中原理的掌握。比如，<code>HashMap</code>的<strong>长度拓展原理</strong>和<code>Spring</code>框架的<strong>循环依赖</strong>处理，都是非常重要的。如何通过<code>HashMap</code>优化、如何通过<code>Spring</code>解决变量和依赖，都是在实际工作中非常细节但是非常重要的知识点，也是面试重点。</p>
 <p>另外，在学习过程中当你遇到查都查不到的问题时，<strong>源码是最好的参考书</strong>。举个简单的例子，当你需要明白<code>Thread</code>和<code>Runnable</code>两者对线程的控制谁更贴合需求的时候，源码里面对应类的各种方法中的注释是最好的说明。<code>Thread</code>类中的<code>start</code>方法的注释明确说明了：<strong>当线程结束后，由<code>Thread</code>类及其子类创建的线程将不会允许被第二次调用</strong>。而<code>Runnable</code>类并没有这一项说明，并且线程之间可以使用<code>notify</code>或者<code>notifyAll</code>方法反复相互调用，达到无限循环的效果。</p>
 <h2 id="不怎么重要的重点"><a href="#不怎么重要的重点" class="headerlink" title="不怎么重要的重点"></a>不怎么重要的重点</h2><p><code>JVM</code>不是只有<code>Oracle甲骨文公司</code>特有，有些公司也有自己的<code>JVM</code>。当然，每个<code>JVM</code>都有自己独特的特点，都是由世界级大佬根据需求设计的适应极端环境的虚拟机。由于企业并不是研究所，所以这些<code>JVM</code>设计出来后也将不会再重构，即是说原理将保持不变。现在中国市场使用最多的主要还是<code>Oracle</code>的<code>jdk</code>，其他的<code>open-jdk</code>之类用的比例实在太少，这里就不一一详细说明了。</p>
+<p>希望大家学有所成！</p>
 
       
     </div>
@@ -678,7 +679,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

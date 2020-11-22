@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Sakebow的小博客">
 <meta property="og:description" content="导读在Java代码中，类型的加载、链接与初始化过程都是程序运行期间完成的。类加载给程序提供了更大的灵活性。">
 <meta property="article:published_time" content="2020-02-06T08:07:00.000Z">
-<meta property="article:modified_time" content="2020-08-27T04:02:28.536Z">
+<meta property="article:modified_time" content="2020-11-21T13:33:08.944Z">
 <meta property="article:author" content="Sakebow">
 <meta property="article:tag" content="JVM">
 <meta name="twitter:card" content="summary">
@@ -433,7 +433,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k字
+                  1.9k字
                 </span>
               
 
@@ -449,7 +449,7 @@ var _hmt = _hmt || [];
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5分钟
+                  6分钟
                 </span>
               
             </div>
@@ -566,7 +566,9 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
-<p>所以，<code>Java</code>在实际运行中将会占用非常大的内存，这对于吞吐量极大的项目来说并不是一个好的选择，这也正是为什么腾讯和bilibili都正在逐渐使用<code>GoLang</code>重写整个系统。</p>
+<p>所以，<code>Java</code>在实际运行中将会占用非常大的内存，这对于吞吐量极大的项目来说并不是一个好的选择，这也正是为什么腾讯和<code>bilibili</code>都正在逐渐使用<code>Go</code>重写整个系统。</p>
+<h2 id="2020年11月21日更新"><a href="#2020年11月21日更新" class="headerlink" title="2020年11月21日更新"></a>2020年11月21日更新</h2><p>即使<code>Java</code>依然在性能上有着无法反驳的劣势，却在生态上有着无可撼动的地位。基于<code>Spring Cloud</code>的微服务框架能够集成<code>RabbitMQ</code>、<code>Redis</code>、<code>Zuul</code>、<code>Consul</code>等一切企业级信息管理框架所需要的内容，再加上基于<code>Spring Boot</code>的模块可以使用<code>yml</code>轻松集成，如此强大的生态已经成为了<code>Java</code>立于不败之地的重要因素。不仅如此，在面对海量的并发控制和请求处理的时候，可以<strong>使用非常多的服务器并联处理</strong>，做到了物理意义上的“<strong>三个臭皮匠，顶个诸葛亮</strong>”。这也是为什么<code>Java</code>依然能够在运行内存占用非常高的情况下依然保持这么高的支持率的原因之一。也正因为高支持率，才有了强大的社区和丰富的库。这就是一个良性循环了。</p>
+<p>当然，随着微服务、<code>RPC</code>协议、<code>RESTful</code>接口规范等的提出，单个模块中使用什么语言逐渐变得不再重要了。只对外暴露输入和输出接口，屏蔽了中间过程的一切实现，已经成为了现在开发的主流。每个模块是选择开发效率更高的语言，或者是选择执行效率更高的语言，就看每个公司的追求了。所以，也无所谓<code>Java</code>还是<code>Go</code>的抉择，只要适合该企业，并且该企业有足够的资金维护该系统，那么就是合适的。</p>
 
       
     </div>
@@ -759,7 +761,7 @@ var _hmt = _hmt || [];
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -867,7 +869,7 @@ var _hmt = _hmt || [];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导读的解读"><span class="nav-number">2.</span> <span class="nav-text">导读的解读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载器深入剖析"><span class="nav-number">3.</span> <span class="nav-text">类加载器深入剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java虚拟机结束生命周期的时机"><span class="nav-number">3.1.</span> <span class="nav-text">Java虚拟机结束生命周期的时机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载"><span class="nav-number">3.2.</span> <span class="nav-text">加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接"><span class="nav-number">3.3.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">3.4.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">3.5.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载"><span class="nav-number">3.6.</span> <span class="nav-text">卸载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java程序对类的使用方式"><span class="nav-number">4.</span> <span class="nav-text">Java程序对类的使用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主动使用"><span class="nav-number">4.1.</span> <span class="nav-text">主动使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#被动使用"><span class="nav-number">4.2.</span> <span class="nav-text">被动使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载-class文件的方式"><span class="nav-number">4.3.</span> <span class="nav-text">加载.class文件的方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应当注意的点"><span class="nav-number">5.</span> <span class="nav-text">应当注意的点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#导读"><span class="nav-number">1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导读的解读"><span class="nav-number">2.</span> <span class="nav-text">导读的解读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载器深入剖析"><span class="nav-number">3.</span> <span class="nav-text">类加载器深入剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java虚拟机结束生命周期的时机"><span class="nav-number">3.1.</span> <span class="nav-text">Java虚拟机结束生命周期的时机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载"><span class="nav-number">3.2.</span> <span class="nav-text">加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链接"><span class="nav-number">3.3.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">3.4.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">3.5.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载"><span class="nav-number">3.6.</span> <span class="nav-text">卸载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java程序对类的使用方式"><span class="nav-number">4.</span> <span class="nav-text">Java程序对类的使用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主动使用"><span class="nav-number">4.1.</span> <span class="nav-text">主动使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#被动使用"><span class="nav-number">4.2.</span> <span class="nav-text">被动使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载-class文件的方式"><span class="nav-number">4.3.</span> <span class="nav-text">加载.class文件的方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应当注意的点"><span class="nav-number">5.</span> <span class="nav-text">应当注意的点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020年11月21日更新"><span class="nav-number">6.</span> <span class="nav-text">2020年11月21日更新</span></a></li></ol></div>
             
 
           </div>
