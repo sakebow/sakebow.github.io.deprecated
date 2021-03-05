@@ -2053,7 +2053,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #00bf06;
+  background: #28fbff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3393,49 +3393,16 @@ pre .javascript .function {
     margin: 8px 0 0;
   }
 }
-body,
-.pekora,
-.beaten,
-.collection,
-.touhou-red,
-.bang,
-.succubus,
-.poi,
-.third-eye,
-.new-year-2020,
-.hololive486,
-.lemon-bikini,
-.miku-rain,
-princess-ts,
-.rd,
-.shimakaze,
-.sweetie-belle,
-unity-cat-girl {
+body {
   position: relative;
   z-index: 0;
 }
-body:after,
-.pekora:after,
-.touhou-red:after,
-.beaten:after,
-.collection:after,
-.bang:after,
-.succubus:after,
-.poi:after,
-.third-eye:after,
-.new-year-2020:after,
-.hololive486:after,
-.lemon-bikini:after,
-.miku-rain:after,
-.princess-ts:after,
-.rd:after,
-.shimakaze:after,
-.sweetie-belle:after,
-.unity-cat-girl:after {
+.body-after {
   content: '';
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-image: url("https://sakebow.gitee.io/images/miku/miku.min.png");
+  background-size: center;
   background-repeat: no-repeat;
   opacity: 0.65;
   -moz-opacity: 0.65;
@@ -3448,58 +3415,6 @@ body:after,
   -webkit-animation: bg-scale 8s infinite;
   -moz-animation: bg-scale 8s infinite;
   -o-animation: bg-scale 8s infinite;
-}
-.pekora:after {
-  background-image: url("/images/background/pekora.jpg");
-}
-body:after,
-.touhou-red:after {
-  background-image: url("/images/background/touhou-red.jpg");
-}
-.beaten:after {
-  background-image: url("/images/background/beaten.jpg");
-}
-.collection:after {
-  background-image: url("/images/background/collection.jpg");
-}
-.bang:after {
-  background-image: url("/images/background/bang.jpg");
-}
-.succubus:after {
-  background-image: url("/images/background/succubus.jpg");
-}
-.poi:after {
-  background-image: url("/images/background/poi.png");
-}
-.third-eye:after {
-  background-image: url("/images/background/3rd-eye.png");
-}
-.new-year-2020:after {
-  background-image: url("/images/background/2020.jpg");
-}
-.hololive486:after {
-  background-image: url("/images/background/hololive486-mother.jpg");
-}
-.lemon-bikini:after {
-  background-image: url("/images/background/lemon-bikini.jpg");
-}
-.miku-rain:after {
-  background-image: url("/images/background/miku-rain.jpg");
-}
-.princess-ts:after {
-  background-image: url("/images/background/princess-twilight.png");
-}
-.rd:after {
-  background-image: url("/images/background/rd.png");
-}
-.shimakaze:after {
-  background-image: url("/images/background/shimakaze.jpg");
-}
-.sweetie-belle:after {
-  background-image: url("/images/background/sweetie-belle.png");
-}
-.unity-cat-girl:after {
-  background-image: url("/images/background/unity-cat-girl.png");
 }
 @-webkit-keyframes bg-scale {
   0% {
